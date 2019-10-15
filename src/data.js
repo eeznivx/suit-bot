@@ -13,6 +13,11 @@ module.exports = {
         "This bot only support LINE version 7.5.0 or higher.\nTry updating, block, and re-add this bot."
       );
     }
+    
+    // su
+    if (event.source.userId !== process.env.DEV_ID){
+      //return reply.text(event, "lagi dibuat gamenya, sabar yak");
+    }
 
     var userId = event.source.userId;
     var userPath = baseUserPath + userId + "_user.json";
@@ -27,13 +32,11 @@ module.exports = {
         lose: 0,
         points: 0
       };
-      // userData = JSON.stringify(new_user, null, 2);
       userData = new_user;
     } else {
-      userData = fs.readFileSync(userPath, "utf8");
+      let raw = fs.readFileSync(userPath);
+      userData = JSON.parse(raw);
     }
-
-    // user_session = JSON.parse(userData);
 
     if (event.source.type === "group" || event.source.type === "room") {
       var groupId;
@@ -45,50 +48,27 @@ module.exports = {
 
       var groupPath = baseGroupPath + groupId + "_group.json";
 
-      if (!fs.existsSync(userPath)) {
+      if (!fs.existsSync(groupPath)) {
         var new_group = {
           groupId: groupId,
           state: "idle",
           mode: "classic",
           players: []
         };
-        // groupData = JSON.stringify(new_group, null, 2);
         groupData = new_group;
       } else {
-        groupData = fs.readFileSync(groupPath, "utf8");
+        let raw = fs.readFileSync(groupPath);
+        groupData = JSON.parse(raw);
       }
-
-      // group_session = JSON.parse(groupData);
-
-      // if (user_session.groupId === ""){
-      //   user_session.groupId = group_session.groupId;
-      // }
-
-      if (userData.groupId === "") {
-        userData.groupId = groupData.groupId;
-      }
-      
-      fs.writeFileSync(groupPath, JSON.stringify(groupData, null, 2));
       
     }
-
-    // if (user_session.name === ""){
-    //   client
-    //     .getProfile(user_session.id)
-    //     .then((profile) => {
-    //       user_session.name = profile.displayName;
-    //     })
-    //   .catch((err) => {
-    //     return reply.text(event, '💡 Gagal bergabung kedalam game! Add bot ini untuk bergabung.');
-    //   })
-    // }
 
     if (userData.name === "") {
       client
         .getProfile(userData.id)
         .then(profile => {
           userData.name = profile.displayName;
-          this.forwardProcess(event, userPath, userData);
+          this.forwardProcess(event, args, userPath, userData);
         })
         .catch(err => {
           console.log(err);
@@ -98,13 +78,40 @@ module.exports = {
           );
         });
     } else {
-      this.forwardProcess(event, userPath, userData);
+      this.forwardProcess(event, args, userPath, userData);
     }
   },
 
-  forwardProcess: function(event, userPath, userData) {
+  forwardProcess: function(event, args, userPath, userData) {
     fs.writeFileSync(userPath, JSON.stringify(userData, null, 2));
     const cmd = require("../cmd");
-    cmd(event, userData, groupData);
-  }
+    cmd(event, args, userData, groupData);
+  },
+  
+  saveUserData: function(userData){
+    var userPath = baseUserPath + userData.id + "_user.json";
+    fs.writeFileSync(userPath, JSON.stringify(userData, null, 2));
+  },
+  
+  saveGroupData: function(GroupData){
+    var groupPath = baseGroupPath + groupData.groupId + "_group.json";
+    fs.writeFileSync(groupPath, JSON.stringify(groupData, null, 2));
+  },
+  
+  resetAllPlayers : function(players) {
+    for (var i in players) {
+      let reset_player = {
+        id      : players[i].id,
+        status  : 'inactive',
+        groupId : players[i].groupId,
+        name    : players[i].name,
+        win     : players[i].win,
+        lose    : players[i].lose,
+        points  : players[i].points,
+      };
+
+      this.saveUserData(reset_player);
+    }
+  },
+  
 };

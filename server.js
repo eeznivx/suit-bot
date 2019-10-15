@@ -17,15 +17,20 @@ app.post("/callback", line.middleware(config), (req, res) => {
 });
 
 function handle(event) {
+  const data = require("./src/data");
+  
+  if (event.type === 'postback'){
+    var args = event.postback.data.substr(1).split(" ");
+    console.log(args);
+    return data.receive(event, args);
+  }
+  
   if (event.type !== "message" || event.message.type !== "text") {
     return Promise.resolve(null);
   }
 
   if (event.message.text.startsWith("/")) {
     var args = event.message.text.substr(1).split(" ");
-    
-    const data = require("./src/data");
-    
     data.receive(event, args);
   }
 }
