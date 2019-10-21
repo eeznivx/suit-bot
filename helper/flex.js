@@ -319,7 +319,7 @@ module.exports = {
     };
     return flex_msg;
   },
-  getEndGame: function(group_session, winnerName) {
+  getEndGame: function(group_session, header){
     var flex_msg = {
       type: "flex",
       altText: "ada pesan untuk kamu!",
@@ -331,7 +331,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: winnerName,
+              text: header,
               weight: "bold",
               size: "xl",
               wrap: true,

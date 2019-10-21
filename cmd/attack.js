@@ -139,14 +139,9 @@ function handle(client, event, args, user_session, group_session) {
 
   function endgame(msg, winner_index) {
     console.log("ini diendgame");
-//     let opt_text = {
-//       type: "text",
-//       text: ""
-//     };
-
-//     opt_text.text += "Pemenangnya adalah " + group_session.players[winner_index].name;
     let winnerName = group_session.players[winner_index].name;
-    let endGameFlex = flex.getEndGame(group_session, winnerName);
+    let headerText = "Pemenangnya adalah " + winnerName;
+    let endGameFlex = flex.getEndGame(group_session, headerText);
       
     msg.push(endGameFlex);
 
@@ -159,13 +154,10 @@ function handle(client, event, args, user_session, group_session) {
   
   function drawgame(msg) {
     console.log("ini draw game");
-    let opt_text = {
-      type: "text",
-      text: ""
-    };
-
-    opt_text.text += "DRAW GAME"
-    msg.push(opt_text);
+    let headerText = "Game Draw bois";
+    let endGameFlex = flex.getEndGame(group_session, headerText);
+      
+    msg.push(endGameFlex);
 
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
