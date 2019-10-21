@@ -27,6 +27,10 @@ const keywords = [
     text: "attack",
     handle: require("./attack")
   },
+  {
+    text: "check",
+    handle: require("./check")
+  },
 ];
 
 module.exports = keywords

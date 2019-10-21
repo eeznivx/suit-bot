@@ -21,7 +21,6 @@ function handle(client, event, args, user_session, group_session) {
     return replyText(user_session.name + ", masih belum saatnya attack");
   }
   
-  
   if (group_session.players[index].attack !== ''){
     text += user_session.name + " mengganti attacknya";
   } else {
@@ -38,7 +37,6 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   if (pending === 0) {
-    //saveGroupData();
     let msg = { type: "text", text: text };
     battle([msg]);
   } else {
@@ -141,14 +139,11 @@ function handle(client, event, args, user_session, group_session) {
 
   function endgame(msg, winner_index) {
     console.log("ini diendgame");
-    let opt_text = {
-      type: "text",
-      text: ""
-    };
-
-    opt_text.text += "Pemenangnya adalah " + group_session.players[winner_index].name;
+    let winnerName = group_session.players[winner_index].name;
+    let headerText = "Pemenangnya adalah " + winnerName;
+    let endGameFlex = flex.getEndGame(group_session, headerText);
       
-    msg.push(opt_text);
+    msg.push(endGameFlex);
 
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
@@ -158,14 +153,11 @@ function handle(client, event, args, user_session, group_session) {
   }
   
   function drawgame(msg) {
-    console.log("ini diendgame");
-    let opt_text = {
-      type: "text",
-      text: ""
-    };
-
-    opt_text.text += "DRAW GAME"
-    msg.push(opt_text);
+    console.log("ini draw game");
+    let headerText = "Game Draw bois";
+    let endGameFlex = flex.getEndGame(group_session, headerText);
+      
+    msg.push(endGameFlex);
 
     group_session.state = "idle";
     resetAllPlayers(group_session.players);

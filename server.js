@@ -26,6 +26,12 @@ function handle(event) {
     return data.receive(client, event, args);
   }
   
+  //handle event follow sama member join
+  if (event.type === 'follow' || event.type === 'join' || event.type === 'memberJoined' || event.type === 'memberLeft'){
+    const other = require('./src/other');
+    return other.receive(client, event);
+  }
+  
   if (event.type !== "message" || event.message.type !== "text") {
     return Promise.resolve(null);
   }
