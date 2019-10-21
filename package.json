@@ -1,0 +1,25 @@
+{
+  "name": "suit-bot",
+  "version": "0.0.1",
+  "description": "bot suit untuk line messenger",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "@line/bot-sdk": "^6.8.2"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://github.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "line",
+    "suit",
+    "bot"
+  ]
+}
