@@ -50,7 +50,7 @@ module.exports = {
             saveUserDataInitial(user_session);
           })
         .catch((err) => {
-          console.log("belum add");
+          return client.replyMessage(event.replyToken, {type:'text', text:"add dulu lah bos"});
         })
       } else {
         saveUserDataInitial(user_session);

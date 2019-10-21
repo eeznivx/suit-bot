@@ -20,20 +20,24 @@ function handle(client, event, args, user_session, group_session) {
   if (group_session.state !== "preBattle") {
     return replyText(user_session.name + ", masih belum saatnya attack");
   }
-
+  
+  
+  if (group_session.players[index].attack !== ''){
+    text += user_session.name + " mengganti attacknya";
+  } else {
+    text += user_session.name + " berhasil memilih attack";
+  }
+  
   group_session.players[index].attack = args[1];
-
-  text += user_session.name + " berhasil memilih attack";
-
+  
   let pending = 0;
   for (let i = 0; i < group_session.players.length; i++) {
-    if (group_session.players[i].attack === "") {
+    if (group_session.players[i].health > 0 && group_session.players[i].attack === "") {
       pending++;
     }
   }
 
   if (pending === 0) {
-    group_session.state = "battle";
     //saveGroupData();
     let msg = { type: "text", text: text };
     battle([msg]);
@@ -63,12 +67,16 @@ function handle(client, event, args, user_session, group_session) {
   function battle(msg) {
     for (let i = 0; i < group_session.players.length; i++) {
       if (group_session.players[i].attack !== "") {
-        console.log(group_session.players[i]);
+        console.log('ini i ', group_session.players[i]);
+        var attacker = group_session.players[i].id;
+        
         let targets = [];
         let targetIndex = -1;
         for (let u = 0; u < group_session.players.length; u++) {
-          console.log(group_session.players[u]);
-          if (u !== i && group_session.players[u].attack !== "") {
+           var victim = group_session.players[u].id;
+          
+          console.log('ini u', group_session.players[u]);
+          if (attacker !== victim && group_session.players[u].attack !== "") {
             if (
               group_session.players[i].attack === "batu" &&
               group_session.players[u].attack === "gunting"
@@ -86,7 +94,7 @@ function handle(client, event, args, user_session, group_session) {
               targets.push(group_session.players[u].id);
             }
           }
-
+          console.log('ini targets', targets)
           if (targets.length !== 0) {
             targetIndex = helper.getPlayerById(
               helper.random(targets),
@@ -94,10 +102,14 @@ function handle(client, event, args, user_session, group_session) {
             );
             group_session.players[targetIndex].health--;
             group_session.players[targetIndex].attacker.push(group_session.players[i].name);
+            targets.length = 0;
           }
         }
       }
     }
+    
+    let postBattleFlex = flex.getPostBattle(group_session);
+    msg.push(postBattleFlex);
 
     let alive = 0;
     for (let i = 0; i < group_session.players.length; i++) {
@@ -105,24 +117,23 @@ function handle(client, event, args, user_session, group_session) {
         alive++;
       }
     }
+    
+    console.log('yang alive', alive)
 
     if (alive === 1) {
-      group_session.state = "endgame";
-      for (let i = 0; i < group_session.players[i].length; i++) {
+      for (let i = 0; i < group_session.players.length; i++) {
         if (group_session.players[i].health > 0) {
           let winner_index = i;
+          console.log('winner index', i)
           return endgame(msg, winner_index);
         }
       }
     } else if (alive === 0) {
       // draw?
-      
+      drawgame(msg);
     } else {
       // ke preBattle
       group_session.state = "preBattle";
-      
-      let postBattleFlex = flex.getPostBattle(group_session);
-      msg.push(postBattleFlex);
       
       return preBattle(msg);
     }
@@ -135,8 +146,25 @@ function handle(client, event, args, user_session, group_session) {
       text: ""
     };
 
-    opt_text.text +=
-      "Pemenangnya adalah " + group_session.players[winner_index].name;
+    opt_text.text += "Pemenangnya adalah " + group_session.players[winner_index].name;
+      
+    msg.push(opt_text);
+
+    group_session.state = "idle";
+    resetAllPlayers(group_session.players);
+    group_session.players.length = 0;
+    saveGroupData();
+    client.replyMessage(event.replyToken, msg);
+  }
+  
+  function drawgame(msg) {
+    console.log("ini diendgame");
+    let opt_text = {
+      type: "text",
+      text: ""
+    };
+
+    opt_text.text += "DRAW GAME"
     msg.push(opt_text);
 
     group_session.state = "idle";
