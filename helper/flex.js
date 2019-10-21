@@ -1,5 +1,5 @@
 module.exports = {
-  getPreBattle: function(group_session){
+  getPreBattle: function(group_session) {
     var flex_msg = {
       type: "flex",
       altText: "ada pesan untuk kamu!",
@@ -137,9 +137,9 @@ module.exports = {
         num++;
       }
     }
-    return flex_msg
+    return flex_msg;
   },
-  getPostBattle: function(group_session){
+  getPostBattle: function(group_session) {
     var flex_msg = {
       type: "flex",
       altText: "ada pesan untuk kamu!",
@@ -194,7 +194,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true
-        },
+        }
       ]
     };
     flex_msg.contents.body.contents.push(table);
@@ -203,45 +203,47 @@ module.exports = {
 
     var num = 1;
     for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].attack !== ""){
+      if (group_session.players[i].attack !== "") {
         playerTable[i] = {
-        type: "box",
-        layout: "horizontal",
-        spacing: "md",
-        contents: [
-          {
-            type: "text",
-            text: "",
-            size: "md",
-            wrap: true
-          },
-          {
-            type: "text",
-            text: "",
-            size: "md",
-            wrap: true
-          },
-          {
-            type: "text",
-            text: "",
-            size: "md",
-            wrap: true
-          },
-          {
-            type: "text",
-            text: "gak ada",
-            size: "md",
-            wrap: true
-          }
-        ]
-      };
+          type: "box",
+          layout: "horizontal",
+          spacing: "md",
+          contents: [
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true
+            },
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true
+            },
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true
+            },
+            {
+              type: "text",
+              text: "gak ada",
+              size: "md",
+              wrap: true
+            }
+          ]
+        };
 
-      playerTable[i].contents[0].text += num;
-      playerTable[i].contents[1].text += group_session.players[i].name;
-      playerTable[i].contents[2].text += group_session.players[i].attack;
-      playerTable[i].contents[3].text = group_session.players[i].attacker.join(", ");
-      flex_msg.contents.body.contents.push(playerTable[i]);
-      num++;
+        playerTable[i].contents[0].text += num;
+        playerTable[i].contents[1].text += group_session.players[i].name;
+        playerTable[i].contents[2].text += group_session.players[i].attack;
+        if (group_session.players[i].attacker.length !== 0){
+          playerTable[i].contents[3].text = group_session.players[i].attacker.join(", ");
+        }
+        flex_msg.contents.body.contents.push(playerTable[i]);
+        num++;
       }
     }
 
@@ -250,8 +252,8 @@ module.exports = {
     // });
     return flex_msg;
   },
-  getNewGame: function(){
-     var flex_msg = {
+  getNewGame: function() {
+    var flex_msg = {
       type: "flex",
       altText: "ada pesan untuk kamu!",
       contents: {
@@ -291,5 +293,36 @@ module.exports = {
     //   console.log(err.originalError.config.data);
     // });
     return flex_msg;
+  },
+  getFlex: function(flex_text) {
+    var flex_msg = {
+      type: "flex",
+      altText: "ada pesan untuk kamu!",
+      contents: {
+        type: "bubble",
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: flex_text.header,
+              weight: "bold",
+              color: "#1DB446",
+              size: "lg"
+            },
+            {
+              type: "text",
+              text: flex_text.body,
+              weight: "regular",
+              size: "xl",
+              margin: "md",
+              wrap: true
+            }
+          ]
+        }
+      }
+    };
+    return flex_msg
   }
-}
+};
