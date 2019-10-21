@@ -12,9 +12,9 @@ module.exports = {
 		return array[Math.floor(Math.random() * array.length)];
 	},
   getPlayerById: function(id, group_session){
-    for (var i in group_session.players) {
+    for (let i = 0; i < group_session.players.length; i++) {
 			if (group_session.players[i].id === id) {
-				return group_session.players[i];
+				return i;
 			}
 		}
   }

@@ -1,130 +1,5 @@
-const client = require("../src/client");
 module.exports = {
-  text: function(event, texts) {
-    texts = Array.isArray(texts) ? texts : [texts];
-    return client.replyMessage(
-      event.replyToken,
-      texts.map(text => ({ type: "text", text }))
-    );
-  },
-  regularFlex: function(event, flex_text) {
-    var flex_msg = {
-      type: "flex",
-      altText: "ada pesan untuk kamu!",
-      contents: {}
-    };
-
-    if (Array.isArray(flex_text)) {
-      flex_msg.contents = {
-        type: "carousel",
-        contents: []
-      };
-
-      var bubble = {};
-      for (let i = 0; i < flex_text.length; i++) {
-        bubble[i] = {
-          type: "bubble",
-          body: {
-            type: "box",
-            layout: "vertical",
-            spacing: "md",
-            contents: [
-              {
-                type: "text",
-                text: flex_text[i].header,
-                size: "lg",
-                weight: "bold"
-              },
-              {
-                type: "text",
-                text: flex_text[i].body,
-                wrap: true,
-                size: "xs"
-              }
-            ]
-          }
-        };
-
-        flex_msg.contents.contents.push(bubble[i]);
-      }
-    } else {
-      flex_msg.contents = {
-        type: "bubble",
-        body: {
-          type: "box",
-          layout: "vertical",
-          spacing: "md",
-          contents: [
-            {
-              type: "text",
-              text: flex_text.header,
-              size: "lg",
-              weight: "bold"
-            },
-            {
-              type: "text",
-              text: flex_text.body,
-              wrap: true,
-              size: "xs"
-            }
-          ]
-        }
-      };
-    }
-
-    return client.replyMessage(event.replyToken, flex_msg).catch(err => {
-      console.log(err.originalError.config.data);
-    });
-  },
-  newGameFlex: function(event, group_session) {
-    var flex_msg = {
-      type: "flex",
-      altText: "ada pesan untuk kamu!",
-      contents: {
-        type: "bubble",
-        body: {
-          type: "box",
-          layout: "vertical",
-          spacing: "md",
-          contents: [
-            {
-              type: "text",
-              text: "Game baru telah dibuat!",
-              weight: "bold",
-              size: "xl",
-              wrap: true
-            },
-            {
-              type: "text",
-              text: "Mode : " + group_session.mode,
-              wrap: true,
-              weight: "bold",
-              size: "xs"
-            }
-          ]
-        },
-        footer: {
-          type: "box",
-          layout: "vertical",
-          contents: [
-            {
-              type: "button",
-              style: "primary",
-              action: {
-                type: "postback",
-                label: "gabung",
-                data: "/join"
-              }
-            }
-          ]
-        }
-      }
-    };
-    return client.replyMessage(event.replyToken, flex_msg).catch(err => {
-      console.log(err.originalError.config.data);
-    });
-  },
-  preBattleFlex: function(event, group_session) {
+  getPreBattle: function(group_session){
     var flex_msg = {
       type: "flex",
       altText: "ada pesan untuk kamu!",
@@ -263,11 +138,8 @@ module.exports = {
       }
     }
     return flex_msg
-    // return client.replyMessage(event.replyToken, flex_msg).catch(err => {
-    //   console.log(err.originalError.config.data);
-    // });
   },
-  postBattleFlex: function(event, group_session) {
+  getPostBattle: function(group_session){
     var flex_msg = {
       type: "flex",
       altText: "ada pesan untuk kamu!",
@@ -280,7 +152,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Pilih Attackmu!",
+              text: "Hasil Attack",
               weight: "bold",
               size: "xl",
               wrap: true
@@ -331,7 +203,7 @@ module.exports = {
 
     var num = 1;
     for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].attackResult !== ""){
+      if (group_session.players[i].attack !== ""){
         playerTable[i] = {
         type: "box",
         layout: "horizontal",
@@ -357,7 +229,7 @@ module.exports = {
           },
           {
             type: "text",
-            text: "",
+            text: "gak ada",
             size: "md",
             wrap: true
           }
@@ -366,8 +238,8 @@ module.exports = {
 
       playerTable[i].contents[0].text += num;
       playerTable[i].contents[1].text += group_session.players[i].name;
-      playerTable[i].contents[2].text += group_session.players[i].attackResult;
-      playerTable[i].contents[3].text += group_session.players[i].attacker.join();
+      playerTable[i].contents[2].text += group_session.players[i].attack;
+      playerTable[i].contents[3].text = group_session.players[i].attacker.join(", ");
       flex_msg.contents.body.contents.push(playerTable[i]);
       num++;
       }
@@ -377,5 +249,47 @@ module.exports = {
     //   console.log(err.originalError.config.data);
     // });
     return flex_msg;
+  },
+  getNewGame: function(){
+     var flex_msg = {
+      type: "flex",
+      altText: "ada pesan untuk kamu!",
+      contents: {
+        type: "bubble",
+        body: {
+          type: "box",
+          layout: "vertical",
+          spacing: "md",
+          contents: [
+            {
+              type: "text",
+              text: "Game baru telah dibuat!",
+              weight: "bold",
+              size: "xl",
+              wrap: true
+            }
+          ]
+        },
+        footer: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "button",
+              style: "primary",
+              action: {
+                type: "postback",
+                label: "gabung",
+                data: "/join"
+              }
+            }
+          ]
+        }
+      }
+    };
+    // return client.replyMessage(event.replyToken, flex_msg).catch(err => {
+    //   console.log(err.originalError.config.data);
+    // });
+    return flex_msg;
   }
-};
+}

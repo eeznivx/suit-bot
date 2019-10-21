@@ -8,6 +8,8 @@ const config = {
   channelSecret: process.env.CHANNEL_SECRET
 };
 
+const client = new line.Client(config);
+
 app.post("/callback", line.middleware(config), (req, res) => {
   Promise.all(req.body.events.map(event => handle(event)))
     .then(result => res.json(result))
@@ -21,8 +23,7 @@ function handle(event) {
   
   if (event.type === 'postback'){
     var args = event.postback.data.substr(1).split(" ");
-    console.log(args);
-    return data.receive(event, args);
+    return data.receive(client, event, args);
   }
   
   if (event.type !== "message" || event.message.type !== "text") {
@@ -31,7 +32,7 @@ function handle(event) {
 
   if (event.message.text.startsWith("/")) {
     var args = event.message.text.substr(1).split(" ");
-    data.receive(event, args);
+    data.receive(client, event, args);
   }
 }
 

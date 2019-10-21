@@ -1,29 +1,14 @@
 {
   "groupId": "C334b2c6d0dfe07d9066651b090fbfae5",
-  "state": "preBattle",
-  "mode": "classic",
+  "name": "",
   "players": [
     {
       "id": "U83caf7c21caa4cb90f5c616e0ef85e3a",
       "name": "Eriec Tan",
-      "win": 0,
-      "lose": 0,
-      "points": 0,
-      "attack": "done",
-      "attackResult": "batu",
-      "health": 4,
-      "attacker": []
-    },
-    {
-      "id": "Uf74b8457b0eddead5898bbd52e30462b",
-      "name": "khomethy",
-      "win": 0,
-      "lose": 0,
-      "points": 0,
-      "attack": "pending",
-      "attackResult": "",
-      "health": 4,
-      "attacker": []
+      "attack": "",
+      "attacker": [],
+      "health": 0
     }
-  ]
+  ],
+  "state": "new"
 }

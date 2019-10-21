@@ -1,8 +1,4 @@
-const reply = require("../api/reply");
-const data = require("../src/data");
-const helper = require("../helper");
-
-function handle (event, args, user_session, group_session){
+function handle (client, event, args, user_session, group_session){
   let text = "";
   let flex_text = {
     header: "hai",
@@ -16,16 +12,40 @@ function handle (event, args, user_session, group_session){
   console.log(user_session);
  
   if (group_session.state === "idle"){
-    return reply.text(event, "tidak ada game yang berjalan");
+    return replyText("tidak ada game yang berjalan");
   }
   
   group_session.state = "idle";
-  data.resetAllPlayers(group_session.players);
+  resetAllPlayers(group_session.players);
   group_session.players.length = 0;
-  data.saveGroupData(group_session);
+  saveGroupData();
   
   text += "game di stop " + user_session.name;
-  reply.text(event, text);
+  replyText(text);
+  
+  function saveUserData(){
+    const data = require("/app/src/data");
+    data.saveUserData(user_session);
+  }
+  
+  function saveGroupData(){
+    const data = require("/app/src/data");
+    data.saveGroupData(group_session);
+  }
+  
+  function replyText(texts){
+    texts = Array.isArray(texts) ? texts : [texts];
+    return client.replyMessage(
+      event.replyToken,
+      texts.map(text => ({ type: "text", text }))
+    );
+  }
+  
+  function resetAllPlayers(players){
+    const data = require('/app/src/data');
+    data.resetAllPlayers(players);
+  }
+  
 }
 
 module.exports = handle

@@ -27,10 +27,6 @@ const keywords = [
     text: "attack",
     handle: require("./attack")
   },
-  {
-    text: "test",
-    handle: require("./test")
-  },
 ];
 
 module.exports = keywords

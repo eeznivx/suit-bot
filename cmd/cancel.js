@@ -1,8 +1,6 @@
-const reply = require("../api/reply");
-const data = require("../src/data");
 const helper = require("../helper");
 
-function handle(event, args, user_session, group_session) {
+function handle(client, event, args, user_session, group_session) {
   let text = "";
   let flex_text = {
     header: "hai",
@@ -12,21 +10,22 @@ function handle(event, args, user_session, group_session) {
   if (group_session === undefined) {
     return Promise.resolve(null);
   }
+  
   console.log(group_session);
   console.log(user_session);
   if (group_session.state !== "new") {
     if (group_session.state === "idle") {
-      return reply.text(
+      return replyText(
         event,
         "belum ada game yg dibuat. ketik '/new' utk buat"
       );
     } else {
-      return reply.text(event, "game sedang berjalan");
+      return replyText("game sedang berjalan");
     }
   }
 
   if (user_session.status !== "active") {
-    return reply.text(event, user_session.name + ", kmu tidak bergabung didalam game");
+    return replyText(user_session.name + ", kmu tidak bergabung didalam game");
   }
 
   for (
@@ -47,10 +46,28 @@ function handle(event, args, user_session, group_session) {
     text += "\n" + "game di stop karena tidak ada pemain lagi";
   }
   
-  data.saveUserData(user_session);
-  data.saveGroupData(group_session);
+  saveUserData();
+  saveGroupData();
   
-  reply.text(event, text);
+  replyText(text);
+  
+  function saveUserData(){
+    const data = require("/app/src/data");
+    data.saveUserData(user_session);
+  }
+  
+  function saveGroupData(){
+    const data = require("/app/src/data");
+    data.saveGroupData(group_session);
+  }
+  
+  function replyText(texts){
+    texts = Array.isArray(texts) ? texts : [texts];
+    return client.replyMessage(
+      event.replyToken,
+      texts.map(text => ({ type: "text", text }))
+    );
+  }
   
 }
 
