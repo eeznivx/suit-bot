@@ -239,8 +239,9 @@ module.exports = {
         playerTable[i].contents[0].text += num;
         playerTable[i].contents[1].text += group_session.players[i].name;
         playerTable[i].contents[2].text += group_session.players[i].attack;
-        if (group_session.players[i].attacker.length !== 0){
-          playerTable[i].contents[3].text = group_session.players[i].attacker.join(", ");
+        if (group_session.players[i].attacker.length !== 0) {
+          let attackerRowText = playerTable[i].contents[3].text;
+          attackerRowText = group_session.players[i].attacker.join(", ");
         }
         flex_msg.contents.body.contents.push(playerTable[i]);
         num++;
@@ -316,6 +317,142 @@ module.exports = {
         }
       }
     };
-    return flex_msg
+    return flex_msg;
+  },
+  getEndGame: function(group_session, winnerName) {
+    var flex_msg = {
+      type: "flex",
+      altText: "ada pesan untuk kamu!",
+      contents: {
+        type: "bubble",
+        header: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: winnerName,
+              weight: "bold",
+              size: "xl",
+              wrap: true,
+              color: "#FFFFFF"
+            }
+          ]
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "box",
+              layout: "horizontal",
+              contents: [
+                {
+                  type: "text",
+                  text: "No"
+                },
+                {
+                  type: "text",
+                  text: "Name",
+                  flex: 3
+                },
+                {
+                  type: "text",
+                  text: "Attack",
+                  flex: 2
+                },
+                {
+                  type: "text",
+                  text: "Attacker",
+                  flex: 4
+                }
+              ],
+              margin: "none",
+              spacing: "none"
+            },
+            {
+              type: "separator",
+              margin: "none",
+              color: "#000000"
+            }
+          ]
+        },
+        footer: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "button",
+              style: "primary",
+              action: {
+                type: "postback",
+                label: "Play Egen",
+                data: "/new"
+              }
+            }
+          ]
+        },
+        styles: {
+          header: {
+            backgroundColor: "#1DB446"
+          }
+        }
+      }
+    };
+
+    var playerTable = {};
+
+    var num = 1;
+    for (let i = 0; i < group_session.players.length; i++) {
+      if (group_session.players[i].attack !== "") {
+        playerTable[i] = {
+          type: "box",
+          layout: "horizontal",
+          spacing: "md",
+          contents: [
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true
+            },
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true,
+              flex: 3
+            },
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true,
+              flex: 2
+            },
+            {
+              type: "text",
+              text: "gak ada",
+              size: "md",
+              wrap: true,
+              flex: 4
+            }
+          ]
+        };
+
+        playerTable[i].contents[0].text += num;
+        playerTable[i].contents[1].text += group_session.players[i].name;
+        playerTable[i].contents[2].text += group_session.players[i].attack;
+        if (group_session.players[i].attacker.length !== 0) {
+          playerTable[i].contents[3].text = group_session.players[
+            i
+          ].attacker.join(", ");
+        }
+        flex_msg.contents.body.contents.push(playerTable[i]);
+        num++;
+      }
+    }
+
+    return flex_msg;
   }
 };

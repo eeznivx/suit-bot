@@ -139,14 +139,16 @@ function handle(client, event, args, user_session, group_session) {
 
   function endgame(msg, winner_index) {
     console.log("ini diendgame");
-    let opt_text = {
-      type: "text",
-      text: ""
-    };
+//     let opt_text = {
+//       type: "text",
+//       text: ""
+//     };
 
-    opt_text.text += "Pemenangnya adalah " + group_session.players[winner_index].name;
+//     opt_text.text += "Pemenangnya adalah " + group_session.players[winner_index].name;
+    let winnerName = group_session.players[winner_index].name;
+    let endGameFlex = flex.getEndGame(group_session, winnerName);
       
-    msg.push(opt_text);
+    msg.push(endGameFlex);
 
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
