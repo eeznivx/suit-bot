@@ -1,3 +1,4 @@
+const helper = require("/app/helper");
 function handle (client, event, args, user_session, group_session){
   let text = "";
   let flex_text = {
@@ -13,6 +14,10 @@ function handle (client, event, args, user_session, group_session){
  
   if (group_session.state === "idle"){
     return replyText("tidak ada game yang berjalan");
+  }
+  
+  if (helper.indexOfPlayer(user_session, group_session) === -1){
+    return replyText(user_session.name + ", kamu belum bergabung digame");
   }
   
   group_session.state = "idle";
