@@ -21,7 +21,6 @@ function handle(client, event, args, user_session, group_session) {
     return replyText(user_session.name + ", masih belum saatnya attack");
   }
   
-  
   if (group_session.players[index].attack !== ''){
     text += user_session.name + " mengganti attacknya";
   } else {
@@ -38,7 +37,6 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   if (pending === 0) {
-    //saveGroupData();
     let msg = { type: "text", text: text };
     battle([msg]);
   } else {
@@ -158,7 +156,7 @@ function handle(client, event, args, user_session, group_session) {
   }
   
   function drawgame(msg) {
-    console.log("ini diendgame");
+    console.log("ini draw game");
     let opt_text = {
       type: "text",
       text: ""

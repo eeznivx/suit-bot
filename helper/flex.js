@@ -246,10 +246,6 @@ module.exports = {
         num++;
       }
     }
-
-    // return client.replyMessage(event.replyToken, flex_msg).catch(err => {
-    //   console.log(err.originalError.config.data);
-    // });
     return flex_msg;
   },
   getNewGame: function() {
@@ -289,9 +285,6 @@ module.exports = {
         }
       }
     };
-    // return client.replyMessage(event.replyToken, flex_msg).catch(err => {
-    //   console.log(err.originalError.config.data);
-    // });
     return flex_msg;
   },
   getFlex: function(flex_text) {

@@ -33,7 +33,6 @@ module.exports = {
           var newUserData = JSON.stringify(newUser, null, 2);
           searchUserCallback(newUserData);
         } else {
-          //var existsUserData = data;
           searchUserCallback(data);
         }
       });
@@ -50,7 +49,7 @@ module.exports = {
             saveUserDataInitial(user_session);
           })
         .catch((err) => {
-          return client.replyMessage(event.replyToken, {type:'text', text:"add dulu lah bos"});
+          return client.replyMessage(event.replyToken, {type:'text', text:"add dulu lah geng"});
         })
       } else {
         saveUserDataInitial(user_session);
@@ -88,7 +87,6 @@ module.exports = {
           var newGroupData = JSON.stringify(newGroup, null, 2);
           searchGroupCallback(newGroupData);
         } else {
-          //var existsUserData = data;
           searchGroupCallback(data);
         }
       });
@@ -97,15 +95,11 @@ module.exports = {
     function searchGroupCallback(data){
       group_session = JSON.parse(data);
       console.log(group_session);
-      
-      
       forwardProcess(client, event, args, user_session, group_session);
       
     }
     
     function forwardProcess(client, event, args, user_session, group_session){
-      // const suit = require('./suit');
-      // return suit.receive(client, event, text, user_session, group_session);
       return cmd(client, event, args, user_session, group_session);
     }
     

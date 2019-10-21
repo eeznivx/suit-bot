@@ -1,14 +1,13 @@
+const flex = require('/app/helper/flex');
 function handle (client, event, args, user_session, group_session){
   let text = "";
   let flex_text = {
     header: "hai",
-    body: "hoi"
+    body: "hei"
   }
   
-  text += "help" + '\n';
-  text += 'daftar perintah: new, join, cancel, stop' + '\n';
-  text += 'logic: batu > gunting, kertas > batu, gunting > kertas'
-  replyText(text);
+  let flexMsg = flex.getFlex(flex_text);
+  client.replyMessage(event.replyToken, flexMsg);
 
   function saveUserData(){
     const data = require("/app/src/data");
