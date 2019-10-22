@@ -90,25 +90,36 @@ module.exports = {
           text: "No.",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          "flex": 1
         },
         {
           type: "text",
           text: "Nama",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          "flex": 3
         },
         {
           type: "text",
           text: "Health",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          "flex": 3,
+          align: 'center'
         }
       ]
     };
-    flex_msg.contents.body.contents.push(table);
+    
+    let separator =  {
+        "type": "separator",
+        "margin": "xs",
+        "color": "#1DB446"
+      }
+    
+    flex_msg.contents.body.contents.push(table, separator);
 
     var playerTable = {};
 
@@ -124,19 +135,23 @@ module.exports = {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex: 1
             },
             {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex: 3
             },
             {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex :3,
+              align: 'center'
             }
           ]
         };
@@ -191,39 +206,41 @@ module.exports = {
       contents: [
         {
           type: "text",
-          text: "No.",
-          weight: "bold",
-          size: "md",
-          wrap: true
-        },
-        {
-          type: "text",
           text: "Nama",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          flex : 3
         },
         {
           type: "text",
           text: "Attack",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          flex: 2
         },
         {
           type: "text",
           text: "Attacker",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          flex: 3
         }
       ]
     };
-    flex_msg.contents.body.contents.push(table);
+    
+    let separator =  {
+        "type": "separator",
+        "margin": "xs",
+        "color": "#1DB446"
+      }
+    
+    flex_msg.contents.body.contents.push(table, separator);
 
     var playerTable = {};
-
-    var num = 1;
+    
     for (let i = 0; i < group_session.players.length; i++) {
       if (group_session.players[i].attack !== "") {
         playerTable[i] = {
@@ -235,38 +252,33 @@ module.exports = {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex: 3
             },
             {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
-            },
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true
+              wrap: true,
+              flex: 2
             },
             {
               type: "text",
               text: "gak ada",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex: 3
             }
           ]
         };
-
-        playerTable[i].contents[0].text += num;
-        playerTable[i].contents[1].text += group_session.players[i].name;
-        playerTable[i].contents[2].text += group_session.players[i].attack;
+  
+        playerTable[i].contents[0].text += group_session.players[i].name;
+        playerTable[i].contents[1].text += group_session.players[i].attack;
         if (group_session.players[i].attacker.length !== 0) {
           let attacker = group_session.players[i].attacker.join(", ");
-          playerTable[i].contents[3].text = attacker;
+          playerTable[i].contents[2].text = attacker;
         }
         flex_msg.contents.body.contents.push(playerTable[i]);
-        num++;
       }
     }
     return flex_msg;
@@ -402,10 +414,6 @@ module.exports = {
               contents: [
                 {
                   type: "text",
-                  text: "No"
-                },
-                {
-                  type: "text",
                   text: "Name",
                   flex: 3
                 },
@@ -455,7 +463,6 @@ module.exports = {
 
     var playerTable = {};
 
-    var num = 1;
     for (let i = 0; i < group_session.players.length; i++) {
       if (group_session.players[i].attack !== "") {
         playerTable[i] = {
@@ -463,12 +470,6 @@ module.exports = {
           layout: "horizontal",
           spacing: "md",
           contents: [
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true
-            },
             {
               type: "text",
               text: "",
@@ -493,15 +494,13 @@ module.exports = {
           ]
         };
 
-        playerTable[i].contents[0].text += num;
-        playerTable[i].contents[1].text += group_session.players[i].name;
-        playerTable[i].contents[2].text += group_session.players[i].attack;
+        playerTable[i].contents[0].text += group_session.players[i].name;
+        playerTable[i].contents[1].text += group_session.players[i].attack;
         if (group_session.players[i].attacker.length !== 0) {
           let attacker = group_session.players[i].attacker.join(", ");
-          playerTable[i].contents[3].text = attacker;
+          playerTable[i].contents[2].text = attacker;
         }
         flex_msg.contents.body.contents.push(playerTable[i]);
-        num++;
       }
     }
 
@@ -537,10 +536,6 @@ module.exports = {
               contents: [
                 {
                   type: "text",
-                  text: "No"
-                },
-                {
-                  type: "text",
                   text: "Name"
                 },
                 {
@@ -568,9 +563,7 @@ module.exports = {
 
     var playerTable = {};
 
-    var num = 1;
     for (let i = 0; i < group_session.players.length; i++) {
-     
         playerTable[i] = {
           type: "box",
           layout: "horizontal",
@@ -580,31 +573,22 @@ module.exports = {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
-            },
-            {
-              type: "text",
-              text: "",
-              size: "md",
               wrap: true,
             },
             {
               type: 'text',
-              text: '',
+              text: 'pending',
               size: 'md',
               wrap: true
             }
           ]
         };
 
-        playerTable[i].contents[0].text += num;
-        playerTable[i].contents[1].text += group_session.players[i].name;
-        playerTable[i].contents[2].text = 'pending';
+        playerTable[i].contents[0].text += group_session.players[i].name;
         if (group_session.players[i].attack !== ''){
-          playerTable[i].contents[2].text = 'done';
+          playerTable[i].contents[1].text = 'done';
         }
         flex_msg.contents.body.contents.push(playerTable[i]);
-        num++;
     }
 
     return flex_msg;
