@@ -16,18 +16,18 @@ function handle (client, event, args, user_session, group_session){
  
   if (group_session.state !== "new"){
     if (group_session.state === "idle"){
-      return replyText("belum ada game yg dibuat. ketik '/new' utk buat");
+      return replyText("💡 " + user_session.name + ", belum ada game yg dibuat. ketik '/new' utk buat");
     } else {
-      return replyText("game masih berjalan");
+      return replyText("💡 " + user_session.name + ", game masih berjalan");
     }
   }
   
   if (helper.indexOfPlayer(user_session, group_session) === -1){
-    return replyText(user_session.name + ", kamu belum bergabung digame");
+    return replyText("💡 " + user_session.name + ", kamu belum bergabung digame");
   }
   
   if (group_session.players.length < 2){
-    return replyText("minimal pemain sebanyak 2 orang");
+    return replyText("💡 " + user_session.name + ", minimal pemain sebanyak 2 orang");
   }
   
   let health = group_session.players.length;

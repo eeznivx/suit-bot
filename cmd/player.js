@@ -11,7 +11,7 @@ function handle (client, event, args, user_session, group_session){
   }
   
   if (group_session.state === "idle"){
-    return replyText("tidak ada game yang berjalan");
+    return replyText("💡 Tidak ada game yang berjalan");
   }
   
   let flex_msg = helper.getPlayerList(group_session);

@@ -54,7 +54,10 @@ module.exports = {
             saveUserDataInitial(user_session);
           })
           .catch(err => {
-            //return client.replyMessage(event.replyToken, {type:'text', text:"di add dulu botnya geng"});
+            return client.replyMessage(event.replyToken, {
+              type:'text', 
+              text:"💡 Gagal bergabung ke game! Add dulu botnya"
+            });
           });
       } else {
         saveUserDataInitial(user_session);

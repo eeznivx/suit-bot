@@ -2,7 +2,7 @@ module.exports = {
   getPreBattle: function(group_session) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Pilih Attack!",
       contents: {
         type: "bubble",
         header: {
@@ -168,7 +168,7 @@ module.exports = {
   getPostBattle: function(group_session) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Ada pesan untuk kamu!",
       contents: {
         type: "bubble",
         header: {
@@ -286,7 +286,7 @@ module.exports = {
   getNewGame: function() {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Game baru telah dibuat!",
       contents: {
         type: "bubble",
         header: {
@@ -310,7 +310,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Ayok joing!",
+              text: "Ayok Gabung!",
               weight: "bold",
               size: "xl",
               wrap: true
@@ -344,7 +344,7 @@ module.exports = {
   getFlex: function(flex_text) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Ada pesan untuk kamu!",
       contents: {
         type: "bubble",
         header: {
@@ -387,7 +387,7 @@ module.exports = {
   getEndGame: function(group_session, header) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Ada pesan untuk kamu!",
       contents: {
         type: "bubble",
         header: {
@@ -448,7 +448,7 @@ module.exports = {
               style: "primary",
               action: {
                 type: "postback",
-                label: "Play Egen",
+                label: "main lagi",
                 data: "/new"
               }
             }
@@ -511,7 +511,7 @@ module.exports = {
   getPlayerList: function(group_session) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Ada pesan untuk kamu!",
       contents: {
         type: "bubble",
         header: {
@@ -603,7 +603,7 @@ module.exports = {
             style: "primary",
             action: {
               type: "postback",
-              label: "joing",
+              label: "gabung",
               data: "/join"
             }
           }

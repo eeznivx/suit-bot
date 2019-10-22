@@ -12,23 +12,23 @@ function handle (client, event, args, user_session, group_session){
   console.log(user_session);
   if (group_session.state !== "new"){
     if (group_session.state === "idle"){
-      return replyText(user_session.name + ", belum ada game yg dibuat. ketik '/new' utk buat");
+      return replyText('💡 ' + user_session.name + ", belum ada game yg dibuat. ketik '/new' utk buat");
     } else {
-      return replyText(user_session.name + ", sedang ada game yang berjalan");
+      return replyText('💡 ' + user_session.name + ", sedang ada game yang berjalan");
     }
   }
   
   
   if (user_session.status === "active"){
     if (user_session.groupId !== group_session.groupId){
-      return replyText(user_session.name + ", kamu sedang bermain di group lain");
+      return replyText('💡 ' + user_session.name + ", kamu sedang bermain di group lain");
     } else {
-      return replyText(user_session.name + ", kamu sudah bergabung");
+      return replyText('💡 ' + user_session.name + ", kamu sudah bergabung");
     }
   }
   
   if (group_session.players.length === 8){
-    return replyText(user_session.name + ', maaf max pemain hanya 8 pemain');
+    return replyText('💡 ' + user_session.name + ', maaf max pemain hanya 8 pemain');
   }
   
   user_session.status = "active";
@@ -49,7 +49,7 @@ function handle (client, event, args, user_session, group_session){
   
   saveGroupData();
   
-  replyText(user_session.name + " berhasil join game!");
+  replyText('💡 ' + user_session.name + " berhasil join game!");
  
   function saveUserData(){
     const data = require("/app/src/data");

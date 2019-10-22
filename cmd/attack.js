@@ -24,17 +24,17 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   if (group_session.state !== "preBattle") {
-    return replyText(user_session.name + ", masih belum saatnya attack");
+    return replyText('💡 ' + user_session.name + ", masih belum saatnya attack");
   }
 
   if (group_session.players[index].health <= 0) {
-    return replyText(user_session.name + ", kamu sudah tereleminasi");
+    return replyText('💡 ' + user_session.name + ", kamu sudah tereleminasi");
   }
 
   if (group_session.players[index].attack !== "") {
-    return replyText(user_session.name + ", kamu sudah memilih attack");
+    return replyText('💡 ' + user_session.name + ", kamu sudah memilih attack");
   } else {
-    text += user_session.name + " berhasil memilih attack";
+    text += '💡 ' + user_session.name + " berhasil memilih attack";
   }
 
   group_session.players[index].attack = args[1];
@@ -142,14 +142,14 @@ function handle(client, event, args, user_session, group_session) {
             // }
 
             flex_text[i] = {
-              header: "Spotlight",
-              body: attackerName + " mengeleminasi " + victimName + "!"
+              header: "🔥 Spotlight 🔥",
+              body: '🎯 ' + attackerName + " mengeleminasi " + victimName + "!"
             };
 
             if (group_session.players[i].killStreak > 1) {
               // opt_text[i].text += '\n' + attackerName + ' dapat ' + attackerStreak + ' streak!';
               flex_text[i].body +=
-                "\n" + attackerName + " dapat " + attackerStreak + " streak!";
+                "\n" + '🔥 ' + attackerName + " dapat " + attackerStreak + " streak!";
             }
 
             // msg.push(opt_text[i]);
@@ -197,7 +197,7 @@ function handle(client, event, args, user_session, group_session) {
   function endgame(msg, winner_index) {
     console.log("ini diendgame");
     let winnerName = group_session.players[winner_index].name;
-    let headerText = "Pemenangnya adalah " + winnerName;
+    let headerText = "🎉 Pemenangnya adalah " + winnerName + ' 🎉';
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);
@@ -211,7 +211,7 @@ function handle(client, event, args, user_session, group_session) {
 
   function drawgame(msg) {
     console.log("ini draw game");
-    let headerText = "Game Draw bois";
+    let headerText = "⛔ Game Draw bois ⛔";
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);

@@ -13,11 +13,11 @@ function handle (client, event, args, user_session, group_session){
   console.log(user_session);
  
   if (group_session.state === "idle"){
-    return replyText("tidak ada game yang berjalan");
+    return replyText("💡 Tidak ada game yang berjalan");
   }
   
   if (helper.indexOfPlayer(user_session, group_session) === -1){
-    return replyText(user_session.name + ", kamu belum bergabung digame");
+    return replyText('💡 ' + user_session.name + ", kamu belum bergabung digame");
   }
   
   group_session.state = "idle";
@@ -25,7 +25,7 @@ function handle (client, event, args, user_session, group_session){
   group_session.players.length = 0;
   saveGroupData();
   
-  text += "game di stop " + user_session.name;
+  text += "💡 Game di stop " + user_session.name;
   replyText(text);
   
   function saveUserData(){
