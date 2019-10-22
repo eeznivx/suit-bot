@@ -35,6 +35,10 @@ const keywords = [
     text: "player",
     handle: require("./player")
   },
+  {
+    text: "cmd",
+    handle: require("./cmd")
+  },
 ];
 
 module.exports = keywords
