@@ -425,7 +425,8 @@ module.exports = {
                 {
                   type: "text",
                   text: "Attacker",
-                  flex: 4
+                  flex: 4,
+                  align: 'center'
                 }
               ],
               margin: "none",
@@ -489,7 +490,8 @@ module.exports = {
               text: "gak ada",
               size: "md",
               wrap: true,
-              flex: 4
+              flex: 4,
+              align: 'center'
             }
           ]
         };
