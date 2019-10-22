@@ -16,6 +16,10 @@ module.exports = {
         "This bot only support LINE version 7.5.0 or higher.\nTry updating, block, and re-add this bot."
       );
     }
+    
+    if (event.source.groupId !== process.env.DEV_GROUP){
+      return this.replyText("👋 Sorry, botnya sedang maintenance");
+    }
 
     searchUser(this.event.source.userId);
 
@@ -95,8 +99,8 @@ module.exports = {
     function searchGroupCallback(data){
       group_session = JSON.parse(data);
       console.log(group_session);
-      forwardProcess(client, event, args, user_session, group_session);
       
+      forwardProcess(client, event, args, user_session, group_session);
     }
     
     function forwardProcess(client, event, args, user_session, group_session){

@@ -4,8 +4,8 @@ const flex = require("/app/helper/flex");
 function handle(client, event, args, user_session, group_session) {
   let text = "";
   let flex_text = {
-    header: "hai",
-    body: "hoi"
+    header: "",
+    body: ""
   };
   console.log(args);
   if (group_session.state === "idle" || group_session.state === "new") {
@@ -26,7 +26,6 @@ function handle(client, event, args, user_session, group_session) {
   }
   
   if (group_session.players[index].attack !== ''){
-    //text += user_session.name + " mengganti attacknya";
     return replyText(user_session.name + ', kamu sudah memilih attack');
   } else {
     text += user_session.name + " berhasil memilih attack";
