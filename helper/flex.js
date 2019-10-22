@@ -5,19 +5,25 @@ module.exports = {
       altText: "ada pesan untuk kamu!",
       contents: {
         type: "bubble",
-        body: {
+        header: {
           type: "box",
           layout: "vertical",
-          spacing: "md",
           contents: [
             {
               type: "text",
               text: "Pilih Attackmu!",
               weight: "bold",
               size: "xl",
-              wrap: true
+              wrap: true,
+              color: "#FFFFFF"
             }
           ]
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          spacing: "md",
+          contents: []
         },
         footer: {
           type: "box",
@@ -65,6 +71,11 @@ module.exports = {
               ]
             }
           ]
+        },
+        styles: {
+          header: {
+            backgroundColor: "#1DB446"
+          }
         }
       }
     };
@@ -79,25 +90,36 @@ module.exports = {
           text: "No.",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          "flex": 1
         },
         {
           type: "text",
           text: "Nama",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          "flex": 3
         },
         {
           type: "text",
           text: "Health",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          "flex": 3,
+          align: 'center'
         }
       ]
     };
-    flex_msg.contents.body.contents.push(table);
+    
+    let separator =  {
+        "type": "separator",
+        "margin": "xs",
+        "color": "#1DB446"
+      }
+    
+    flex_msg.contents.body.contents.push(table, separator);
 
     var playerTable = {};
 
@@ -113,19 +135,23 @@ module.exports = {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex: 1
             },
             {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex: 3
             },
             {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex :3,
+              align: 'center'
             }
           ]
         };
@@ -145,19 +171,30 @@ module.exports = {
       altText: "ada pesan untuk kamu!",
       contents: {
         type: "bubble",
-        body: {
+        header: {
           type: "box",
           layout: "vertical",
-          spacing: "md",
           contents: [
             {
               type: "text",
               text: "Hasil Attack",
               weight: "bold",
               size: "xl",
-              wrap: true
+              wrap: true,
+              color: "#FFFFFF"
             }
           ]
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          spacing: "md",
+          contents: []
+        },
+        styles: {
+          header: {
+            backgroundColor: "#1DB446"
+          }
         }
       }
     };
@@ -169,39 +206,41 @@ module.exports = {
       contents: [
         {
           type: "text",
-          text: "No.",
-          weight: "bold",
-          size: "md",
-          wrap: true
-        },
-        {
-          type: "text",
           text: "Nama",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          flex : 3
         },
         {
           type: "text",
           text: "Attack",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          flex: 2
         },
         {
           type: "text",
           text: "Attacker",
           weight: "bold",
           size: "md",
-          wrap: true
+          wrap: true,
+          flex: 3
         }
       ]
     };
-    flex_msg.contents.body.contents.push(table);
+    
+    let separator =  {
+        "type": "separator",
+        "margin": "xs",
+        "color": "#1DB446"
+      }
+    
+    flex_msg.contents.body.contents.push(table, separator);
 
     var playerTable = {};
-
-    var num = 1;
+    
     for (let i = 0; i < group_session.players.length; i++) {
       if (group_session.players[i].attack !== "") {
         playerTable[i] = {
@@ -213,38 +252,33 @@ module.exports = {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex: 3
             },
             {
               type: "text",
               text: "",
               size: "md",
-              wrap: true
-            },
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true
+              wrap: true,
+              flex: 2
             },
             {
               type: "text",
               text: "gak ada",
               size: "md",
-              wrap: true
+              wrap: true,
+              flex: 3
             }
           ]
         };
-
-        playerTable[i].contents[0].text += num;
-        playerTable[i].contents[1].text += group_session.players[i].name;
-        playerTable[i].contents[2].text += group_session.players[i].attack;
+  
+        playerTable[i].contents[0].text += group_session.players[i].name;
+        playerTable[i].contents[1].text += group_session.players[i].attack;
         if (group_session.players[i].attacker.length !== 0) {
-          let attackerRowText = playerTable[i].contents[3].text;
-          attackerRowText = group_session.players[i].attacker.join(", ");
+          let attacker = group_session.players[i].attacker.join(", ");
+          playerTable[i].contents[2].text = attacker;
         }
         flex_msg.contents.body.contents.push(playerTable[i]);
-        num++;
       }
     }
     return flex_msg;
@@ -255,6 +289,20 @@ module.exports = {
       altText: "ada pesan untuk kamu!",
       contents: {
         type: "bubble",
+        header: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "Game baru telah dibuat",
+              weight: "bold",
+              size: "xl",
+              wrap: true,
+              color: "#FFFFFF"
+            }
+          ]
+        },
         body: {
           type: "box",
           layout: "vertical",
@@ -262,7 +310,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Game baru telah dibuat!",
+              text: "Ayok joing!",
               weight: "bold",
               size: "xl",
               wrap: true
@@ -283,6 +331,11 @@ module.exports = {
               }
             }
           ]
+        },
+        styles: {
+          header: {
+            backgroundColor: "#1DB446"
+          }
         }
       }
     };
@@ -294,17 +347,24 @@ module.exports = {
       altText: "ada pesan untuk kamu!",
       contents: {
         type: "bubble",
+        header: {
+          type: 'box',
+          layout: 'vertical',
+          contents: [
+            {
+              type: 'text',
+              text: flex_text.header,
+              weight: 'bold',
+              size: 'xl',
+              wrap: true,
+              color: '#ffffff'
+            }
+            ]
+        },
         body: {
           type: "box",
           layout: "vertical",
           contents: [
-            {
-              type: "text",
-              text: flex_text.header,
-              weight: "bold",
-              color: "#1DB446",
-              size: "lg"
-            },
             {
               type: "text",
               text: flex_text.body,
@@ -314,6 +374,11 @@ module.exports = {
               wrap: true
             }
           ]
+        },
+        styles : {
+          header: {
+            backgroundColor: '#1DB446'
+          }
         }
       }
     };
@@ -349,10 +414,6 @@ module.exports = {
               contents: [
                 {
                   type: "text",
-                  text: "No"
-                },
-                {
-                  type: "text",
                   text: "Name",
                   flex: 3
                 },
@@ -364,7 +425,8 @@ module.exports = {
                 {
                   type: "text",
                   text: "Attacker",
-                  flex: 4
+                  flex: 4,
+                  align: 'center'
                 }
               ],
               margin: "none",
@@ -402,7 +464,6 @@ module.exports = {
 
     var playerTable = {};
 
-    var num = 1;
     for (let i = 0; i < group_session.players.length; i++) {
       if (group_session.players[i].attack !== "") {
         playerTable[i] = {
@@ -410,12 +471,6 @@ module.exports = {
           layout: "horizontal",
           spacing: "md",
           contents: [
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true
-            },
             {
               type: "text",
               text: "",
@@ -435,22 +490,107 @@ module.exports = {
               text: "gak ada",
               size: "md",
               wrap: true,
-              flex: 4
+              flex: 4,
+              align: 'center'
             }
           ]
         };
 
-        playerTable[i].contents[0].text += num;
-        playerTable[i].contents[1].text += group_session.players[i].name;
-        playerTable[i].contents[2].text += group_session.players[i].attack;
+        playerTable[i].contents[0].text += group_session.players[i].name;
+        playerTable[i].contents[1].text += group_session.players[i].attack;
         if (group_session.players[i].attacker.length !== 0) {
-          playerTable[i].contents[3].text = group_session.players[
-            i
-          ].attacker.join(", ");
+          let attacker = group_session.players[i].attacker.join(", ");
+          playerTable[i].contents[2].text = attacker;
         }
         flex_msg.contents.body.contents.push(playerTable[i]);
-        num++;
       }
+    }
+
+    return flex_msg;
+  },
+  getPlayerList: function(group_session){
+    var flex_msg = {
+      type: "flex",
+      altText: "ada pesan untuk kamu!",
+      contents: {
+        type: "bubble",
+        header: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "List Pemain",
+              weight: "bold",
+              size: "xl",
+              wrap: true,
+              color: "#FFFFFF"
+            }
+          ]
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "box",
+              layout: "horizontal",
+              contents: [
+                {
+                  type: "text",
+                  text: "Name"
+                },
+                {
+                  type: "text",
+                  text: "Status"
+                }
+              ],
+              margin: "none",
+              spacing: "none"
+            },
+            {
+              type: "separator",
+              margin: "none",
+              color: "#000000"
+            }
+          ]
+        },
+        styles: {
+          header: {
+            backgroundColor: "#1DB446"
+          }
+        }
+      }
+    };
+
+    var playerTable = {};
+
+    for (let i = 0; i < group_session.players.length; i++) {
+        playerTable[i] = {
+          type: "box",
+          layout: "horizontal",
+          spacing: "md",
+          contents: [
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true,
+            },
+            {
+              type: 'text',
+              text: 'pending',
+              size: 'md',
+              wrap: true
+            }
+          ]
+        };
+
+        playerTable[i].contents[0].text += group_session.players[i].name;
+        if (group_session.players[i].attack !== ''){
+          playerTable[i].contents[1].text = 'done';
+        }
+        flex_msg.contents.body.contents.push(playerTable[i]);
     }
 
     return flex_msg;

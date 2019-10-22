@@ -10,6 +10,7 @@ function handle (client, event, args, user_session, group_session){
   if (group_session === undefined){
     return Promise.resolve(null);
   }
+  
   console.log(group_session);
   console.log(user_session);
  
@@ -29,7 +30,7 @@ function handle (client, event, args, user_session, group_session){
     return replyText("minimal pemain sebanyak 2 orang");
   }
   
-  let health = group_session.players.length * 2;
+  let health = group_session.players.length;
   for (let i = 0; i < group_session.players.length; i++){
     group_session.players[i].health = health;
   }

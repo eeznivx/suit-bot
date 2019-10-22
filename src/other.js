@@ -16,34 +16,37 @@ module.exports = {
   },
 
   memberJoinedEvent: function() {
-    let newComers = this.event.joined.members;
-    let newComerName = [];
+    ///tunggu jadi official
+//     let newComers = this.event.joined.members;
+//     let newComerName = [];
     
-    newComers.forEach((item) => {
-      this.client.getProfile(item.userId)
-        .then((profile) => {
-          newComerName.push(profile.displayName);
-        })
-    })
+//     newComers.forEach((item) => {
+//       this.client.getProfile(item.userId)
+//         .then((profile) => {
+//           newComerName.push(profile.displayName);
+//         })
+//     })
     
-    let text = "👋 Selamat datang! " + newComerName.join(", ") + " Maen Suit yok";
+//     let text = "👋 Selamat datang! " + newComerName.join(", ") + " Maen Suit yok";
 
+    let text = "👋 Selamat datang! Maen Suit yok";
     this.sendResponse(text);
   },
   
   memberLeftEvent: function() {
-    let leftMembers = this.event.left.members;
-    let leftMembersName = [];
+    ///tunggu jadi official
+//     let leftMembers = this.event.left.members;
+//     let leftMembersName = [];
     
-    leftMembers.forEach((item) => {
-      this.client.getProfile(item.userId)
-        .then((profile) => {
-          leftMembersName.push(profile.displayName);
-        })
-    })
+//     leftMembers.forEach((item) => {
+//       this.client.getProfile(item.userId)
+//         .then((profile) => {
+//           leftMembersName.push(profile.displayName);
+//         })
+//     })
     
-    let text = "👋 Sampai jumpa lagi! " + leftMembersName.join(", ");
-
+    // let text = "👋 Sampai jumpa lagi! " + leftMembersName.join(", ");
+    let text = "👋 Sampai jumpa lagi!";
     this.sendResponse(text);
   },
 
