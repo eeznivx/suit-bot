@@ -49,7 +49,7 @@ module.exports = {
             saveUserDataInitial(user_session);
           })
         .catch((err) => {
-          return client.replyMessage(event.replyToken, {type:'text', text:"add dulu lah geng"});
+          return client.replyMessage(event.replyToken, {type:'text', text:"di add dulu botnya geng"});
         })
       } else {
         saveUserDataInitial(user_session);

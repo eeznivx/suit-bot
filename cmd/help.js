@@ -6,7 +6,7 @@ function handle (client, event, args, user_session, group_session){
   }
   
   text += "help" + '\n';
-  text += 'daftar perintah: new, join, cancel, stop' + '\n';
+  text += 'daftar perintah: new, join, cancel, stop, player' + '\n';
   text += 'logic: batu > gunting, kertas > batu, gunting > kertas'
   replyText(text);
 

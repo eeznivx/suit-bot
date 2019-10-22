@@ -21,8 +21,13 @@ function handle(client, event, args, user_session, group_session) {
     return replyText(user_session.name + ", masih belum saatnya attack");
   }
   
+  if (group_session.players[index].health <= 0){
+    return replyText(user_session.name + ', kamu sudah tereleminasi');
+  }
+  
   if (group_session.players[index].attack !== ''){
-    text += user_session.name + " mengganti attacknya";
+    //text += user_session.name + " mengganti attacknya";
+    return replyText(user_session.name + ', kamu sudah memilih attack');
   } else {
     text += user_session.name + " berhasil memilih attack";
   }
