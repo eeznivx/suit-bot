@@ -7,6 +7,12 @@ function handle(client, event, args, user_session, group_session) {
     header: "",
     body: ""
   };
+
+  let opt_text = {
+    type: "text",
+    text: ""
+  };
+
   console.log(args);
   if (group_session.state === "idle" || group_session.state === "new") {
     return Promise.resolve(null);
@@ -70,26 +76,25 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function battle(msg) {
-    ///si a batu, b dan c gunting
     for (let i = 0; i < group_session.players.length; i++) {
       //targets cuma bisa direset pas ganti attacker
       var targets = [];
       var targetIndex = -1;
-      
+
       if (group_session.players[i].attack !== "") {
         for (let u = 0; u < group_session.players.length; u++) {
           var attackerId = group_session.players[i].id;
           console.log("attackerId", attackerId);
           var victimId = group_session.players[u].id;
           console.log("victimId", victimId);
-          
+
           var attackerAttack = group_session.players[i].attack;
           console.log("attackerAttack", attackerAttack);
           var victimAttack = group_session.players[u].attack;
           console.log("victimAttack", victimAttack);
 
           if (attackerId === victimId) {
-            console.log('attacker id sama victim id sama, skipkan');
+            console.log("attacker id sama victim id sama, skipkan");
             continue;
           }
 
@@ -106,28 +111,53 @@ function handle(client, event, args, user_session, group_session) {
             }
           }
         }
-        
+
         console.log("ini targets", targets);
 
-          if (targets.length !== 0) {
-            targetIndex = helper.getPlayerById(
-              helper.random(targets),
-              group_session
-            );
-            console.log(
-              "target yang kenak ",
-              group_session.players[targetIndex].name
-            );
-            group_session.players[targetIndex].health--;
-            group_session.players[targetIndex].attacker.push(
-              group_session.players[i].name
-            );
+        if (targets.length !== 0) {
+          targetIndex = helper.getPlayerById(
+            helper.random(targets),
+            group_session
+          );
+          console.log(
+            "target yang kenak ",
+            group_session.players[targetIndex].name
+          );
+          group_session.players[targetIndex].health--;
+          group_session.players[targetIndex].attacker.push(
+            group_session.players[i].name
+          );
+
+          //kasih header special
+          if (group_session.players[targetIndex].health === 0) {
+            group_session.players[i].killStreak++;
             
-            //reset
-            //targets.length = 0;
-            //group_session.players[i].attack = "";
+            var attackerName = group_session.players[i].name;
+            var attackerStreak = group_session.players[i].killStreak;
+            var victimName = group_session.players[targetIndex].name;
+
+            // opt_text[i] = {
+            //   type: 'text',
+            //   text: attackerName + ' mengeleminasi ' + victimName + '!'
+            // }
+
+            flex_text[i] = {
+              header: "Spotlight",
+              body: attackerName + " mengeleminasi " + victimName + "!"
+            };
+
+            if (group_session.players[i].killStreak > 1) {
+              // opt_text[i].text += '\n' + attackerName + ' dapat ' + attackerStreak + ' streak!';
+              flex_text[i].body +=
+                "\n" + attackerName + " dapat " + attackerStreak + " streak!";
+            }
+
+            // msg.push(opt_text[i]);
+            
+            let flexMsg = flex.getFlex(flex_text[i]);
+            msg.push(flexMsg);
           }
-        
+        }
       }
     }
 
@@ -143,6 +173,8 @@ function handle(client, event, args, user_session, group_session) {
 
     console.log("yang alive", alive);
 
+    ///TODO: ganti kondisi menang sesuai mode game
+    //ini sementara doang
     if (alive === 1) {
       for (let i = 0; i < group_session.players.length; i++) {
         if (group_session.players[i].health > 0) {
@@ -156,8 +188,8 @@ function handle(client, event, args, user_session, group_session) {
       drawgame(msg);
     } else {
       // ke preBattle
+      //TODO: buat ini bisa ke state pilih power ups
       group_session.state = "preBattle";
-
       return preBattle(msg);
     }
   }

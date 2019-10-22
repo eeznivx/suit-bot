@@ -1,21 +1,6 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [
-    {
-      "id": "U53f84423df465d3526ea98fe46901396",
-      "name": "╄ﻬgiyuu",
-      "attack": "",
-      "attacker": [],
-      "health": 0
-    },
-    {
-      "id": "U09594ebff742f342967eaa219842284b",
-      "name": "Andi Wahyu KM",
-      "attack": "",
-      "attacker": [],
-      "health": 0
-    }
-  ],
-  "state": "new"
+  "players": [],
+  "state": "idle"
 }

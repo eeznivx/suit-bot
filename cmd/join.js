@@ -12,9 +12,9 @@ function handle (client, event, args, user_session, group_session){
   console.log(user_session);
   if (group_session.state !== "new"){
     if (group_session.state === "idle"){
-      return replyText("belum ada game yg dibuat. ketik '/new' utk buat");
+      return replyText(user_session.name + ", belum ada game yg dibuat. ketik '/new' utk buat");
     } else {
-      return replyText("sedang ada game yang berjalan");
+      return replyText(user_session.name + ", sedang ada game yang berjalan");
     }
   }
   
@@ -27,6 +27,10 @@ function handle (client, event, args, user_session, group_session){
     }
   }
   
+  if (group_session.players.length === 8){
+    return replyText(user_session.name + ', maaf max pemain hanya 8 pemain');
+  }
+  
   user_session.status = "active";
   user_session.groupId = group_session.groupId;
   
@@ -37,7 +41,8 @@ function handle (client, event, args, user_session, group_session){
     name: user_session.name,
     attack : "",
     attacker: [],
-    health: 0
+    health: 0,
+    killStreak: 0
   }
   
   group_session.players.push(new_player);

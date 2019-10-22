@@ -91,7 +91,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          "flex": 1
+          flex: 1
         },
         {
           type: "text",
@@ -99,7 +99,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          "flex": 3
+          flex: 3
         },
         {
           type: "text",
@@ -107,18 +107,18 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          "flex": 3,
-          align: 'center'
+          flex: 3,
+          align: "center"
         }
       ]
     };
-    
-    let separator =  {
-        "type": "separator",
-        "margin": "xs",
-        "color": "#1DB446"
-      }
-    
+
+    let separator = {
+      type: "separator",
+      margin: "xs",
+      color: "#1DB446"
+    };
+
     flex_msg.contents.body.contents.push(table, separator);
 
     var playerTable = {};
@@ -150,8 +150,8 @@ module.exports = {
               text: "",
               size: "md",
               wrap: true,
-              flex :3,
-              align: 'center'
+              flex: 3,
+              align: "center"
             }
           ]
         };
@@ -210,7 +210,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          flex : 3
+          flex: 3
         },
         {
           type: "text",
@@ -230,17 +230,17 @@ module.exports = {
         }
       ]
     };
-    
-    let separator =  {
-        "type": "separator",
-        "margin": "xs",
-        "color": "#1DB446"
-      }
-    
+
+    let separator = {
+      type: "separator",
+      margin: "xs",
+      color: "#1DB446"
+    };
+
     flex_msg.contents.body.contents.push(table, separator);
 
     var playerTable = {};
-    
+
     for (let i = 0; i < group_session.players.length; i++) {
       if (group_session.players[i].attack !== "") {
         playerTable[i] = {
@@ -271,7 +271,7 @@ module.exports = {
             }
           ]
         };
-  
+
         playerTable[i].contents[0].text += group_session.players[i].name;
         playerTable[i].contents[1].text += group_session.players[i].attack;
         if (group_session.players[i].attacker.length !== 0) {
@@ -348,18 +348,18 @@ module.exports = {
       contents: {
         type: "bubble",
         header: {
-          type: 'box',
-          layout: 'vertical',
+          type: "box",
+          layout: "vertical",
           contents: [
             {
-              type: 'text',
+              type: "text",
               text: flex_text.header,
-              weight: 'bold',
-              size: 'xl',
+              weight: "bold",
+              size: "lg",
               wrap: true,
-              color: '#ffffff'
+              color: "#ffffff"
             }
-            ]
+          ]
         },
         body: {
           type: "box",
@@ -369,22 +369,22 @@ module.exports = {
               type: "text",
               text: flex_text.body,
               weight: "regular",
-              size: "xl",
+              size: "md",
               margin: "md",
               wrap: true
             }
           ]
         },
-        styles : {
+        styles: {
           header: {
-            backgroundColor: '#1DB446'
+            backgroundColor: "#1DB446"
           }
         }
       }
     };
     return flex_msg;
   },
-  getEndGame: function(group_session, header){
+  getEndGame: function(group_session, header) {
     var flex_msg = {
       type: "flex",
       altText: "ada pesan untuk kamu!",
@@ -425,8 +425,8 @@ module.exports = {
                 {
                   type: "text",
                   text: "Attacker",
-                  flex: 4,
-                  align: 'center'
+                  flex: 3,
+                  align: "center"
                 }
               ],
               margin: "none",
@@ -490,8 +490,8 @@ module.exports = {
               text: "gak ada",
               size: "md",
               wrap: true,
-              flex: 4,
-              align: 'center'
+              flex: 3,
+              align: "center"
             }
           ]
         };
@@ -508,7 +508,7 @@ module.exports = {
 
     return flex_msg;
   },
-  getPlayerList: function(group_session){
+  getPlayerList: function(group_session) {
     var flex_msg = {
       type: "flex",
       altText: "ada pesan untuk kamu!",
@@ -566,31 +566,49 @@ module.exports = {
     var playerTable = {};
 
     for (let i = 0; i < group_session.players.length; i++) {
-        playerTable[i] = {
-          type: "box",
-          layout: "horizontal",
-          spacing: "md",
-          contents: [
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true,
-            },
-            {
-              type: 'text',
-              text: 'pending',
-              size: 'md',
-              wrap: true
-            }
-          ]
-        };
+      playerTable[i] = {
+        type: "box",
+        layout: "horizontal",
+        spacing: "md",
+        contents: [
+          {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true
+          },
+          {
+            type: "text",
+            text: "pending",
+            size: "md",
+            wrap: true
+          }
+        ]
+      };
 
-        playerTable[i].contents[0].text += group_session.players[i].name;
-        if (group_session.players[i].attack !== ''){
-          playerTable[i].contents[1].text = 'done';
-        }
-        flex_msg.contents.body.contents.push(playerTable[i]);
+      playerTable[i].contents[0].text += group_session.players[i].name;
+      if (group_session.players[i].attack !== "") {
+        playerTable[i].contents[1].text = "done";
+      }
+      flex_msg.contents.body.contents.push(playerTable[i]);
+    }
+
+    if (group_session.state === "new") {
+      flex_msg.contents.footer = {
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "button",
+            style: "primary",
+            action: {
+              type: "postback",
+              label: "joing",
+              data: "/join"
+            }
+          }
+        ]
+      };
     }
 
     return flex_msg;

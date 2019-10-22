@@ -16,7 +16,6 @@ function handle(client, event, args, user_session, group_session) {
   if (group_session.state !== "new") {
     if (group_session.state === "idle") {
       return replyText(
-        event,
         "belum ada game yg dibuat. ketik '/new' utk buat"
       );
     } else {
