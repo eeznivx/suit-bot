@@ -9,7 +9,7 @@ function handle(client, event, args, user_session, group_session) {
   let mostUsedAttack = "";
   let emoji = '';
   
-  let max = -1;
+  let max = 0;
 
   let attacksArr = [
     {
@@ -41,7 +41,7 @@ function handle(client, event, args, user_session, group_session) {
 
   flex_text.body += "Total Kill : " + user_session.killAmount;
   
-  if (max !== -1){
+  if (max !== 0){
     flex_text.header = emoji + "Profile " + user_session.name;
     flex_text.body += '\n' + "Fave Attack : " + mostUsedAttack;
   }

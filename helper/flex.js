@@ -283,7 +283,7 @@ module.exports = {
     }
     return flex_msg;
   },
-  getNewGame: function() {
+  getNewGame: function(group_session) {
     var flex_msg = {
       type: "flex",
       altText: "📣 Game baru telah dibuat!",
@@ -308,6 +308,14 @@ module.exports = {
           layout: "vertical",
           spacing: "md",
           contents: [
+            {
+              type: "text",
+              text: "Mode : " + group_session.mode,
+              weight: "regular",
+              size: "lg",
+              wrap: true,
+              color: "#000000"
+            },
             {
               type: "text",
               text: "Ayok Gabung!",
