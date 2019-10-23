@@ -7,6 +7,7 @@ function handle(client, event, args, user_session, group_session) {
   };
 
   let mostUsedAttack = "";
+  let mostUsedAttackAmount = 0;
   let emoji = '';
   
   let max = 0;
@@ -33,6 +34,7 @@ function handle(client, event, args, user_session, group_session) {
     if (attacksArr[i].value > max) {
       max = attacksArr[i].value;
       mostUsedAttack = attacksArr[i].name;
+      mostUsedAttackAmount = attacksArr[i].value;
       emoji = attacksArr[i].emoji
     }
   }
@@ -44,6 +46,7 @@ function handle(client, event, args, user_session, group_session) {
   if (max !== 0){
     flex_text.header = emoji + "Profile " + user_session.name;
     flex_text.body += '\n' + "Fave Attack : " + mostUsedAttack;
+    flex_text.body += '\n' + "Dipakai " + mostUsedAttackAmount + ' kali';
   }
 
   let flexMsg = flex.getFlex(flex_text);
