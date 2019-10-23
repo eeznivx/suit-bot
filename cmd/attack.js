@@ -1,5 +1,6 @@
 const helper = require("/app/helper");
 const flex = require("/app/helper/flex");
+const helperText = require("/app/helper/text");
 
 function handle(client, event, args, user_session, group_session) {
   let text = "";
@@ -155,9 +156,13 @@ function handle(client, event, args, user_session, group_session) {
             //   text: attackerName + ' mengeleminasi ' + victimName + '!'
             // }
 
+            let eliminatedText = helperText.eliminated(attackerName, args[1], victimName);
+            console.log('eliminated text' , eliminatedText);
+            // body: '🎯 ' + attackerName + " mengeleminasi " + victimName + "!"
+            
             flex_text[i] = {
               header: "🔥 Spotlight 🔥",
-              body: '🎯 ' + attackerName + " mengeleminasi " + victimName + "!"
+              body: '🎯 ' + eliminatedText
             };
             
             if (group_session.players[targetIndex].killStreak > 1){
