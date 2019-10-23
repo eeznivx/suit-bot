@@ -145,6 +145,11 @@ function handle(client, event, args, user_session, group_session) {
               header: "🔥 Spotlight 🔥",
               body: '🎯 ' + attackerName + " mengeleminasi " + victimName + "!"
             };
+            
+            if (group_session.players[targetIndex].killStreak > 1){
+              flex_text[i].body +=
+                "\n" + '💀 ' + victimName + " get rekt by " + attackerName + "!";
+            }
 
             if (group_session.players[i].killStreak > 1) {
               // opt_text[i].text += '\n' + attackerName + ' dapat ' + attackerStreak + ' streak!';
