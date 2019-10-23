@@ -1,6 +1,23 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [],
-  "state": "idle"
+  "players": [
+    {
+      "id": "U17426c34a33fc566dab1eb0a1562c3df",
+      "name": "Advent Samuel",
+      "attack": "",
+      "attacker": [],
+      "health": 2,
+      "killStreak": 0
+    },
+    {
+      "id": "Uf74b8457b0eddead5898bbd52e30462b",
+      "name": "Khomethy",
+      "attack": "",
+      "attacker": [],
+      "health": 2,
+      "killStreak": 0
+    }
+  ],
+  "state": "preBattle"
 }

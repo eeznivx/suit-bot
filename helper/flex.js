@@ -11,7 +11,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Pilih Attackmu!",
+              text: "📣 Pilih Attackmu!",
               weight: "bold",
               size: "xl",
               wrap: true,
@@ -177,7 +177,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Hasil Attack",
+              text: "🎌 Hasil Attack",
               weight: "bold",
               size: "xl",
               wrap: true,
@@ -295,7 +295,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Game baru telah dibuat",
+              text: "🎮 Game baru telah dibuat",
               weight: "bold",
               size: "xl",
               wrap: true,
@@ -520,7 +520,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "List Pemain",
+              text: "🧍 🧍 List Pemain",
               weight: "bold",
               size: "xl",
               wrap: true,
