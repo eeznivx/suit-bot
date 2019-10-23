@@ -8,7 +8,18 @@ module.exports = {
     ];
     
     let text = helper.random(texts);
-    //return console.log('texts eliminated', text);
     return text;
-  }
+  },
+  
+  shutdown: function(attackerName, attackerAttack, victimName){
+    let texts = [
+      victimName + ' GET REKT!',
+      attackerName + ' berhasil menumbangkan ' + victimName,
+      victimName + ' SHUTDOWN',
+      victimName + ' telah gugur gais'
+    ];
+    
+    let text = helper.random(texts);
+    return text;
+  },
 }

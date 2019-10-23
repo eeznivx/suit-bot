@@ -165,9 +165,11 @@ function handle(client, event, args, user_session, group_session) {
               body: '🎯 ' + eliminatedText
             };
             
+            // flex_text[i].body += "\n" + '💀 ' + victimName + " get rekt by " + attackerName + "!";
             if (group_session.players[targetIndex].killStreak > 1){
+              let shutdownText = helperText.shutdown(attackerName, args[1], victimName);
               flex_text[i].body +=
-                "\n" + '💀 ' + victimName + " get rekt by " + attackerName + "!";
+                "\n" + '💀 ' + shutdownText;
             }
 
             if (group_session.players[i].killStreak > 1) {

@@ -37,11 +37,14 @@ function handle(client, event, args, user_session, group_session) {
       mostUsedAttackAmount = attacksArr[i].value;
       emoji = attacksArr[i].emoji
     }
+    console.log('dalam loop mostUsedAttack', mostUsedAttack);
   }
   
   flex_text.header = "Profile " + user_session.name;
 
   flex_text.body += "Total Kill : " + user_session.killAmount;
+  
+  console.log('luar loop mostUsedAttack', mostUsedAttack);
   
   if (max !== 0){
     flex_text.header = emoji + "Profile " + user_session.name;

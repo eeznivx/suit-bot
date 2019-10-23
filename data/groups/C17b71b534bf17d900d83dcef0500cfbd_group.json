@@ -1,7 +1,20 @@
 {
   "groupId": "C17b71b534bf17d900d83dcef0500cfbd",
   "name": "",
-  "players": [],
-  "state": "idle",
+  "players": [
+    {
+      "id": "Ud4efdb7943d7c9155d626fe9cf4e2702",
+      "name": "Wisely liang",
+      "killAmount": 0,
+      "batuAmount": 0,
+      "guntingAmount": 0,
+      "kertasAmount": 0,
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "killStreak": 0
+    }
+  ],
+  "state": "new",
   "mode": "classic"
 }
