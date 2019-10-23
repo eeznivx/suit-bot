@@ -43,6 +43,10 @@ const keywords = [
     text: "test",
     handle: require("./test")
   },
+  {
+    text: "info",
+    handle: require("./info")
+  },
 ];
 
 module.exports = keywords

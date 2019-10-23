@@ -38,6 +38,20 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   group_session.players[index].attack = args[1];
+  
+  switch(args[1]){
+    case 'batu':
+      group_session.players[index].batuAmount++;
+      break;
+      
+    case 'gunting':
+      group_session.players[index].guntingAmount++;
+      break;
+      
+    case 'kertas':
+      group_session.players[index].kertasAmount++;
+      break;
+  }
 
   let pending = 0;
   for (let i = 0; i < group_session.players.length; i++) {
@@ -179,6 +193,9 @@ function handle(client, event, args, user_session, group_session) {
     console.log("yang alive", alive);
 
     ///TODO: ganti kondisi menang sesuai mode game
+    console.log("game mode", group_session.mode);
+    
+    
     //ini sementara doang
     if (alive === 1) {
       for (let i = 0; i < group_session.players.length; i++) {
@@ -207,6 +224,10 @@ function handle(client, event, args, user_session, group_session) {
 
     msg.push(endGameFlex);
 
+    group_session.players.forEach((item) => {
+      item.killAmount += item.killStreak;
+    })
+    
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
@@ -220,6 +241,10 @@ function handle(client, event, args, user_session, group_session) {
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);
+    
+    group_session.players.forEach((item) => {
+      item.killAmount += item.killStreak;
+    })
 
     group_session.state = "idle";
     resetAllPlayers(group_session.players);

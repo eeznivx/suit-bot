@@ -39,6 +39,7 @@ function handle (client, event, args, user_session, group_session){
   var new_player = {
     id : user_session.id,
     name: user_session.name,
+    killAmount: user_session.killAmount,
     attack : "",
     attacker: [],
     health: 0,

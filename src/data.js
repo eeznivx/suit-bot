@@ -31,7 +31,11 @@ module.exports = {
             id: id,
             name: "",
             status: "inactive",
-            groupId: ""
+            groupId: "",
+            killAmount: 0,
+            batuAmount: 0,
+            guntingAmount: 0,
+            kertasAmount: 0
           };
 
           var newUserData = JSON.stringify(newUser, null, 2);
@@ -89,7 +93,8 @@ module.exports = {
             groupId: id,
             name: "",
             players: [],
-            state: "idle"
+            state: "idle",
+            mode: 'classic'
           };
 
           var newGroupData = JSON.stringify(newGroup, null, 2);
@@ -144,7 +149,11 @@ module.exports = {
         id: players[i].id,
         status: "inactive",
         groupId: players[i].groupId,
-        name: players[i].name
+        name: players[i].name,
+        killAmount: players[i].killAmount,
+        batuAmount: players[i].batuAmount,
+        guntingAmount: players[i].guntingAmount,
+        kertasAmount: players[i].kertasAmount
       };
 
       this.saveUserData(reset_player);
