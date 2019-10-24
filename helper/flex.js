@@ -481,18 +481,24 @@ module.exports = {
                 {
                   type: "text",
                   text: "Name",
-                  flex: 3
+                  flex: 3,
+                  size: "md",
+                  weight: 'bold'
                 },
                 {
                   type: "text",
-                  text: "Attack",
-                  flex: 2
+                  text: "Atk",
+                  flex: 2,
+                  size: "md",
+                  weight: 'bold'
                 },
                 {
                   type: "text",
                   text: "Attacker",
                   flex: 3,
-                  align: "center"
+                  size: "md",
+                  align: "center",
+                  weight: 'bold'
                 }
               ],
               margin: "none",
@@ -536,7 +542,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 1,
+          flex: 2,
           align: "end"
         })
     }
@@ -581,7 +587,7 @@ module.exports = {
             text: group_session.players[i].team,
             size: "md",
             wrap: true,
-            flex: 1,
+            flex: 2,
             align: "end"
           })
         }

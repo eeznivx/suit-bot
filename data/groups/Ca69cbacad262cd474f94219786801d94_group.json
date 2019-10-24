@@ -1,20 +1,7 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [
-    {
-      "id": "Uf74b8457b0eddead5898bbd52e30462b",
-      "name": "Khomethy",
-      "killAmount": 1,
-      "batuAmount": 3,
-      "guntingAmount": 5,
-      "kertasAmount": 2,
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "killStreak": 0
-    }
-  ],
-  "state": "new",
+  "players": [],
+  "state": "idle",
   "mode": "classic"
 }
