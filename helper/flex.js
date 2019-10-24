@@ -420,7 +420,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFB400"
+             color: "#F6F6F6"
             }
           ]
         },
@@ -541,11 +541,11 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "🧍🧍 List Pemain",
+              text: "📜 List Pemain",
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFB400"
+              color: "#F6F6F6"
             }
           ]
         },

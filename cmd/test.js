@@ -7,7 +7,7 @@ function handle(client, event, args, user_session, group_session) {
   };
   
   //disable test
-  return Promise.resolve(null)
+  //return Promise.resolve(null)
   
   let dummy = {
     players : [
@@ -32,7 +32,7 @@ function handle(client, event, args, user_session, group_session) {
     ]
   }
   
-  let flexMsg = flex.getPostBattle(dummy, "lalla");
+  let flexMsg = flex.getPlayerList(dummy, "lalla");
   console.log(JSON.stringify(flexMsg.contents));
   client.replyMessage(event.replyToken, flexMsg);
 
