@@ -38,7 +38,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: '#2D4059',
+                  color: "#2D4059",
                   action: {
                     type: "postback",
                     label: "👊",
@@ -48,7 +48,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: '#2D4059',
+                  color: "#2D4059",
                   action: {
                     type: "postback",
                     label: "✌️",
@@ -58,7 +58,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: '#2D4059',
+                  color: "#2D4059",
                   action: {
                     type: "postback",
                     label: "✋",
@@ -66,7 +66,7 @@ module.exports = {
                   }
                 }
               ]
-            },
+            }
             // {
             //   type: "box",
             //   layout: "horizontal",
@@ -124,17 +124,17 @@ module.exports = {
         }
       ]
     };
-    
-    if (group_session.mode === 'team'){
+
+    if (group_session.mode === "team") {
       table.contents.push({
-          type: "text",
-          text: "Team",
-          weight: "bold",
-          size: "md",
-          wrap: true,
-          flex: 2,
-          align: "end"
-        })
+        type: "text",
+        text: "Team",
+        weight: "bold",
+        size: "md",
+        wrap: true,
+        flex: 2,
+        align: "end"
+      });
     }
 
     let separator = {
@@ -149,7 +149,10 @@ module.exports = {
 
     var num = 1;
     for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].health > 0 && group_session.players[i].attack === '') {
+      if (
+        group_session.players[i].health > 0 &&
+        group_session.players[i].attack === ""
+      ) {
         playerTable[i] = {
           type: "box",
           layout: "horizontal",
@@ -179,8 +182,8 @@ module.exports = {
             }
           ]
         };
-        
-        if (group_session.mode === 'team'){
+
+        if (group_session.mode === "team") {
           playerTable[i].contents.push({
             type: "text",
             text: group_session.players[i].team,
@@ -188,9 +191,9 @@ module.exports = {
             wrap: true,
             flex: 2,
             align: "end"
-          })
+          });
         }
-        
+
         playerTable[i].contents[0].text += num;
         playerTable[i].contents[1].text += group_session.players[i].name;
         playerTable[i].contents[2].text += group_session.players[i].health;
@@ -265,17 +268,17 @@ module.exports = {
         }
       ]
     };
-    
-    if (group_session.mode === 'team'){
+
+    if (group_session.mode === "team") {
       table.contents.push({
-          type: "text",
-          text: "Team",
-          weight: "bold",
-          size: "md",
-          wrap: true,
-          flex: 2,
-          align: "end"
-        })
+        type: "text",
+        text: "Team",
+        weight: "bold",
+        size: "md",
+        wrap: true,
+        flex: 2,
+        align: "end"
+      });
     }
 
     let separator = {
@@ -319,7 +322,7 @@ module.exports = {
           ]
         };
 
-        if (group_session.mode === 'team'){
+        if (group_session.mode === "team") {
           playerTable[i].contents.push({
             type: "text",
             text: group_session.players[i].team,
@@ -327,9 +330,9 @@ module.exports = {
             wrap: true,
             flex: 2,
             align: "end"
-          })
+          });
         }
-        
+
         playerTable[i].contents[0].text += group_session.players[i].name;
         playerTable[i].contents[1].text += group_session.players[i].attack;
         if (group_session.players[i].attacker.length !== 0) {
@@ -423,7 +426,7 @@ module.exports = {
               weight: "bold",
               size: "lg",
               wrap: true,
-             color: "#F6F6F6"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -466,7 +469,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-             color: "#F6F6F6"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -483,22 +486,22 @@ module.exports = {
                   text: "Name",
                   flex: 3,
                   size: "md",
-                  weight: 'bold'
+                  weight: "bold"
                 },
                 {
                   type: "text",
-                  text: "Atk",
+                  text: "Status",
                   flex: 2,
                   size: "md",
-                  weight: 'bold'
+                  weight: "bold"
                 },
                 {
                   type: "text",
-                  text: "Attacker",
-                  flex: 3,
+                  text: "Kill Streak",
+                  flex: 2,
                   size: "md",
                   align: "center",
-                  weight: 'bold'
+                  weight: "bold"
                 }
               ],
               margin: "none",
@@ -518,7 +521,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: '#2D4059',
+              color: "#2D4059",
               action: {
                 type: "postback",
                 label: "main lagi",
@@ -534,72 +537,76 @@ module.exports = {
         }
       }
     };
-    
-    if (group_session.mode === 'team'){
+
+    if (group_session.mode === "team") {
       flex_msg.contents.body.contents[0].contents.push({
-          type: "text",
-          text: "Team",
-          weight: "bold",
-          size: "md",
-          wrap: true,
-          flex: 2,
-          align: "end"
-        })
+        type: "text",
+        text: "Team",
+        weight: "bold",
+        size: "md",
+        wrap: true,
+        flex: 2,
+        align: "end"
+      });
     }
 
     var playerTable = {};
 
     for (let i = 0; i < group_session.players.length; i++) {
-        playerTable[i] = {
-          type: "box",
-          layout: "horizontal",
-          spacing: "md",
-          contents: [
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true,
-              flex: 3
-            },
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true,
-              flex: 2
-            },
-            {
-              type: "text",
-              text: "gak ada",
-              size: "md",
-              wrap: true,
-              flex: 3,
-              align: "center"
-            }
-          ]
-        };
-
-        if (group_session.mode === 'team'){
-          playerTable[i].contents.push({
+      playerTable[i] = {
+        type: "box",
+        layout: "horizontal",
+        spacing: "md",
+        contents: [
+          {
             type: "text",
-            text: group_session.players[i].team,
+            text: "",
+            size: "md",
+            wrap: true,
+            flex: 3
+          },
+          {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true,
+            flex: 2
+          },
+          {
+            type: "text",
+            text: "",
             size: "md",
             wrap: true,
             flex: 2,
-            align: "end"
-          })
-        }
-        
-        playerTable[i].contents[0].text += group_session.players[i].name;
-        playerTable[i].contents[1].text += group_session.players[i].attack;
-        if (group_session.players[i].attacker.length !== 0) {
-          let attacker = group_session.players[i].attacker.join(", ");
-          playerTable[i].contents[2].text = attacker;
-        }
-        flex_msg.contents.body.contents.push(playerTable[i]);
+            align: "center"
+          }
+        ]
+      };
+
+      if (group_session.mode === "team") {
+        playerTable[i].contents.push({
+          type: "text",
+          text: group_session.players[i].team,
+          size: "md",
+          wrap: true,
+          flex: 2,
+          align: "end"
+        });
       }
-    
+
+      playerTable[i].contents[0].text += group_session.players[i].name;
+      
+      if (group_session.players[i].health > 0){
+        playerTable[i].contents[1].text += "survive";
+      } else {
+        playerTable[i].contents[1].text += "eliminated";
+      }
+      
+      playerTable[i].contents[2].text += group_session.players[i].killStreak;
+      
+      flex_msg.contents.body.contents.push(playerTable[i]);
+    }
+
     return flex_msg;
   },
   getPlayerList: function(group_session) {
@@ -637,7 +644,7 @@ module.exports = {
                 {
                   type: "text",
                   text: "Status"
-                },
+                }
               ],
               margin: "none",
               spacing: "none"
@@ -656,16 +663,16 @@ module.exports = {
         }
       }
     };
-    
-    if (group_session.state !== 'new' && group_session.mode === 'team'){
+
+    if (group_session.state !== "new" && group_session.mode === "team") {
       flex_msg.contents.body.contents[0].contents.push({
-                  type: "text",
-                  text: "Team"
-                })
+        type: "text",
+        text: "Team"
+      });
     }
-    
-    if (group_session.state === 'new'){
-      flex_msg.contents.body.contents[0].contents[1].text = 'Kill';
+
+    if (group_session.state === "new") {
+      flex_msg.contents.body.contents[0].contents[1].text = "Kill";
     }
 
     var playerTable = {};
@@ -690,16 +697,16 @@ module.exports = {
           }
         ]
       };
-      
-      if (group_session.state !== 'new' && group_session.mode === 'team'){
+
+      if (group_session.state !== "new" && group_session.mode === "team") {
         playerTable[i].contents.push({
-            type: "text",
-            text: group_session.players[i].team,
-            size: "md",
-          })
+          type: "text",
+          text: group_session.players[i].team,
+          size: "md"
+        });
       }
 
-      if (group_session.state === 'new'){
+      if (group_session.state === "new") {
         playerTable[i].contents[1].text += group_session.players[i].killAmount;
       } else {
         if (group_session.players[i].health > 0) {
@@ -710,7 +717,7 @@ module.exports = {
       }
 
       playerTable[i].contents[0].text += group_session.players[i].name;
-      
+
       flex_msg.contents.body.contents.push(playerTable[i]);
     }
 
@@ -722,7 +729,7 @@ module.exports = {
           {
             type: "button",
             style: "primary",
-            color: '#2D4059',
+            color: "#2D4059",
             action: {
               type: "postback",
               label: "gabung",

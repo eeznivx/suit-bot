@@ -212,6 +212,9 @@ function handle(client, event, args, user_session, group_session) {
     }
     console.log("yang alive", alive);
     
+    let postBattleFlex = flex.getPostBattle(group_session);
+    msg.push(postBattleFlex);
+    
     if (alive === 1) {
       for (let i = 0; i < group_session.players.length; i++) {
         if (group_session.players[i].health > 0) {
@@ -221,13 +224,9 @@ function handle(client, event, args, user_session, group_session) {
         }
       }
     } else if (alive === 0) {
-      let postBattleFlex = flex.getPostBattle(group_session);
-      msg.push(postBattleFlex);
       // draw?
       drawGame(msg);
     } else {
-      let postBattleFlex = flex.getPostBattle(group_session);
-      msg.push(postBattleFlex);
       // ke preBattle
       //TODO: buat ini bisa ke state pilih power ups
       group_session.state = "preBattle";
@@ -355,8 +354,6 @@ function handle(client, event, args, user_session, group_session) {
       }
     }
 
-    
-    
     let teamAName = [];
     let teamBName = [];
     
@@ -379,18 +376,17 @@ function handle(client, event, args, user_session, group_session) {
       }
     })
     
+    let postBattleFlex = flex.getPostBattle(group_session);
+    msg.push(postBattleFlex);
+    
     if (team_a_alive === 0 && team_b_alive !== 0){
       teamEndGame(msg, teamBName);
     } else if (team_b_alive === 0 && team_a_alive !== 0){
       teamEndGame(msg, teamAName);
     } else if (team_a_alive === 0 && team_b_alive === 0){
-      let postBattleFlex = flex.getPostBattle(group_session);
-      msg.push(postBattleFlex);
       //draw
       drawGame(msg);
     } else {
-      let postBattleFlex = flex.getPostBattle(group_session);
-      msg.push(postBattleFlex);
       
       //ke prebattle
       //atau ke bonus round power ups itu

@@ -18,33 +18,37 @@ function handle(client, event, args, user_session, group_session) {
         attack: '',
         attacker: ['soso', 'sisi'],
         health: 3,
-        team: 'A'
+        team: 'A',
+        killStreak: 2
       },
       {
         name: 'soso',
         attack: '',
         attacker: [],
-        health: 3,
-        team: 'A'
+        health: 0,
+        team: 'A',
+        killStreak: 2
       },
       {
         name: 'sisi',
         attack: '',
         attacker: [],
         health: 3,
-        team: 'B'
+        team: 'B',
+        killStreak: 2
       },
       {
         name: 'sese',
         attack: '',
         attacker: [],
         health: 3,
-        team: 'B'
+        team: 'B',
+        killStreak: 2
       }
     ]
   }
   
-  let flexMsg = flex.getPreBattle(dummy, "lalla");
+  let flexMsg = flex.getEndGame(dummy, "lalla");
   console.log(JSON.stringify(flexMsg.contents));
   client.replyMessage(event.replyToken, flexMsg);
 
