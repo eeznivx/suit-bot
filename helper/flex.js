@@ -124,6 +124,18 @@ module.exports = {
         }
       ]
     };
+    
+    if (group_session.mode === 'team'){
+      table.contents.push({
+          type: "text",
+          text: "Team",
+          weight: "bold",
+          size: "md",
+          wrap: true,
+          flex: 1,
+          align: "end"
+        })
+    }
 
     let separator = {
       type: "separator",
@@ -167,7 +179,18 @@ module.exports = {
             }
           ]
         };
-
+        
+        if (group_session.mode === 'team'){
+          playerTable[i].contents.push({
+            type: "text",
+            text: group_session.players[i].team,
+            size: "md",
+            wrap: true,
+            flex: 1,
+            align: "end"
+          })
+        }
+        
         playerTable[i].contents[0].text += num;
         playerTable[i].contents[1].text += group_session.players[i].name;
         playerTable[i].contents[2].text += group_session.players[i].health;
