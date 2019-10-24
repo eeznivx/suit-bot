@@ -30,7 +30,34 @@ function handle (client, event, args, user_session, group_session){
     return replyText("💡 " + user_session.name + ", minimal pemain sebanyak 2 orang");
   }
   
-  let health = group_session.players.length;
+  
+  let health = 0;
+  
+  ///check game mode
+  if (group_session.mode === 'classic'){
+    health = group_session.players.length;
+  } else if (group_session.mode === 'team'){
+    if (helper.isEven(group_session.players.length) === false){
+      return replyText("💡 Game mode Team tidak bisa distart jika jumlah pemain ganjil");
+    }
+    
+    helper.shuffleArray(group_session.players);
+    
+    let halfPlayersAmount = group_session.players.length/2;
+    
+    group_session.players.forEach((item, index) => {
+      if (index >= halfPlayersAmount){
+        item.team = 'A';
+      } else {
+        item.team = 'B';
+      }
+    })
+    
+    health = halfPlayersAmount;
+    
+  }
+  
+  
   for (let i = 0; i < group_session.players.length; i++){
     group_session.players[i].health = health;
   }

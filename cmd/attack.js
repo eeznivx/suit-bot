@@ -190,20 +190,29 @@ function handle(client, event, args, user_session, group_session) {
     let postBattleFlex = flex.getPostBattle(group_session);
     msg.push(postBattleFlex);
 
+    
+
+    ///TODO: ganti kondisi menang sesuai mode game
+    console.log("game mode", group_session.mode);
+    
+    if (group_session.mode === 'classic'){
+      classicMode(msg);
+    } else if (group_session.mode === 'team'){
+      teamMode(msg);
+    }
+    
+    
+  }
+  
+  function classicMode(msg){
     let alive = 0;
     for (let i = 0; i < group_session.players.length; i++) {
       if (group_session.players[i].health > 0) {
         alive++;
       }
     }
-
     console.log("yang alive", alive);
-
-    ///TODO: ganti kondisi menang sesuai mode game
-    console.log("game mode", group_session.mode);
     
-    
-    //ini sementara doang
     if (alive === 1) {
       for (let i = 0; i < group_session.players.length; i++) {
         if (group_session.players[i].health > 0) {
@@ -221,6 +230,10 @@ function handle(client, event, args, user_session, group_session) {
       group_session.state = "preBattle";
       return preBattle(msg);
     }
+  }
+  
+  function teamMode(msg){
+    //
   }
 
   function endgame(msg, winner_index) {
