@@ -15,19 +15,29 @@ function handle(client, event, args, user_session, group_session) {
         name: 'sasa',
         attack: 'batu',
         attacker: ['soso', 'sisi'],
-        health: 3
+        health: 3,
+        team: 'A'
       },
       {
         name: 'soso',
         attack: 'kertas',
         attacker: [],
-        health: 3
+        health: 3,
+        team: 'A'
       },
       {
         name: 'sisi',
         attack: 'kertas',
         attacker: [],
-        health: 3
+        health: 3,
+        team: 'B'
+      },
+      {
+        name: 'sese',
+        attack: 'kertas',
+        attacker: [],
+        health: 3,
+        team: 'B'
       }
     ]
   }

@@ -49,6 +49,10 @@ function handle (client, event, args, user_session, group_session){
     killStreak: 0
   }
   
+  if (group_session.mode === 'team'){
+    new_player.team = '';
+  }
+  
   group_session.players.push(new_player);
   
   saveGroupData();

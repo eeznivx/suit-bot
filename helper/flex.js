@@ -265,6 +265,18 @@ module.exports = {
         }
       ]
     };
+    
+    if (group_session.mode === 'team'){
+      table.contents.push({
+          type: "text",
+          text: "Team",
+          weight: "bold",
+          size: "md",
+          wrap: true,
+          flex: 1,
+          align: "end"
+        })
+    }
 
     let separator = {
       type: "separator",
@@ -307,6 +319,17 @@ module.exports = {
           ]
         };
 
+        if (group_session.mode === 'team'){
+          playerTable[i].contents.push({
+            type: "text",
+            text: group_session.players[i].team,
+            size: "md",
+            wrap: true,
+            flex: 1,
+            align: "end"
+          })
+        }
+        
         playerTable[i].contents[0].text += group_session.players[i].name;
         playerTable[i].contents[1].text += group_session.players[i].attack;
         if (group_session.players[i].attacker.length !== 0) {
@@ -572,7 +595,7 @@ module.exports = {
         flex_msg.contents.body.contents.push(playerTable[i]);
       }
     }
-
+    
     return flex_msg;
   },
   getPlayerList: function(group_session) {
