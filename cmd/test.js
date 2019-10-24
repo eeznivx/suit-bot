@@ -10,29 +10,45 @@ function handle(client, event, args, user_session, group_session) {
   return Promise.resolve(null)
   
   let dummy = {
+    state : 'preBattle',
+    mode: 'team',
     players : [
       {
         name: 'sasa',
-        attack: 'batu',
+        attack: 'gunting',
         attacker: ['soso', 'sisi'],
-        health: 3
+        health: 3,
+        team: 'A',
+        killStreak: 2
       },
       {
         name: 'soso',
-        attack: 'kertas',
+        attack: 'gunting',
         attacker: [],
-        health: 3
+        health: 0,
+        team: 'A',
+        killStreak: 2
       },
       {
         name: 'sisi',
-        attack: 'kertas',
+        attack: 'gunting',
         attacker: [],
-        health: 3
+        health: 3,
+        team: 'B',
+        killStreak: 2
+      },
+      {
+        name: 'sese',
+        attack: 'gunting',
+        attacker: [],
+        health: 3,
+        team: 'B',
+        killStreak: 2
       }
     ]
   }
   
-  let flexMsg = flex.getPlayerList(dummy);
+  let flexMsg = flex.getEndGame(dummy, "lalla");
   console.log(JSON.stringify(flexMsg.contents));
   client.replyMessage(event.replyToken, flexMsg);
 

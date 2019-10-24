@@ -6,23 +6,20 @@ function handle (client, event, args, user_session, group_session){
     body: "hoi"
   }
   
-  if (group_session === undefined){
-    return replyText("mainkan di group/room chat kamu");
-  }
   console.log(group_session);
   console.log(user_session);
   if (group_session.state !== "idle"){
     if (group_session.state === "new"){
-      return replyText("sudah ada game yang dibuat, ketik '/join' untuk gabung");
+      return replyText("💡 " + user_session.name + ", sudah ada game yang dibuat, ketik '/join' untuk gabung");
     } else {
-      return replyText("sedang ada game yang berjalan");
+      return replyText("💡 " + user_session.name + ", sedang ada game yang berjalan");
     }
   }
   
   group_session.state = "new";
   saveGroupData();
   
-  let flex_msg = helper.getNewGame();
+  let flex_msg = helper.getNewGame(group_session);
   return client.replyMessage(event.replyToken, flex_msg);
   
   function saveUserData(){

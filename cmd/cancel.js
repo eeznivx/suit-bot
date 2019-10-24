@@ -16,16 +16,15 @@ function handle(client, event, args, user_session, group_session) {
   if (group_session.state !== "new") {
     if (group_session.state === "idle") {
       return replyText(
-        event,
-        "belum ada game yg dibuat. ketik '/new' utk buat"
+        "💡 belum ada game yg dibuat. ketik '/new' utk buat"
       );
     } else {
-      return replyText("game sedang berjalan");
+      return replyText("💡 game sedang berjalan");
     }
   }
 
   if (user_session.status !== "active") {
-    return replyText(user_session.name + ", kmu tidak bergabung didalam game");
+    return replyText('💡 ' + user_session.name + ", kmu tidak bergabung didalam game");
   }
 
   for (
@@ -39,11 +38,11 @@ function handle(client, event, args, user_session, group_session) {
   group_session.players.pop();
   user_session.status = "inactive";
   
-  text += user_session.name + " meninggalkan game";
+  text += '💡 ' + user_session.name + " meninggalkan game";
   
   if (group_session.players.length === 0){
     group_session.state = "idle";
-    text += "\n" + "game di stop karena tidak ada pemain lagi";
+    text += "\n" + "💡 Game di stop karena tidak ada pemain lagi";
   }
   
   saveUserData();

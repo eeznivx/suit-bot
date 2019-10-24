@@ -2,7 +2,7 @@ module.exports = {
   getPreBattle: function(group_session) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Pilih Attack!",
       contents: {
         type: "bubble",
         header: {
@@ -11,11 +11,11 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Pilih Attackmu!",
+              text: "📣 Pilih Attackmu!",
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -38,43 +38,55 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
+                  color: "#2D4059",
                   action: {
                     type: "postback",
-                    label: "batu",
+                    label: "👊",
                     data: "/attack batu"
                   }
                 },
                 {
                   type: "button",
                   style: "primary",
+                  color: "#2D4059",
                   action: {
                     type: "postback",
-                    label: "gunting",
+                    label: "✌️",
                     data: "/attack gunting"
                   }
-                }
-              ]
-            },
-            {
-              type: "box",
-              layout: "horizontal",
-              contents: [
+                },
                 {
                   type: "button",
                   style: "primary",
+                  color: "#2D4059",
                   action: {
                     type: "postback",
-                    label: "kertas",
+                    label: "✋",
                     data: "/attack kertas"
                   }
                 }
               ]
             }
+            // {
+            //   type: "box",
+            //   layout: "horizontal",
+            //   contents: [
+            //     {
+            //       type: "button",
+            //       style: "primary",
+            //       action: {
+            //         type: "postback",
+            //         label: "kertas",
+            //         data: "/attack kertas"
+            //       }
+            //     }
+            //   ]
+            // }
           ]
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -87,11 +99,11 @@ module.exports = {
       contents: [
         {
           type: "text",
-          text: "No.",
+          text: "No",
           weight: "bold",
           size: "md",
           wrap: true,
-          "flex": 1
+          flex: 1
         },
         {
           type: "text",
@@ -99,7 +111,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          "flex": 3
+          flex: 3
         },
         {
           type: "text",
@@ -107,25 +119,40 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          "flex": 3,
-          align: 'center'
+          flex: 3,
+          align: "center"
         }
       ]
     };
-    
-    let separator =  {
-        "type": "separator",
-        "margin": "xs",
-        "color": "#1DB446"
-      }
-    
+
+    if (group_session.mode === "team") {
+      table.contents.push({
+        type: "text",
+        text: "Team",
+        weight: "bold",
+        size: "md",
+        wrap: true,
+        flex: 2,
+        align: "end"
+      });
+    }
+
+    let separator = {
+      type: "separator",
+      margin: "xs",
+      color: "#2D4059"
+    };
+
     flex_msg.contents.body.contents.push(table, separator);
 
     var playerTable = {};
 
     var num = 1;
     for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].health > 0) {
+      if (
+        group_session.players[i].health > 0 &&
+        group_session.players[i].attack === ""
+      ) {
         playerTable[i] = {
           type: "box",
           layout: "horizontal",
@@ -150,11 +177,22 @@ module.exports = {
               text: "",
               size: "md",
               wrap: true,
-              flex :3,
-              align: 'center'
+              flex: 3,
+              align: "center"
             }
           ]
         };
+
+        if (group_session.mode === "team") {
+          playerTable[i].contents.push({
+            type: "text",
+            text: group_session.players[i].team,
+            size: "md",
+            wrap: true,
+            flex: 2,
+            align: "end"
+          });
+        }
 
         playerTable[i].contents[0].text += num;
         playerTable[i].contents[1].text += group_session.players[i].name;
@@ -168,7 +206,7 @@ module.exports = {
   getPostBattle: function(group_session) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Ada pesan untuk kamu!",
       contents: {
         type: "bubble",
         header: {
@@ -177,11 +215,11 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Hasil Attack",
+              text: "🎌 Hasil Attack",
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -193,7 +231,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -210,15 +248,15 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          flex : 3
+          flex: 3
         },
         {
           type: "text",
-          text: "Attack",
+          text: "Atk",
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 2
+          flex: 3
         },
         {
           type: "text",
@@ -226,21 +264,33 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 3
+          flex: 4
         }
       ]
     };
-    
-    let separator =  {
-        "type": "separator",
-        "margin": "xs",
-        "color": "#1DB446"
-      }
-    
+
+    if (group_session.mode === "team") {
+      table.contents.push({
+        type: "text",
+        text: "Team",
+        weight: "bold",
+        size: "md",
+        wrap: true,
+        flex: 3,
+        align: "end"
+      });
+    }
+
+    let separator = {
+      type: "separator",
+      margin: "xs",
+      color: "#2D4059"
+    };
+
     flex_msg.contents.body.contents.push(table, separator);
 
     var playerTable = {};
-    
+
     for (let i = 0; i < group_session.players.length; i++) {
       if (group_session.players[i].attack !== "") {
         playerTable[i] = {
@@ -260,18 +310,29 @@ module.exports = {
               text: "",
               size: "md",
               wrap: true,
-              flex: 2
+              flex: 3
             },
             {
               type: "text",
               text: "gak ada",
               size: "md",
               wrap: true,
-              flex: 3
+              flex: 4
             }
           ]
         };
-  
+
+        if (group_session.mode === "team") {
+          playerTable[i].contents.push({
+            type: "text",
+            text: group_session.players[i].team,
+            size: "md",
+            wrap: true,
+            flex: 2,
+            align: "end"
+          });
+        }
+
         playerTable[i].contents[0].text += group_session.players[i].name;
         playerTable[i].contents[1].text += group_session.players[i].attack;
         if (group_session.players[i].attacker.length !== 0) {
@@ -283,10 +344,10 @@ module.exports = {
     }
     return flex_msg;
   },
-  getNewGame: function() {
+  getNewGame: function(group_session) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Game baru telah dibuat!",
       contents: {
         type: "bubble",
         header: {
@@ -295,11 +356,11 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Game baru telah dibuat",
+              text: "🎮 Game baru telah dibuat",
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -310,7 +371,14 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Ayok joing!",
+              text: "Mode : " + group_session.mode,
+              weight: "regular",
+              size: "lg",
+              wrap: true
+            },
+            {
+              type: "text",
+              text: "Ayok Gabung!",
               weight: "bold",
               size: "xl",
               wrap: true
@@ -324,6 +392,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
+              color: "#2D4059",
               action: {
                 type: "postback",
                 label: "gabung",
@@ -334,7 +403,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -344,22 +413,22 @@ module.exports = {
   getFlex: function(flex_text) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Ada pesan untuk kamu!",
       contents: {
         type: "bubble",
         header: {
-          type: 'box',
-          layout: 'vertical',
+          type: "box",
+          layout: "vertical",
           contents: [
             {
-              type: 'text',
+              type: "text",
               text: flex_text.header,
-              weight: 'bold',
-              size: 'xl',
+              weight: "bold",
+              size: "lg",
               wrap: true,
-              color: '#ffffff'
+              color: "#F6F6F6"
             }
-            ]
+          ]
         },
         body: {
           type: "box",
@@ -369,25 +438,25 @@ module.exports = {
               type: "text",
               text: flex_text.body,
               weight: "regular",
-              size: "xl",
+              size: "md",
               margin: "md",
               wrap: true
             }
           ]
         },
-        styles : {
+        styles: {
           header: {
-            backgroundColor: '#1DB446'
+            backgroundColor: "#2D4059"
           }
         }
       }
     };
     return flex_msg;
   },
-  getEndGame: function(group_session, header){
+  getEndGame: function(group_session, header) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Ada pesan untuk kamu!",
       contents: {
         type: "bubble",
         header: {
@@ -400,7 +469,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -415,18 +484,17 @@ module.exports = {
                 {
                   type: "text",
                   text: "Name",
-                  flex: 3
+                  flex: 3,
+                  size: "md",
+                  weight: "bold"
                 },
                 {
                   type: "text",
-                  text: "Attack",
-                  flex: 2
-                },
-                {
-                  type: "text",
-                  text: "Attacker",
+                  text: "Kill Streak",
                   flex: 4,
-                  align: 'center'
+                  size: "md",
+                  align: "center",
+                  weight: "bold"
                 }
               ],
               margin: "none",
@@ -435,7 +503,7 @@ module.exports = {
             {
               type: "separator",
               margin: "none",
-              color: "#000000"
+              color: "#2D4059"
             }
           ]
         },
@@ -446,9 +514,10 @@ module.exports = {
             {
               type: "button",
               style: "primary",
+              color: "#2D4059",
               action: {
                 type: "postback",
-                label: "Play Egen",
+                label: "main lagi",
                 data: "/new"
               }
             }
@@ -456,62 +525,74 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
     };
 
+    if (group_session.mode === "team") {
+      flex_msg.contents.body.contents[0].contents.push({
+        type: "text",
+        text: "Team",
+        weight: "bold",
+        size: "md",
+        wrap: true,
+        flex: 2,
+        align: "end"
+      });
+    }
+
     var playerTable = {};
 
     for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].attack !== "") {
-        playerTable[i] = {
-          type: "box",
-          layout: "horizontal",
-          spacing: "md",
-          contents: [
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true,
-              flex: 3
-            },
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true,
-              flex: 2
-            },
-            {
-              type: "text",
-              text: "gak ada",
-              size: "md",
-              wrap: true,
-              flex: 4,
-              align: 'center'
-            }
-          ]
-        };
+      playerTable[i] = {
+        type: "box",
+        layout: "horizontal",
+        spacing: "md",
+        contents: [
+          {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true,
+            flex: 3
+          },
+          {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true,
+            flex: 3,
+            align: "center"
+          }
+        ]
+      };
 
-        playerTable[i].contents[0].text += group_session.players[i].name;
-        playerTable[i].contents[1].text += group_session.players[i].attack;
-        if (group_session.players[i].attacker.length !== 0) {
-          let attacker = group_session.players[i].attacker.join(", ");
-          playerTable[i].contents[2].text = attacker;
-        }
-        flex_msg.contents.body.contents.push(playerTable[i]);
+      if (group_session.mode === "team") {
+        playerTable[i].contents.push({
+          type: "text",
+          text: group_session.players[i].team,
+          size: "md",
+          wrap: true,
+          flex: 2,
+          align: "end"
+        });
       }
+
+      playerTable[i].contents[0].text += group_session.players[i].name;
+      
+      playerTable[i].contents[1].text += group_session.players[i].killStreak;
+      
+      flex_msg.contents.body.contents.push(playerTable[i]);
     }
 
     return flex_msg;
   },
-  getPlayerList: function(group_session){
+  getPlayerList: function(group_session) {
     var flex_msg = {
       type: "flex",
-      altText: "ada pesan untuk kamu!",
+      altText: "📣 Ada pesan untuk kamu!",
       contents: {
         type: "bubble",
         header: {
@@ -520,11 +601,11 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "List Pemain",
+              text: "📜 List Pemain",
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -551,46 +632,92 @@ module.exports = {
             {
               type: "separator",
               margin: "none",
-              color: "#000000"
+              color: "#2D4059"
             }
           ]
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
     };
 
+    if (group_session.state !== "new" && group_session.mode === "team") {
+      flex_msg.contents.body.contents[0].contents.push({
+        type: "text",
+        text: "Team"
+      });
+    }
+
+    if (group_session.state === "new") {
+      flex_msg.contents.body.contents[0].contents[1].text = "Kill";
+    }
+
     var playerTable = {};
 
     for (let i = 0; i < group_session.players.length; i++) {
-        playerTable[i] = {
-          type: "box",
-          layout: "horizontal",
-          spacing: "md",
-          contents: [
-            {
-              type: "text",
-              text: "",
-              size: "md",
-              wrap: true,
-            },
-            {
-              type: 'text',
-              text: 'pending',
-              size: 'md',
-              wrap: true
-            }
-          ]
-        };
+      playerTable[i] = {
+        type: "box",
+        layout: "horizontal",
+        spacing: "md",
+        contents: [
+          {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true
+          },
+          {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true
+          }
+        ]
+      };
 
-        playerTable[i].contents[0].text += group_session.players[i].name;
-        if (group_session.players[i].attack !== ''){
-          playerTable[i].contents[1].text = 'done';
+      if (group_session.state !== "new" && group_session.mode === "team") {
+        playerTable[i].contents.push({
+          type: "text",
+          text: group_session.players[i].team,
+          size: "md"
+        });
+      }
+
+      if (group_session.state === "new") {
+        playerTable[i].contents[1].text += group_session.players[i].killAmount;
+      } else {
+        if (group_session.players[i].health > 0) {
+          playerTable[i].contents[1].text = "survive";
+        } else {
+          playerTable[i].contents[1].text = "eliminated";
         }
-        flex_msg.contents.body.contents.push(playerTable[i]);
+      }
+
+      playerTable[i].contents[0].text += group_session.players[i].name;
+
+      flex_msg.contents.body.contents.push(playerTable[i]);
+    }
+
+    if (group_session.state === "new") {
+      flex_msg.contents.footer = {
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "button",
+            style: "primary",
+            color: "#2D4059",
+            action: {
+              type: "postback",
+              label: "gabung",
+              data: "/join"
+            }
+          }
+        ]
+      };
     }
 
     return flex_msg;

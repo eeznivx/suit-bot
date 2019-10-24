@@ -17,5 +17,15 @@ module.exports = {
 				return i;
 			}
 		}
-  }
+  },
+  shuffleArray: function(o) {
+		for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+		return o;
+	},
+  
+  isEven: function(n){
+    return n % 2 == 0;
+  },
+  
+  
 }

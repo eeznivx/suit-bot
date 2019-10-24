@@ -1,4 +1,4 @@
-const helper = require("/app/helper");
+const helper = require('/app/helper/flex');
 function handle (client, event, args, user_session, group_session){
   let text = "";
   let flex_text = {
@@ -6,27 +6,32 @@ function handle (client, event, args, user_session, group_session){
     body: "hoi"
   }
   
-  if (group_session === undefined){
-    return Promise.resolve(null);
-  }
   console.log(group_session);
   console.log(user_session);
- 
-  if (group_session.state === "idle"){
-    return replyText("💡 Tidak ada game yang berjalan");
+  if (group_session.state !== "idle" && group_session.state !== 'new'){
+    return replyText('💡 Tidak bisa mengganti mode saat game sedang berjalan');
   }
   
-  if (helper.indexOfPlayer(user_session, group_session) === -1){
-    return replyText('💡 ' + user_session.name + ", kamu belum bergabung digame");
+  if (args[1] === undefined){
+    return replyText('💡 cth : "/mode classic" atau "/mode team"');
   }
   
-  group_session.state = "idle";
-  resetAllPlayers(group_session.players);
-  group_session.players.length = 0;
+  let mode = args[1];
+  
+  switch(mode){
+    case 'classic':
+    case 'team':
+      group_session.mode = args[1];
+      break;
+      
+    default:
+      return replyText('💡 cth : "/mode classic" atau "/mode team"');
+  }
+  
   saveGroupData();
   
-  text += "💡 Game di stop " + user_session.name;
-  replyText(text);
+  replyText('💡 Game mode berhasil diubah ke ' + args[1]);
+  
   
   function saveUserData(){
     const data = require("/app/src/data");
@@ -44,11 +49,6 @@ function handle (client, event, args, user_session, group_session){
       event.replyToken,
       texts.map(text => ({ type: "text", text }))
     );
-  }
-  
-  function resetAllPlayers(players){
-    const data = require('/app/src/data');
-    data.resetAllPlayers(players);
   }
   
 }

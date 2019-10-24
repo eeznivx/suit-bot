@@ -6,11 +6,12 @@ function handle (client, event, args, user_session, group_session){
     body: ""
   }
   
-  flex_text.header = "Commands";
+  flex_text.header = "📚 Commands";
   
   let cmds = [
     "/new utk buat game baru", "/join utk join game yang sudah ada", "/cancel utk keluar dari game", "/stop utk stop game yang dibuat",
-    "/player utk cek pemain yang bergabung", "/check utk cek status game yg sudah berjalan"
+    "/player utk cek pemain yang bergabung", "/check utk cek status game yg sudah berjalan", "/info untuk cek profile user",
+    "/mode untuk mengganti mode game"
   ]
   
   let num = 1;

@@ -1,6 +1,9 @@
 {
   "id": "U09594ebff742f342967eaa219842284b",
-  "status": "active",
+  "status": "inactive",
   "name": "Andi Wahyu KM",
-  "groupId": "Ca69cbacad262cd474f94219786801d94"
+  "killAmount": 2,
+  "batuAmount": 4,
+  "guntingAmount": 1,
+  "kertasAmount": 7
 }

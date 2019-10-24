@@ -4,7 +4,7 @@ function handle (client, event, args, user_session, group_session){
     header: "hai",
     body: "hoi"
   }
-  
+  //console.log(group_session);
   if (group_session === undefined){
     return Promise.resolve(null);
   }
@@ -12,19 +12,23 @@ function handle (client, event, args, user_session, group_session){
   console.log(user_session);
   if (group_session.state !== "new"){
     if (group_session.state === "idle"){
-      return replyText("belum ada game yg dibuat. ketik '/new' utk buat");
+      return replyText('💡 ' + user_session.name + ", belum ada game yg dibuat. ketik '/new' utk buat");
     } else {
-      return replyText("sedang ada game yang berjalan");
+      return replyText('💡 ' + user_session.name + ", sedang ada game yang berjalan");
     }
   }
   
   
   if (user_session.status === "active"){
     if (user_session.groupId !== group_session.groupId){
-      return replyText(user_session.name + ", kamu sedang bermain di group lain");
+      return replyText('💡 ' + user_session.name + ", kamu sedang bermain di group lain");
     } else {
-      return replyText(user_session.name + ", kamu sudah bergabung");
+      return replyText('💡 ' + user_session.name + ", kamu sudah bergabung");
     }
+  }
+  
+  if (group_session.players.length === 8){
+    return replyText('💡 ' + user_session.name + ', maaf max pemain hanya 8 pemain');
   }
   
   user_session.status = "active";
@@ -35,16 +39,25 @@ function handle (client, event, args, user_session, group_session){
   var new_player = {
     id : user_session.id,
     name: user_session.name,
+    killAmount: user_session.killAmount,
+    batuAmount: user_session.batuAmount,
+    guntingAmount: user_session.guntingAmount,
+    kertasAmount: user_session.kertasAmount,
     attack : "",
     attacker: [],
-    health: 0
+    health: 0,
+    killStreak: 0
+  }
+  
+  if (group_session.mode === 'team'){
+    new_player.team = '';
   }
   
   group_session.players.push(new_player);
   
   saveGroupData();
   
-  replyText(user_session.name + " berhasil join game!");
+  replyText('💡 ' + user_session.name + " berhasil join game!");
  
   function saveUserData(){
     const data = require("/app/src/data");

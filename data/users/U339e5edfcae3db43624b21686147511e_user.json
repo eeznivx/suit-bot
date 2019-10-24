@@ -1,5 +1,9 @@
 {
   "id": "U339e5edfcae3db43624b21686147511e",
   "status": "inactive",
-  "name": "Eko Prastius"
+  "name": "Eko Prastius",
+  "killAmount": 0,
+  "batuAmount": 2,
+  "guntingAmount": 0,
+  "kertasAmount": 3
 }

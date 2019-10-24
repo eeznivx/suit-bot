@@ -6,7 +6,7 @@ function handle (client, event, args, user_session, group_session){
     body: ""
   }
   
-  flex_text.header = "Help";
+  flex_text.header = "🧭 Help";
   
   let helps = [
     "Batu menang vs Gunting", "Gunting menang vs Kertas", "Kertas menang vs Batu",

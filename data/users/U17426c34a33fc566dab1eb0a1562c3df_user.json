@@ -1,5 +1,9 @@
 {
   "id": "U17426c34a33fc566dab1eb0a1562c3df",
   "status": "inactive",
-  "name": "Advent Samuel"
+  "name": "Advent Samuel",
+  "killAmount": 0,
+  "batuAmount": 3,
+  "guntingAmount": 2,
+  "kertasAmount": 2
 }
