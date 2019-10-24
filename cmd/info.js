@@ -16,7 +16,7 @@ function handle(client, event, args, user_session, group_session) {
     {
       name: 'batu',
       value: user_session.batuAmount,
-      emoji: '✊ '
+      emoji: '👊 '
     },
     {
       name: 'gunting',

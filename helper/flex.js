@@ -15,7 +15,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -38,43 +38,55 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
+                  color: '#2D4059',
                   action: {
                     type: "postback",
-                    label: "batu",
+                    label: "👊",
                     data: "/attack batu"
                   }
                 },
                 {
                   type: "button",
                   style: "primary",
+                  color: '#2D4059',
                   action: {
                     type: "postback",
-                    label: "gunting",
+                    label: "✌️",
                     data: "/attack gunting"
                   }
-                }
-              ]
-            },
-            {
-              type: "box",
-              layout: "horizontal",
-              contents: [
+                },
                 {
                   type: "button",
                   style: "primary",
+                  color: '#2D4059',
                   action: {
                     type: "postback",
-                    label: "kertas",
+                    label: "✋",
                     data: "/attack kertas"
                   }
                 }
               ]
-            }
+            },
+            // {
+            //   type: "box",
+            //   layout: "horizontal",
+            //   contents: [
+            //     {
+            //       type: "button",
+            //       style: "primary",
+            //       action: {
+            //         type: "postback",
+            //         label: "kertas",
+            //         data: "/attack kertas"
+            //       }
+            //     }
+            //   ]
+            // }
           ]
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -116,7 +128,7 @@ module.exports = {
     let separator = {
       type: "separator",
       margin: "xs",
-      color: "#1DB446"
+      color: "#2D4059"
     };
 
     flex_msg.contents.body.contents.push(table, separator);
@@ -125,7 +137,7 @@ module.exports = {
 
     var num = 1;
     for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].health > 0) {
+      if (group_session.players[i].health > 0 && group_session.players[i].attack === '') {
         playerTable[i] = {
           type: "box",
           layout: "horizontal",
@@ -181,7 +193,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -193,7 +205,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -234,7 +246,7 @@ module.exports = {
     let separator = {
       type: "separator",
       margin: "xs",
-      color: "#1DB446"
+      color: "#2D4059"
     };
 
     flex_msg.contents.body.contents.push(table, separator);
@@ -299,7 +311,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#F6F6F6"
             }
           ]
         },
@@ -313,8 +325,7 @@ module.exports = {
               text: "Mode : " + group_session.mode,
               weight: "regular",
               size: "lg",
-              wrap: true,
-              color: "#000000"
+              wrap: true
             },
             {
               type: "text",
@@ -332,6 +343,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
+              color: "#2D4059",
               action: {
                 type: "postback",
                 label: "gabung",
@@ -342,7 +354,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -365,7 +377,7 @@ module.exports = {
               weight: "bold",
               size: "lg",
               wrap: true,
-              color: "#ffffff"
+             color: "#F6F6F6"
             }
           ]
         },
@@ -385,7 +397,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -408,7 +420,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#FFB400"
             }
           ]
         },
@@ -443,7 +455,7 @@ module.exports = {
             {
               type: "separator",
               margin: "none",
-              color: "#000000"
+              color: "#2D4059"
             }
           ]
         },
@@ -454,6 +466,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
+              color: '#2D4059',
               action: {
                 type: "postback",
                 label: "main lagi",
@@ -464,7 +477,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -528,11 +541,11 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "🧍 🧍 List Pemain",
+              text: "🧍🧍 List Pemain",
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#FFFFFF"
+              color: "#FFB400"
             }
           ]
         },
@@ -559,13 +572,13 @@ module.exports = {
             {
               type: "separator",
               margin: "none",
-              color: "#000000"
+              color: "#2D4059"
             }
           ]
         },
         styles: {
           header: {
-            backgroundColor: "#1DB446"
+            backgroundColor: "#2D4059"
           }
         }
       }
@@ -609,6 +622,7 @@ module.exports = {
           {
             type: "button",
             style: "primary",
+            color: '#2D4059',
             action: {
               type: "postback",
               label: "gabung",

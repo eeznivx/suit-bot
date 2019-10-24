@@ -261,13 +261,13 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function preBattle(msg) {
-    let preBattleFlexMsg = flex.getPreBattle(group_session);
-    msg.push(preBattleFlexMsg);
-
     for (let i = 0; i < group_session.players.length; i++) {
       group_session.players[i].attack = "";
       group_session.players[i].attacker = [];
     }
+    
+    let preBattleFlexMsg = flex.getPreBattle(group_session);
+    msg.push(preBattleFlexMsg);
 
     saveGroupData();
 
