@@ -632,8 +632,8 @@ module.exports = {
                 },
                 {
                   type: "text",
-                  text: "Status"
-                }
+                  text: ""
+                },
               ],
               margin: "none",
               spacing: "none"
@@ -652,6 +652,17 @@ module.exports = {
         }
       }
     };
+    
+    if (group_session.state !== 'new' && group_session.mode === 'team'){
+      flex_msg.contents.body.contents.contents.push({
+                  type: "text",
+                  text: "Team"
+                })
+    }
+    
+    if (group_session.state === 'new'){
+      flex_msg.contents.body.contents.contents[1].text = 'Kill';
+    }
 
     var playerTable = {};
 
@@ -669,17 +680,33 @@ module.exports = {
           },
           {
             type: "text",
-            text: "pending",
+            text: "",
             size: "md",
             wrap: true
           }
         ]
       };
+      
+      if (group_session.state !== 'new' && group_session.mode === 'team'){
+        playerTable[i].contents.push({
+            type: "text",
+            text: group_session.players[i].team,
+            size: "md",
+          })
+      }
+
+      if (group_session.state === 'new'){
+        playerTable[i].contents[1].text += group_session.players[i].killAmount;
+      } else {
+        if (group_session.players[i].health > 0) {
+          playerTable[i].contents[1].text = "survive";
+        } else {
+          playerTable[i].contents[1].text = "eliminated";
+        }
+      }
 
       playerTable[i].contents[0].text += group_session.players[i].name;
-      if (group_session.players[i].attack !== "") {
-        playerTable[i].contents[1].text = "done";
-      }
+      
       flex_msg.contents.body.contents.push(playerTable[i]);
     }
 
