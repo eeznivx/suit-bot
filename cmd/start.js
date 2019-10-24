@@ -53,7 +53,9 @@ function handle (client, event, args, user_session, group_session){
       }
     })
     
-    health = halfPlayersAmount;
+    // health = halfPlayersAmount;
+     health = halfPlayersAmount + 1;
+    // health = group_session.players.length;
     
   }
   

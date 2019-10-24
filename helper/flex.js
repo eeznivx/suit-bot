@@ -550,7 +550,6 @@ module.exports = {
     var playerTable = {};
 
     for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].attack !== "") {
         playerTable[i] = {
           type: "box",
           layout: "horizontal",
@@ -600,7 +599,6 @@ module.exports = {
         }
         flex_msg.contents.body.contents.push(playerTable[i]);
       }
-    }
     
     return flex_msg;
   },
