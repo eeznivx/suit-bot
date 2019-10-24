@@ -218,12 +218,12 @@ function handle(client, event, args, user_session, group_session) {
         if (group_session.players[i].health > 0) {
           let winner_index = i;
           console.log("winner index", i);
-          return endgame(msg, winner_index);
+          return classicEndgame(msg, winner_index);
         }
       }
     } else if (alive === 0) {
       // draw?
-      drawgame(msg);
+      drawGame(msg);
     } else {
       // ke preBattle
       //TODO: buat ini bisa ke state pilih power ups
@@ -233,10 +233,36 @@ function handle(client, event, args, user_session, group_session) {
   }
   
   function teamMode(msg){
-    //
+    let teamA = [];
+    let teamB = [];
+    
+    group_session.players.forEach((item) => {
+      if (item.team === 'A'){
+        teamA.push(item);
+      } else {
+        teamB.push(item);
+      }
+    })
+    
+    if (teamA.length === 0 && teamB.length !== 0){
+      teamEndGame(msg, teamB);
+    } else if (teamB.length === 0 && teamA.length !== 0){
+      teamEndGame(msg, teamA);
+    } else if (teamA.length === 0 && teamB.length === 0){
+      //draw
+      drawGame(msg);
+    } else {
+      //ke prebattle
+      //atau ke bonus round power ups itu
+    }
+    
+  }
+  
+  function teamEndGame(msg, winner_team){
+    
   }
 
-  function endgame(msg, winner_index) {
+  function classicEndgame(msg, winner_index) {
     console.log("ini diendgame");
     let winnerName = group_session.players[winner_index].name;
     let headerText = "🎉 Pemenangnya adalah " + winnerName + ' 🎉';
@@ -255,7 +281,7 @@ function handle(client, event, args, user_session, group_session) {
     client.replyMessage(event.replyToken, msg);
   }
 
-  function drawgame(msg) {
+  function drawGame(msg) {
     console.log("ini draw game");
     let headerText = "⛔ Game Draw bois ⛔";
     let endGameFlex = flex.getEndGame(group_session, headerText);
