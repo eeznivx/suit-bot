@@ -48,7 +48,7 @@ function handle(client, event, args, user_session, group_session) {
     ]
   }
   
-  let flexMsg = flex.getEndGame(dummy, "lalla");
+  let flexMsg = flex.getPlayerList(dummy, "lalla");
   console.log(JSON.stringify(flexMsg.contents));
   client.replyMessage(event.replyToken, flexMsg);
 

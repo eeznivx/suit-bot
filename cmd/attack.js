@@ -385,6 +385,7 @@ function handle(client, event, args, user_session, group_session) {
       teamEndGame(msg, teamAName);
     } else if (team_a_alive === 0 && team_b_alive === 0){
       //draw
+      console.log('draw game team');
       drawGame(msg);
     } else {
       
@@ -412,7 +413,7 @@ function handle(client, event, args, user_session, group_session) {
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
     saveGroupData();
-    client.replyMessage(event.replyToken, msg);
+    client.replyMessage(event.replyToken, msg).catch((err) => {console.log(err)});
   }
 
   function classicEndgame(msg, winner_index) {

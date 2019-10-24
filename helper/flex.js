@@ -582,7 +582,11 @@ module.exports = {
 
       playerTable[i].contents[0].text += group_session.players[i].name;
       
-      playerTable[i].contents[1].text += group_session.players[i].killStreak;
+      if (group_session.players[i].killStreak !== 0){
+        playerTable[i].contents[1].text += group_session.players[i].killStreak;
+      } else {
+        playerTable[i].contents[1].text += "0";
+      }
       
       flex_msg.contents.body.contents.push(playerTable[i]);
     }
