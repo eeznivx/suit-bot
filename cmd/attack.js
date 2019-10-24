@@ -389,6 +389,8 @@ function handle(client, event, args, user_session, group_session) {
     } else {
       //ke prebattle
       //atau ke bonus round power ups itu
+      group_session.state = "preBattle";
+      return preBattle(msg);
     }
     
   }

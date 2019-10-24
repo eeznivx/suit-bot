@@ -99,7 +99,7 @@ module.exports = {
       contents: [
         {
           type: "text",
-          text: "No.",
+          text: "No",
           weight: "bold",
           size: "md",
           wrap: true,
@@ -132,7 +132,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 1,
+          flex: 2,
           align: "end"
         })
     }
@@ -186,7 +186,7 @@ module.exports = {
             text: group_session.players[i].team,
             size: "md",
             wrap: true,
-            flex: 1,
+            flex: 2,
             align: "end"
           })
         }
@@ -249,7 +249,7 @@ module.exports = {
         },
         {
           type: "text",
-          text: "Attack",
+          text: "Atk",
           weight: "bold",
           size: "md",
           wrap: true,
@@ -273,7 +273,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 1,
+          flex: 2,
           align: "end"
         })
     }
@@ -325,7 +325,7 @@ module.exports = {
             text: group_session.players[i].team,
             size: "md",
             wrap: true,
-            flex: 1,
+            flex: 2,
             align: "end"
           })
         }
@@ -530,7 +530,7 @@ module.exports = {
     };
     
     if (group_session.mode === 'team'){
-      flex_msg.contents.body.contents.contents.push({
+      flex_msg.contents.body.contents[0].contents.push({
           type: "text",
           text: "Team",
           weight: "bold",
@@ -632,7 +632,7 @@ module.exports = {
                 },
                 {
                   type: "text",
-                  text: ""
+                  text: "Status"
                 },
               ],
               margin: "none",
@@ -654,14 +654,14 @@ module.exports = {
     };
     
     if (group_session.state !== 'new' && group_session.mode === 'team'){
-      flex_msg.contents.body.contents.contents.push({
+      flex_msg.contents.body.contents[0].contents.push({
                   type: "text",
                   text: "Team"
                 })
     }
     
     if (group_session.state === 'new'){
-      flex_msg.contents.body.contents.contents[1].text = 'Kill';
+      flex_msg.contents.body.contents[0].contents[1].text = 'Kill';
     }
 
     var playerTable = {};
