@@ -256,7 +256,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 2
+          flex: 3
         },
         {
           type: "text",
@@ -264,7 +264,7 @@ module.exports = {
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 3
+          flex: 4
         }
       ]
     };
@@ -276,7 +276,7 @@ module.exports = {
         weight: "bold",
         size: "md",
         wrap: true,
-        flex: 2,
+        flex: 3,
         align: "end"
       });
     }
@@ -310,14 +310,14 @@ module.exports = {
               text: "",
               size: "md",
               wrap: true,
-              flex: 2
+              flex: 3
             },
             {
               type: "text",
               text: "gak ada",
               size: "md",
               wrap: true,
-              flex: 3
+              flex: 4
             }
           ]
         };
@@ -490,15 +490,8 @@ module.exports = {
                 },
                 {
                   type: "text",
-                  text: "Status",
-                  flex: 2,
-                  size: "md",
-                  weight: "bold"
-                },
-                {
-                  type: "text",
                   text: "Kill Streak",
-                  flex: 2,
+                  flex: 4,
                   size: "md",
                   align: "center",
                   weight: "bold"
@@ -570,14 +563,7 @@ module.exports = {
             text: "",
             size: "md",
             wrap: true,
-            flex: 2
-          },
-          {
-            type: "text",
-            text: "",
-            size: "md",
-            wrap: true,
-            flex: 2,
+            flex: 3,
             align: "center"
           }
         ]
@@ -596,13 +582,7 @@ module.exports = {
 
       playerTable[i].contents[0].text += group_session.players[i].name;
       
-      if (group_session.players[i].health > 0){
-        playerTable[i].contents[1].text += "survive";
-      } else {
-        playerTable[i].contents[1].text += "eliminated";
-      }
-      
-      playerTable[i].contents[2].text += group_session.players[i].killStreak;
+      playerTable[i].contents[1].text += group_session.players[i].killStreak;
       
       flex_msg.contents.body.contents.push(playerTable[i]);
     }

@@ -3,7 +3,6 @@
 - [referensi warna](https://logobly.com/blog/color-combinations/)
 
 ## Todo
-- mode team vs team
 - pas join respon flex sama character player, trus bisa kasih footer utk start
 
 ## Done
@@ -12,3 +11,4 @@
 - kasih flex play again di endgame
 - kasih embel double kill, triple kill setelah battle state (func)
 - kasih emoji emoji sama rapiin string
+- mode team vs team

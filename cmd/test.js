@@ -7,7 +7,7 @@ function handle(client, event, args, user_session, group_session) {
   };
   
   //disable test
-  //return Promise.resolve(null)
+  return Promise.resolve(null)
   
   let dummy = {
     state : 'preBattle',
@@ -15,7 +15,7 @@ function handle(client, event, args, user_session, group_session) {
     players : [
       {
         name: 'sasa',
-        attack: '',
+        attack: 'gunting',
         attacker: ['soso', 'sisi'],
         health: 3,
         team: 'A',
@@ -23,7 +23,7 @@ function handle(client, event, args, user_session, group_session) {
       },
       {
         name: 'soso',
-        attack: '',
+        attack: 'gunting',
         attacker: [],
         health: 0,
         team: 'A',
@@ -31,7 +31,7 @@ function handle(client, event, args, user_session, group_session) {
       },
       {
         name: 'sisi',
-        attack: '',
+        attack: 'gunting',
         attacker: [],
         health: 3,
         team: 'B',
@@ -39,7 +39,7 @@ function handle(client, event, args, user_session, group_session) {
       },
       {
         name: 'sese',
-        attack: '',
+        attack: 'gunting',
         attacker: [],
         health: 3,
         team: 'B',
