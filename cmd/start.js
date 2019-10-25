@@ -47,9 +47,9 @@ function handle (client, event, args, user_session, group_session){
     
     group_session.players.forEach((item, index) => {
       if (index >= halfPlayersAmount){
-        item.team = 'A';
-      } else {
         item.team = 'B';
+      } else {
+        item.team = 'A';
       }
     })
     

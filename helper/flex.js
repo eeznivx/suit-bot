@@ -329,7 +329,7 @@ module.exports = {
             size: "md",
             wrap: true,
             flex: 2,
-            align: "end"
+            align: "center"
           });
         }
 
@@ -576,18 +576,18 @@ module.exports = {
           size: "md",
           wrap: true,
           flex: 2,
-          align: "end"
+          align: "center"
         });
       }
 
       playerTable[i].contents[0].text += group_session.players[i].name;
-      
-      if (group_session.players[i].killStreak !== 0){
+
+      if (group_session.players[i].killStreak !== 0) {
         playerTable[i].contents[1].text += group_session.players[i].killStreak;
       } else {
         playerTable[i].contents[1].text += "0";
       }
-      
+
       flex_msg.contents.body.contents.push(playerTable[i]);
     }
 

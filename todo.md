@@ -3,6 +3,7 @@
 - [referensi warna](https://logobly.com/blog/color-combinations/)
 
 ## Todo
+- buat commands utk setup character pas pertama kali add,
 - pas join respon flex sama character player, trus bisa kasih footer utk start
 
 ## Done
