@@ -4,6 +4,9 @@
 
 ## Todo
 - buat commands utk setup character pas pertama kali add,
+- refactor all player props (add damage, status = active, stun, poisoned), add skill)
+- berarti add skill "keywords"
+- 
 - pas join respon flex sama character player, trus bisa kasih footer utk start
 
 ## Done

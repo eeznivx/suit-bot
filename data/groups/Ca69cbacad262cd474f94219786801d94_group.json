@@ -1,33 +1,7 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [
-    {
-      "id": "U09594ebff742f342967eaa219842284b",
-      "name": "Andi Wahyu KM",
-      "killAmount": 3,
-      "batuAmount": 5,
-      "guntingAmount": 5,
-      "kertasAmount": 18,
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "killStreak": 0
-    },
-    {
-      "id": "Uf74b8457b0eddead5898bbd52e30462b",
-      "name": "Khomethy",
-      "killAmount": 10,
-      "batuAmount": 38,
-      "guntingAmount": 16,
-      "kertasAmount": 21,
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "killStreak": 0,
-      "team": ""
-    }
-  ],
-  "state": "new",
+  "players": [],
+  "state": "idle",
   "mode": "team"
 }
