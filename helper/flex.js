@@ -133,7 +133,7 @@ module.exports = {
         size: "md",
         wrap: true,
         flex: 2,
-        align: "end"
+        align: "center"
       });
     }
 
@@ -190,7 +190,7 @@ module.exports = {
             size: "md",
             wrap: true,
             flex: 2,
-            align: "end"
+            align: "center"
           });
         }
 
@@ -277,7 +277,7 @@ module.exports = {
         size: "md",
         wrap: true,
         flex: 3,
-        align: "end"
+        align: "center"
       });
     }
 
@@ -539,7 +539,7 @@ module.exports = {
         size: "md",
         wrap: true,
         flex: 2,
-        align: "end"
+        align: "center"
       });
     }
 

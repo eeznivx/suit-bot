@@ -1,7 +1,21 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [],
-  "state": "idle",
+  "players": [
+    {
+      "id": "Ub37be28be48a6a5ff5451a90c40a28d0",
+      "name": "♪KHOCENG•TRAVEL♪×͜͜×",
+      "killAmount": 4,
+      "batuAmount": 5,
+      "guntingAmount": 11,
+      "kertasAmount": 10,
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "killStreak": 0,
+      "team": ""
+    }
+  ],
+  "state": "new",
   "mode": "team"
 }

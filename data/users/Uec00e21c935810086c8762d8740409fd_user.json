@@ -1,9 +1,10 @@
 {
   "id": "Uec00e21c935810086c8762d8740409fd",
-  "status": "inactive",
+  "status": "active",
   "name": "Rizki",
   "killAmount": 9,
-  "batuAmount": 31,
+  "batuAmount": 32,
   "guntingAmount": 19,
-  "kertasAmount": 21
+  "kertasAmount": 24,
+  "groupId": "C17b71b534bf17d900d83dcef0500cfbd"
 }
