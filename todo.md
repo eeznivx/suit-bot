@@ -1,13 +1,10 @@
 ## Info
 - attackResult ga pake, pakenya attack aja kosong berarti dah kalah
 - [referensi warna](https://logobly.com/blog/color-combinations/)
+- rpg suit hold
 
 ## Todo
-- buat commands utk setup character pas pertama kali add,
-- refactor all player props (add damage, status = active, stun, poisoned), add skill)
-- berarti add skill "keywords"
-- 
-- pas join respon flex sama character player, trus bisa kasih footer utk start
+- buat detail attack (carousel) getPreBattleFlex
 
 ## Done
 - prototype done
