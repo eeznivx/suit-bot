@@ -1,10 +1,9 @@
 {
   "id": "U83caf7c21caa4cb90f5c616e0ef85e3a",
-  "status": "active",
+  "status": "inactive",
   "name": "Eriec Tan",
-  "killAmount": 6,
-  "batuAmount": 15,
-  "guntingAmount": 5,
-  "kertasAmount": 7,
-  "groupId": "C334b2c6d0dfe07d9066651b090fbfae5"
+  "killAmount": 12,
+  "batuAmount": 35,
+  "guntingAmount": 12,
+  "kertasAmount": 19
 }

@@ -1,7 +1,20 @@
 {
   "groupId": "C8530e6a6f8580860e7c953f60f468b7f",
   "name": "",
-  "players": [],
-  "state": "idle",
+  "players": [
+    {
+      "id": "U42db6386f24c0fe7f012f5ce5d71d2c8",
+      "name": "Raphæl",
+      "killAmount": 4,
+      "batuAmount": 12,
+      "guntingAmount": 19,
+      "kertasAmount": 23,
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "killStreak": 0
+    }
+  ],
+  "state": "new",
   "mode": "classic"
 }

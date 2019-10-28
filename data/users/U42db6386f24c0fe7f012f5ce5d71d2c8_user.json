@@ -1,9 +1,10 @@
 {
   "id": "U42db6386f24c0fe7f012f5ce5d71d2c8",
-  "status": "inactive",
+  "status": "active",
   "name": "Raphæl",
   "killAmount": 4,
   "batuAmount": 12,
   "guntingAmount": 19,
-  "kertasAmount": 23
+  "kertasAmount": 23,
+  "groupId": "C8530e6a6f8580860e7c953f60f468b7f"
 }

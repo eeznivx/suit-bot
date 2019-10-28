@@ -1,9 +1,10 @@
 {
   "id": "Uf74b8457b0eddead5898bbd52e30462b",
-  "status": "inactive",
+  "status": "active",
   "name": "Khomethy",
-  "killAmount": 11,
-  "batuAmount": 46,
-  "guntingAmount": 17,
-  "kertasAmount": 29
+  "killAmount": 16,
+  "batuAmount": 82,
+  "guntingAmount": 33,
+  "kertasAmount": 46,
+  "groupId": "Ca69cbacad262cd474f94219786801d94"
 }
