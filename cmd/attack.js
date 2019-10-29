@@ -104,6 +104,39 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function classicMode(msg) {
+    ///init flex detail text
+    let bubbleDetail = {
+      type: "bubble",
+      header: {
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "text",
+            text: "📣 Detail",
+            weight: "bold",
+            size: "xl",
+            wrap: true,
+            color: "#F6F6F6"
+          }
+        ]
+      },
+      body: {
+        type: "box",
+        layout: "vertical",
+        spacing: "md",
+        contents: []
+      },
+      styles: {
+        header: {
+          backgroundColor: "#2D4059"
+        }
+      }
+    };
+
+    let detailText = {};
+    var detailTexts = [];
+
     for (let i = 0; i < group_session.players.length; i++) {
       //targets cuma bisa direset pas ganti attacker
       var targets = [];
@@ -125,8 +158,8 @@ function handle(client, event, args, user_session, group_session) {
             console.log("attacker id sama victim id sama, skipkan");
             continue;
           }
-          
-          if (attackerAttack === victimAttack){
+
+          if (attackerAttack === victimAttack) {
             console.log("attackerAttack sama dengan victimAttack, skip");
             continue;
           }
@@ -152,22 +185,32 @@ function handle(client, event, args, user_session, group_session) {
             helper.random(targets),
             group_session
           );
-          console.log(
-            "target yang kenak ",
-            group_session.players[targetIndex].name
-          );
+          console.log("target yang kenak ");
           group_session.players[targetIndex].health--;
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name
           );
 
+          //untuk detailText
+          detailText[i] = {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true
+          };
+
+          var attackerName = group_session.players[i].name;
+          var victimName = group_session.players[targetIndex].name;
+
+          //default, kedepan pake random response
+          detailText[i].text +=
+            attackerName + " menyerang " + victimName + " (-1 damage)";
+
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
             group_session.players[i].killStreak++;
 
-            var attackerName = group_session.players[i].name;
             var attackerStreak = group_session.players[i].killStreak;
-            var victimName = group_session.players[targetIndex].name;
 
             // opt_text[i] = {
             //   type: 'text',
@@ -213,6 +256,11 @@ function handle(client, event, args, user_session, group_session) {
             let flexMsg = flex.getFlex(flex_text[i]);
             msg.push(flexMsg);
           }
+          
+          
+          
+          
+          detailTexts.push(detailText[i]);
         }
       }
     }
@@ -224,8 +272,17 @@ function handle(client, event, args, user_session, group_session) {
       }
     }
     console.log("yang alive", alive);
-
-    let postBattleFlex = flex.getPostBattle(group_session);
+    
+    if (detailTexts.length === 0){
+      detailTexts.push({
+            type: "text",
+            text: "DRAW Attack",
+            size: "md",
+            wrap: true
+          })
+    }
+    
+    let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);
 
     if (alive === 1) {
@@ -292,8 +349,8 @@ function handle(client, event, args, user_session, group_session) {
             console.log("sama team, skipkan");
             continue;
           }
-          
-          if (attackerAttack === victimAttack){
+
+          if (attackerAttack === victimAttack) {
             console.log("attackerAttack sama dengan victimAttack, skip");
             continue;
           }

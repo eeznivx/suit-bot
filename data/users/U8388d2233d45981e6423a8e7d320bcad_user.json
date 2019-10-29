@@ -1,10 +1,9 @@
 {
   "id": "U8388d2233d45981e6423a8e7d320bcad",
-  "status": "active",
+  "status": "inactive",
   "name": "Rizka",
-  "killAmount": 0,
-  "batuAmount": 5,
-  "guntingAmount": 2,
-  "kertasAmount": 2,
-  "groupId": "Cb84eaecee2b69a5a7936f24323607e4c"
+  "killAmount": 2,
+  "batuAmount": 18,
+  "guntingAmount": 11,
+  "kertasAmount": 9
 }

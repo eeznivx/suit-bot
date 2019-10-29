@@ -203,36 +203,65 @@ module.exports = {
     }
     return flex_msg;
   },
-  getPostBattle: function(group_session) {
-    var flex_msg = {
-      type: "flex",
-      altText: "📣 Ada pesan untuk kamu!",
-      contents: {
-        type: "bubble",
-        header: {
-          type: "box",
-          layout: "vertical",
-          contents: [
-            {
-              type: "text",
-              text: "🎌 Hasil Attack",
-              weight: "bold",
-              size: "xl",
-              wrap: true,
-              color: "#F6F6F6"
-            }
-          ]
-        },
-        body: {
-          type: "box",
-          layout: "vertical",
-          spacing: "md",
-          contents: []
-        },
-        styles: {
-          header: {
-            backgroundColor: "#2D4059"
+  getPostBattle: function(group_session, detailTexts) {
+    var carousel = {
+      type: "carousel",
+      contents: []
+    };
+
+    var bubbleResult = {
+      type: "bubble",
+      header: {
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "text",
+            text: "🎌 Hasil Attack",
+            weight: "bold",
+            size: "xl",
+            wrap: true,
+            color: "#F6F6F6"
           }
+        ]
+      },
+      body: {
+        type: "box",
+        layout: "vertical",
+        spacing: "md",
+        contents: []
+      },
+      styles: {
+        header: {
+          backgroundColor: "#2D4059"
+        }
+      }
+    };
+
+    var bubbleDetail = {
+      type: "bubble",
+      header: {
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "text",
+            text: "🎌 Detail Attack",
+            weight: "bold",
+            size: "xl",
+            wrap: true,
+            color: "#F6F6F6"
+          }
+        ]
+      },
+      body: {
+        type: "box",
+        layout: "vertical",
+        contents: detailTexts
+      },
+      styles: {
+        header: {
+          backgroundColor: "#2D4059"
         }
       }
     };
@@ -287,7 +316,7 @@ module.exports = {
       color: "#2D4059"
     };
 
-    flex_msg.contents.body.contents.push(table, separator);
+    bubbleResult.body.contents.push(table, separator);
 
     var playerTable = {};
 
@@ -339,9 +368,18 @@ module.exports = {
           let attacker = group_session.players[i].attacker.join(", ");
           playerTable[i].contents[2].text = attacker;
         }
-        flex_msg.contents.body.contents.push(playerTable[i]);
+        bubbleResult.body.contents.push(playerTable[i]);
       }
     }
+
+    carousel.contents.push(bubbleResult, bubbleDetail);
+
+    var flex_msg = {
+      type: "flex",
+      altText: "📣 Ada pesan untuk kamu!",
+      contents: carousel
+    };
+    console.log(JSON.stringify(flex_msg.contents));
     return flex_msg;
   },
   getNewGame: function(group_session) {
