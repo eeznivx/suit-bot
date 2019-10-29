@@ -423,8 +423,16 @@ function handle(client, event, args, user_session, group_session) {
             wrap: true
           };
 
-          var attackerName = group_session.players[i].name + ' (' group_session.players[i].team + ')';
-          var victimName = group_session.players[targetIndex].name + ' (' group_session.players[targetIndex].team + ')';
+          var attackerName =
+            group_session.players[i].name +
+            " (" +
+            group_session.players[i].team +
+            ")";
+          var victimName =
+            group_session.players[targetIndex].name +
+            " (" +
+            group_session.players[targetIndex].team +
+            ")";
 
           //default, kedepan pake random response
           detailText[i].text +=
@@ -480,6 +488,8 @@ function handle(client, event, args, user_session, group_session) {
             let flexMsg = flex.getFlex(flex_text[i]);
             msg.push(flexMsg);
           }
+
+          detailTexts.push(detailText[i]);
         }
       }
     }

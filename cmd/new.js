@@ -17,6 +17,8 @@ function handle (client, event, args, user_session, group_session){
   }
   
   group_session.state = "new";
+  group_sessio
+  
   saveGroupData();
   
   let flex_msg = helper.getNewGame(group_session);
