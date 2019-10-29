@@ -270,15 +270,6 @@ function handle(client, event, args, user_session, group_session) {
     }
     console.log("yang alive", alive);
 
-    if (detailTexts.length === 0) {
-      detailTexts.push({
-        type: "text",
-        text: "DRAW Attack",
-        size: "md",
-        wrap: true
-      });
-    }
-
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);
 
@@ -516,15 +507,6 @@ function handle(client, event, args, user_session, group_session) {
       }
     });
 
-    if (detailTexts.length === 0) {
-      detailTexts.push({
-        type: "text",
-        text: "DRAW Attack",
-        size: "md",
-        wrap: true
-      });
-    }
-
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);
 
@@ -603,6 +585,8 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function preBattle(msg) {
+    group_session.round++;
+    
     for (let i = 0; i < group_session.players.length; i++) {
       group_session.players[i].attack = "";
       group_session.players[i].attacker = [];

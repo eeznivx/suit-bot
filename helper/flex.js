@@ -11,7 +11,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "📣 Pilih Attackmu!",
+              text: "📣 Ronde " + group_session.round + "!",
               weight: "bold",
               size: "xl",
               wrap: true,
@@ -217,7 +217,7 @@ module.exports = {
         contents: [
           {
             type: "text",
-            text: "🎌 Hasil Attack",
+            text: "🎌 Hasil Ronde " + group_session.round,
             weight: "bold",
             size: "xl",
             wrap: true,
@@ -371,8 +371,12 @@ module.exports = {
         bubbleResult.body.contents.push(playerTable[i]);
       }
     }
-
-    carousel.contents.push(bubbleResult, bubbleDetail);
+    
+    carousel.contents.push(bubbleResult);
+    
+    if (detailTexts.length !== 0){
+      carousel.contents.push(bubbleDetail);
+    }
 
     var flex_msg = {
       type: "flex",

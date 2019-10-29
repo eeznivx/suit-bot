@@ -17,7 +17,7 @@ function handle (client, event, args, user_session, group_session){
   }
   
   group_session.state = "new";
-  group_sessio
+  group_session.round = 1;
   
   saveGroupData();
   
