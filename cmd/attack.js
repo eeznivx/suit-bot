@@ -256,10 +256,7 @@ function handle(client, event, args, user_session, group_session) {
             let flexMsg = flex.getFlex(flex_text[i]);
             msg.push(flexMsg);
           }
-          
-          
-          
-          
+
           detailTexts.push(detailText[i]);
         }
       }
@@ -272,16 +269,16 @@ function handle(client, event, args, user_session, group_session) {
       }
     }
     console.log("yang alive", alive);
-    
-    if (detailTexts.length === 0){
+
+    if (detailTexts.length === 0) {
       detailTexts.push({
-            type: "text",
-            text: "DRAW Attack",
-            size: "md",
-            wrap: true
-          })
+        type: "text",
+        text: "DRAW Attack",
+        size: "md",
+        wrap: true
+      });
     }
-    
+
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);
 
@@ -305,6 +302,39 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function teamMode(msg) {
+    ///init flex detail text
+    let bubbleDetail = {
+      type: "bubble",
+      header: {
+        type: "box",
+        layout: "vertical",
+        contents: [
+          {
+            type: "text",
+            text: "📣 Detail",
+            weight: "bold",
+            size: "xl",
+            wrap: true,
+            color: "#F6F6F6"
+          }
+        ]
+      },
+      body: {
+        type: "box",
+        layout: "vertical",
+        spacing: "md",
+        contents: []
+      },
+      styles: {
+        header: {
+          backgroundColor: "#2D4059"
+        }
+      }
+    };
+
+    let detailText = {};
+    var detailTexts = [];
+
     let team_a_battle = [];
     let team_b_battle = [];
 
@@ -385,13 +415,26 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[i].name
           );
 
+          //untuk detailText
+          detailText[i] = {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true
+          };
+
+          var attackerName = group_session.players[i].name + ' (' group_session.players[i].team + ')';
+          var victimName = group_session.players[targetIndex].name + ' (' group_session.players[targetIndex].team + ')';
+
+          //default, kedepan pake random response
+          detailText[i].text +=
+            attackerName + " menyerang " + victimName + " (-1 damage)";
+
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
             group_session.players[i].killStreak++;
 
-            var attackerName = group_session.players[i].name;
             var attackerStreak = group_session.players[i].killStreak;
-            var victimName = group_session.players[targetIndex].name;
 
             // opt_text[i] = {
             //   type: 'text',
@@ -463,7 +506,16 @@ function handle(client, event, args, user_session, group_session) {
       }
     });
 
-    let postBattleFlex = flex.getPostBattle(group_session);
+    if (detailTexts.length === 0) {
+      detailTexts.push({
+        type: "text",
+        text: "DRAW Attack",
+        size: "md",
+        wrap: true
+      });
+    }
+
+    let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);
 
     if (team_a_alive === 0 && team_b_alive !== 0) {
