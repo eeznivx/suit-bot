@@ -4,6 +4,7 @@ const baseGroupPath = "./data/groups/";
 var user_session = {};
 var group_session = {};
 const cmd = require("../cmd");
+const personal = require("../personal");
 
 module.exports = {
   receive: function(client, event, args) {
@@ -17,6 +18,8 @@ module.exports = {
       );
     }
 
+    return this.replyText("👋 Sorry, botnya sedang maintenance");
+    
     if (event.source.groupId !== process.env.DEV_GROUP) {
       return this.replyText("👋 Sorry, botnya sedang maintenance");
     }
@@ -58,10 +61,22 @@ module.exports = {
             saveUserDataInitial(user_session);
           })
           .catch(err => {
-            return client.replyMessage(event.replyToken, {
-              type:'text', 
-              text:"💡 Gagal bergabung ke game! Add dulu botnya"
-            });
+            client
+              .getGroupMemberProfile(event.source.groupId, user_session.id)
+              .then(profile => {
+                return client.replyMessage(event.replyToken, {
+                  type: "text",
+                  text:
+                    "💡 " +
+                    profile.displayName +
+                    " gagal bergabung ke game! Add dulu botnya"
+                });
+              })
+              .catch(err => {
+                // error handling
+                console.log("ada error di getGroupMemberProfile");
+                console.log(event);
+              });
           });
       } else {
         saveUserDataInitial(user_session);
@@ -78,8 +93,11 @@ module.exports = {
             searchGroup(event.source.groupId);
           } else if (event.source.type === "room") {
             searchGroup(event.source.roomId);
-          } else if (event.source.type === "user") {
-            //forwardProcess(client, event, args, user_session);
+          } else if (
+            event.source.type === "user" &&
+            user_session.status === "inactive"
+          ) {
+            personal(client, event, args, user_session);
           }
         }
       });
@@ -94,7 +112,7 @@ module.exports = {
             name: "",
             players: [],
             state: "idle",
-            mode: 'classic'
+            mode: "classic"
           };
 
           var newGroupData = JSON.stringify(newGroup, null, 2);

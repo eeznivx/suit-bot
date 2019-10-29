@@ -45,9 +45,10 @@ module.exports = {
 //         })
 //     })
     
+    console.log(event);
     // let text = "👋 Sampai jumpa lagi! " + leftMembersName.join(", ");
-    let text = "👋 Sampai jumpa lagi!";
-    this.sendResponse(text);
+    // let text = "👋 Sampai jumpa lagi!";
+    // this.sendResponse(text);
   },
 
   joinEvent: function() {

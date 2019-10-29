@@ -1,9 +1,10 @@
 ## Info
 - attackResult ga pake, pakenya attack aja kosong berarti dah kalah
 - [referensi warna](https://logobly.com/blog/color-combinations/)
+- rpg suit hold
 
 ## Todo
-- pas join respon flex sama character player, trus bisa kasih footer utk start
+
 
 ## Done
 - prototype done
@@ -12,3 +13,4 @@
 - kasih embel double kill, triple kill setelah battle state (func)
 - kasih emoji emoji sama rapiin string
 - mode team vs team
+- buat detail attack (carousel) getPreBattleFlex

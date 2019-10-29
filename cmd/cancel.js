@@ -6,10 +6,6 @@ function handle(client, event, args, user_session, group_session) {
     header: "hai",
     body: "hoi"
   };
-
-  if (group_session === undefined) {
-    return Promise.resolve(null);
-  }
   
   console.log(group_session);
   console.log(user_session);

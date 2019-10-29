@@ -8,25 +8,25 @@ function handle(client, event, args, user_session, group_session) {
 
   let mostUsedAttack = "";
   let mostUsedAttackAmount = 0;
-  let emoji = '';
-  
+  let emoji = "";
+
   let max = 0;
 
   let attacksArr = [
     {
-      name: 'batu',
+      name: "batu",
       value: user_session.batuAmount,
-      emoji: '👊 '
+      emoji: "👊 "
     },
     {
-      name: 'gunting',
+      name: "gunting",
       value: user_session.guntingAmount,
-      emoji: '✌️ '
+      emoji: "✌️ "
     },
     {
-      name: 'kertas',
+      name: "kertas",
       value: user_session.kertasAmount,
-      emoji: '✋ '
+      emoji: "✋ "
     }
   ];
 
@@ -35,21 +35,21 @@ function handle(client, event, args, user_session, group_session) {
       max = attacksArr[i].value;
       mostUsedAttack = attacksArr[i].name;
       mostUsedAttackAmount = attacksArr[i].value;
-      emoji = attacksArr[i].emoji
+      emoji = attacksArr[i].emoji;
     }
-    console.log('dalam loop mostUsedAttack', mostUsedAttack);
+    console.log("dalam loop mostUsedAttack", mostUsedAttack);
   }
-  
+
   flex_text.header = "Profile " + user_session.name;
 
   flex_text.body += "Total Kill : " + user_session.killAmount;
-  
-  console.log('luar loop mostUsedAttack', mostUsedAttack);
-  
-  if (max !== 0){
+
+  console.log("luar loop mostUsedAttack", mostUsedAttack);
+
+  if (max !== 0) {
     flex_text.header = emoji + "Profile " + user_session.name;
-    flex_text.body += '\n' + "Fave Attack : " + mostUsedAttack;
-    flex_text.body += '\n' + "Dipakai " + mostUsedAttackAmount + ' kali';
+    flex_text.body += "\n" + "Fave Attack : " + mostUsedAttack;
+    flex_text.body += "\n" + "Dipakai " + mostUsedAttackAmount + " kali";
   }
 
   let flexMsg = flex.getFlex(flex_text);
@@ -58,24 +58,6 @@ function handle(client, event, args, user_session, group_session) {
   Array.max = function(array) {
     return Math.max.apply(Math, array);
   };
-
-  function saveUserData() {
-    const data = require("/app/src/data");
-    data.saveUserData(user_session);
-  }
-
-  function saveGroupData() {
-    const data = require("/app/src/data");
-    data.saveGroupData(group_session);
-  }
-
-  function replyText(texts) {
-    texts = Array.isArray(texts) ? texts : [texts];
-    return client.replyMessage(
-      event.replyToken,
-      texts.map(text => ({ type: "text", text }))
-    );
-  }
 }
 
 module.exports = handle;

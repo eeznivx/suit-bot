@@ -1,10 +1,9 @@
 {
   "id": "U0d6791ed0dcaff3b39249a6a753f2ee9",
-  "name": "Еriес Cоs",
   "status": "inactive",
-  "groupId": "",
-  "killAmount": 0,
+  "name": "Еriес Cоs",
+  "killAmount": 1,
   "batuAmount": 0,
-  "guntingAmount": 0,
-  "kertasAmount": 0
+  "guntingAmount": 4,
+  "kertasAmount": 1
 }
