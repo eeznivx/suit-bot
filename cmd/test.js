@@ -7,7 +7,7 @@ function handle(client, event, args, user_session, group_session) {
   };
 
   //disable test
-  //return Promise.resolve(null)
+  return Promise.resolve(null)
 
   let dummy = {
     state: "preBattle",

@@ -7,7 +7,8 @@ function receive(client, event, args, user_session){
     }
   }
   
-  replyText("💡 Commands yang diberikan salah, cek daftar commands di /cmd");
+  // replyText("💡 Commands yang diberikan salah, cek daftar commands di /cmd");
+  return Promise.resolve(null);
   
   function replyText(texts){
     texts = Array.isArray(texts) ? texts : [texts];

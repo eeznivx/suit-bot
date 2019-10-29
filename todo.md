@@ -4,7 +4,7 @@
 - rpg suit hold
 
 ## Todo
-- buat detail attack (carousel) getPreBattleFlex
+
 
 ## Done
 - prototype done
@@ -13,3 +13,4 @@
 - kasih embel double kill, triple kill setelah battle state (func)
 - kasih emoji emoji sama rapiin string
 - mode team vs team
+- buat detail attack (carousel) getPreBattleFlex
