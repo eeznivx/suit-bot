@@ -3,5 +3,6 @@
   "name": "",
   "players": [],
   "state": "idle",
-  "mode": "team"
+  "mode": "team",
+  "round": 7
 }

@@ -18,6 +18,8 @@ module.exports = {
       );
     }
 
+    return this.replyText("👋 Sorry, botnya sedang maintenance");
+    
     if (event.source.groupId !== process.env.DEV_GROUP) {
       return this.replyText("👋 Sorry, botnya sedang maintenance");
     }

@@ -204,7 +204,10 @@ function handle(client, event, args, user_session, group_session) {
 
           //default, kedepan pake random response
           detailText[i].text +=
-            attackerName + " menyerang " + victimName + " (-1 damage)";
+            attackerName + " menyerang " + victimName;
+          
+          //tunggu ada sistem damage
+          //attackerName + " menyerang " + victimName + " (-1 damage)";
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
@@ -427,7 +430,10 @@ function handle(client, event, args, user_session, group_session) {
 
           //default, kedepan pake random response
           detailText[i].text +=
-            attackerName + " menyerang " + victimName + " (-1 damage)";
+            attackerName + " menyerang " + victimName;
+          
+          //tunggu ada sistem damage
+          // attackerName + " menyerang " + victimName + " (-1 damage)";
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
