@@ -665,11 +665,21 @@ module.exports = {
               contents: [
                 {
                   type: "text",
-                  text: "Name"
+                  text: "No",
+                  flex: 1,
+                  weight: 'bold'
                 },
                 {
                   type: "text",
-                  text: "Status"
+                  text: "Name",
+                  flex: 3,
+                  weight: 'bold'
+                },
+                {
+                  type: "text",
+                  text: "Status",
+                  flex: 3,
+                  weight: 'bold'
                 }
               ],
               margin: "none",
@@ -698,11 +708,12 @@ module.exports = {
     }
 
     if (group_session.state === "new") {
-      flex_msg.contents.body.contents[0].contents[1].text = "Kill";
+      flex_msg.contents.body.contents[0].contents[2].text = "Kill";
     }
 
     var playerTable = {};
-
+    let num = 1;
+    
     for (let i = 0; i < group_session.players.length; i++) {
       playerTable[i] = {
         type: "box",
@@ -713,13 +724,22 @@ module.exports = {
             type: "text",
             text: "",
             size: "md",
-            wrap: true
+            wrap: true,
+            flex: 1
           },
           {
             type: "text",
             text: "",
             size: "md",
-            wrap: true
+            wrap: true,
+            flex: 3
+          },
+          {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true,
+            flex: 3
           }
         ]
       };
@@ -733,18 +753,20 @@ module.exports = {
       }
 
       if (group_session.state === "new") {
-        playerTable[i].contents[1].text += group_session.players[i].killAmount;
+        playerTable[i].contents[2].text += group_session.players[i].killAmount;
       } else {
         if (group_session.players[i].health > 0) {
-          playerTable[i].contents[1].text = "survive";
+          playerTable[i].contents[2].text = "survive";
         } else {
-          playerTable[i].contents[1].text = "eliminated";
+          playerTable[i].contents[2].text = "eliminated";
         }
       }
 
-      playerTable[i].contents[0].text += group_session.players[i].name;
+      playerTable[i].contents[0].text += num;
+      playerTable[i].contents[1].text += group_session.players[i].name;
 
       flex_msg.contents.body.contents.push(playerTable[i]);
+      num++;
     }
 
     if (group_session.state === "new") {
