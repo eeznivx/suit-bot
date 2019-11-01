@@ -1,7 +1,58 @@
 {
   "groupId": "C8530e6a6f8580860e7c953f60f468b7f",
   "name": "",
-  "players": [],
-  "state": "idle",
-  "mode": "classic"
+  "players": [
+    {
+      "id": "U9fa3c9b1868cc29c6e81e39a928f4622",
+      "name": "mona",
+      "killAmount": 7,
+      "batuAmount": 25,
+      "guntingAmount": 19,
+      "kertasAmount": 18,
+      "attack": "batu",
+      "attacker": [],
+      "health": 4,
+      "killStreak": 0
+    },
+    {
+      "id": "U0d6791ed0dcaff3b39249a6a753f2ee9",
+      "name": "Еriес Cоs",
+      "killAmount": 2,
+      "batuAmount": 3,
+      "guntingAmount": 9,
+      "kertasAmount": 4,
+      "attack": "kertas",
+      "attacker": [],
+      "health": 4,
+      "killStreak": 0
+    },
+    {
+      "id": "U0e3b975af029789d6cf1b1ad21a081f2",
+      "name": "Athfal EA",
+      "killAmount": 0,
+      "batuAmount": 1,
+      "guntingAmount": 1,
+      "kertasAmount": 2,
+      "attack": "",
+      "attacker": [],
+      "health": 4,
+      "killStreak": 0
+    },
+    {
+      "id": "U8b56c777b04aaaddd3811b8fa6cb82d2",
+      "name": "Fynnnnnn",
+      "killAmount": 2,
+      "batuAmount": 5,
+      "guntingAmount": 17,
+      "kertasAmount": 6,
+      "attack": "",
+      "attacker": [],
+      "health": 4,
+      "killStreak": 0
+    }
+  ],
+  "state": "preBattle",
+  "mode": "classic",
+  "round": 1
+}
 }

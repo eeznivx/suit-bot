@@ -1,6 +1,5 @@
 const helper = require('/app/helper/flex');
 function handle (client, event, args, user_session, group_session){
-  let text = "";
   let flex_text = {
     header: "hai",
     body: "hoi"

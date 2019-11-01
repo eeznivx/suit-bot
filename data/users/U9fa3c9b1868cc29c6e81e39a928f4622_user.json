@@ -1,9 +1,10 @@
 {
   "id": "U9fa3c9b1868cc29c6e81e39a928f4622",
-  "status": "inactive",
+  "status": "active",
   "name": "mona",
-  "killAmount": 6,
-  "batuAmount": 23,
-  "guntingAmount": 18,
-  "kertasAmount": 16
+  "killAmount": 7,
+  "batuAmount": 24,
+  "guntingAmount": 19,
+  "kertasAmount": 18,
+  "groupId": "C8530e6a6f8580860e7c953f60f468b7f"
 }
