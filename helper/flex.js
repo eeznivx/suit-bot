@@ -371,10 +371,10 @@ module.exports = {
         bubbleResult.body.contents.push(playerTable[i]);
       }
     }
-    
+
     carousel.contents.push(bubbleResult);
-    
-    if (detailTexts.length !== 0){
+
+    if (detailTexts.length !== 0) {
       carousel.contents.push(bubbleDetail);
     }
 
@@ -667,19 +667,19 @@ module.exports = {
                   type: "text",
                   text: "No",
                   flex: 1,
-                  weight: 'bold'
+                  weight: "bold"
                 },
                 {
                   type: "text",
                   text: "Name",
                   flex: 3,
-                  weight: 'bold'
+                  weight: "bold"
                 },
                 {
                   type: "text",
                   text: "Status",
                   flex: 3,
-                  weight: 'bold'
+                  weight: "bold"
                 }
               ],
               margin: "none",
@@ -703,7 +703,9 @@ module.exports = {
     if (group_session.state !== "new" && group_session.mode === "team") {
       flex_msg.contents.body.contents[0].contents.push({
         type: "text",
-        text: "Team"
+        text: "Team",
+        flex: 2,
+        weight: "bold"
       });
     }
 
@@ -713,7 +715,7 @@ module.exports = {
 
     var playerTable = {};
     let num = 1;
-    
+
     for (let i = 0; i < group_session.players.length; i++) {
       playerTable[i] = {
         type: "box",
@@ -748,7 +750,9 @@ module.exports = {
         playerTable[i].contents.push({
           type: "text",
           text: group_session.players[i].team,
-          size: "md"
+          size: "md",
+          flex: 2,
+          align: "center"
         });
       }
 

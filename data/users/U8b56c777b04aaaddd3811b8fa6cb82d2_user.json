@@ -1,10 +1,9 @@
 {
   "id": "U8b56c777b04aaaddd3811b8fa6cb82d2",
-  "status": "active",
+  "status": "inactive",
   "name": "Fynnnnnn",
   "killAmount": 2,
   "batuAmount": 5,
   "guntingAmount": 17,
-  "kertasAmount": 6,
-  "groupId": "C8530e6a6f8580860e7c953f60f468b7f"
+  "kertasAmount": 6
 }

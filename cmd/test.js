@@ -56,7 +56,7 @@ function handle(client, event, args, user_session, group_session) {
     }
   ];
 
-  let flexMsg = flex.getPostBattle(dummy, detailDummy);
+  let flexMsg = flex.getPlayerList(dummy);
   console.log(JSON.stringify(flexMsg.contents));
   client.replyMessage(event.replyToken, flexMsg);
 
