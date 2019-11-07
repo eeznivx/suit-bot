@@ -50,6 +50,7 @@ module.exports = {
     }
 
     function searchUserCallback(data) {
+      console.log("data yang mau di parse", data);
       user_session = JSON.parse(data);
       console.log(user_session);
 
