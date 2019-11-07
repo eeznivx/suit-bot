@@ -4,10 +4,6 @@ const keywords = [
   //   handle: require("./help")
   // },
   // {
-  //   text: "cmd",
-  //   handle: require("./cmd")
-  // },
-  // {
   //   text: "test",
   //   handle: require("./test")
   // },
@@ -15,6 +11,14 @@ const keywords = [
   //   text: "info",
   //   handle: require("./info")
   // },
+  {
+    text: "setup",
+    handle: require("./setup")
+  },
+  {
+    text: "cmd",
+    handle: require("./cmd")
+  },
 ];
 
 module.exports = keywords

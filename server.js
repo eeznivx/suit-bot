@@ -19,19 +19,30 @@ app.post("/callback", line.middleware(config), (req, res) => {
 });
 
 function handle(event) {
+  if (event.source.type === "group") {
+    client.leaveGroup(event.source.groupId);
+  } else if (this.event.source.type === "room") {
+    client.leaveRoom(event.source.roomId);
+  }
+
   const data = require("./src/data");
-  
-  if (event.type === 'postback'){
+
+  if (event.type === "postback") {
     var args = event.postback.data.substr(1).split(" ");
     return data.receive(client, event, args);
   }
-  
+
   //handle event follow sama member join
-  if (event.type === 'follow' || event.type === 'join' || event.type === 'memberJoined' || event.type === 'memberLeft'){
-    const other = require('./src/other');
+  if (
+    event.type === "follow" ||
+    event.type === "join" ||
+    event.type === "memberJoined" ||
+    event.type === "memberLeft"
+  ) {
+    const other = require("./src/other");
     return other.receive(client, event);
   }
-  
+
   if (event.type !== "message" || event.message.type !== "text") {
     return Promise.resolve(null);
   }

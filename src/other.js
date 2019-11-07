@@ -45,7 +45,6 @@ module.exports = {
 //         })
 //     })
     
-    console.log(event);
     // let text = "👋 Sampai jumpa lagi! " + leftMembersName.join(", ");
     // let text = "👋 Sampai jumpa lagi!";
     // this.sendResponse(text);
@@ -60,7 +59,8 @@ module.exports = {
 
   followEvent: function() {
     let text =
-      "😄 Thanks udah add bot ini! Undang bot ini ke group / room chat kamu untuk mulai bermain!";
+      "😄 Thanks udah add bot ini! Undang bot ini ke group / room chat kamu untuk mulai bermain! ";
+    text += "Jika kamu pengguna baru, setup hero mu dengan ketik '/setup'";
     this.sendResponse(text);
   },
   

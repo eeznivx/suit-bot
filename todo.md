@@ -5,7 +5,7 @@
 
 ## Todo
 - remake system damage
-- post making rpg system!
+- pre making rpg system!
 - personal command
 
 ## Done
