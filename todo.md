@@ -7,8 +7,6 @@
 - remake system damage
 - post making rpg system!
 - personal command
-- use readFileSync aja deh
-
 
 ## Done
 - prototype done
@@ -18,3 +16,4 @@
 - kasih emoji emoji sama rapiin string
 - mode team vs team
 - buat detail attack (carousel) getPreBattleFlex
+- use readFileSync aja deh
