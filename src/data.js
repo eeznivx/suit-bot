@@ -18,8 +18,8 @@ module.exports = {
       );
     }
 
-    //return this.replyText("👋 Sorry, botnya sedang maintenance");
-    
+    return this.replyText("👋 Sorry, botnya sedang maintenance");
+
     if (event.source.groupId !== process.env.DEV_GROUP) {
       //return this.replyText("👋 Sorry, botnya sedang maintenance");
     }
@@ -28,31 +28,30 @@ module.exports = {
 
     function searchUser(id) {
       let path = baseUserPath + id + "_user.json";
-      fs.readFile(path, function(err, data) {
-        if (err) {
-          var newUser = {
-            id: id,
-            name: "",
-            status: "inactive",
-            groupId: "",
-            killAmount: 0,
-            batuAmount: 0,
-            guntingAmount: 0,
-            kertasAmount: 0
-          };
+      var data;
+      try {
+        data = fs.readFileSync(path);
+        searchUserCallback(data);
+      } catch (err) {
+        var newUser = {
+          id: id,
+          name: "",
+          status: "inactive",
+          groupId: "",
+          killAmount: 0,
+          batuAmount: 0,
+          guntingAmount: 0,
+          kertasAmount: 0
+        };
 
-          var newUserData = JSON.stringify(newUser, null, 2);
-          searchUserCallback(newUserData);
-        } else {
-          searchUserCallback(data);
-        }
-      });
+        var newUserData = JSON.stringify(newUser, null, 2);
+        searchUserCallback(newUserData);
+      }
     }
 
     function searchUserCallback(data) {
       console.log("data yang mau di parse", data);
       user_session = JSON.parse(data);
-      console.log(user_session);
 
       if (user_session.name === "") {
         client
@@ -86,48 +85,45 @@ module.exports = {
 
     function saveUserDataInitial(user_session) {
       let path = baseUserPath + user_session.id + "_user.json";
-      fs.writeFile(path, JSON.stringify(user_session, null, 2), function(err) {
-        if (err) {
-          console.log("error write file", err);
-        } else {
-          if (event.source.type === "group") {
-            searchGroup(event.source.groupId);
-          } else if (event.source.type === "room") {
-            searchGroup(event.source.roomId);
-          } else if (
-            event.source.type === "user" &&
-            user_session.status === "inactive"
-          ) {
-            personal(client, event, args, user_session);
-          }
+      try {
+        fs.writeFileSync(path, JSON.stringify(user_session, null, 2));
+        if (event.source.type === "group") {
+          searchGroup(event.source.groupId);
+        } else if (event.source.type === "room") {
+          searchGroup(event.source.roomId);
+        } else if (
+          event.source.type === "user" &&
+          user_session.status === "inactive"
+        ) {
+          personal(client, event, args, user_session);
         }
-      });
+      } catch (err) {
+        console.log("error write file", err);
+      }
     }
 
     function searchGroup(id) {
       let path = baseGroupPath + id + "_group.json";
-      fs.readFile(path, function(err, data) {
-        if (err) {
-          var newGroup = {
-            groupId: id,
-            name: "",
-            players: [],
-            state: "idle",
-            mode: "classic"
-          };
+      var data;
+      try {
+        data = fs.readFileSync(path);
+        searchGroupCallback(data);
+      } catch (err) {
+        var newGroup = {
+          groupId: id,
+          name: "",
+          players: [],
+          state: "idle",
+          mode: "classic"
+        };
 
-          var newGroupData = JSON.stringify(newGroup, null, 2);
-          searchGroupCallback(newGroupData);
-        } else {
-          searchGroupCallback(data);
-        }
-      });
+        var newGroupData = JSON.stringify(newGroup, null, 2);
+        searchGroupCallback(newGroupData);
+      }
     }
 
     function searchGroupCallback(data) {
       group_session = JSON.parse(data);
-      console.log(group_session);
-
       forwardProcess(client, event, args, user_session, group_session);
     }
 
@@ -146,20 +142,20 @@ module.exports = {
 
   saveUserData: function(user_session) {
     let path = baseUserPath + user_session.id + "_user.json";
-    fs.writeFile(path, JSON.stringify(user_session, null, 2), function(err) {
-      if (err) {
-        console.log("error write file", err);
-      }
-    });
+    try {
+      fs.writeFileSync(path, JSON.stringify(user_session, null, 2));
+    } catch (err){
+      console.log("error write file", err);
+    }
   },
 
   saveGroupData: function(group_session) {
     let path = baseGroupPath + group_session.groupId + "_group.json";
-    fs.writeFile(path, JSON.stringify(group_session, null, 2), function(err) {
-      if (err) {
-        console.log("error write file", err);
-      }
-    });
+    try {
+      fs.writeFileSync(path, JSON.stringify(group_session, null, 2));
+    } catch(err){
+      console.log("error write file", err);
+    }
   },
 
   resetAllPlayers: function(players) {

@@ -4,6 +4,10 @@
 - rpg suit hold
 
 ## Todo
+- remake system damage
+- post making rpg system!
+- personal command
+- use readFileSync aja deh
 
 
 ## Done
