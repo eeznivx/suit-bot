@@ -1,0 +1,33 @@
+{
+  "groupId": "Cdb35c252a8726450b74f80367dd22bd4",
+  "name": "",
+  "players": [
+    {
+      "id": "Uf3f39d7d1742bc17ee84aa1a6126b358",
+      "name": "rafael",
+      "killAmount": 0,
+      "batuAmount": 0,
+      "guntingAmount": 0,
+      "kertasAmount": 0,
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "killStreak": 0
+    },
+    {
+      "id": "U24189e430c2789c7348196b0894ed8ba",
+      "name": "Nathan",
+      "killAmount": 0,
+      "batuAmount": 0,
+      "guntingAmount": 0,
+      "kertasAmount": 0,
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "killStreak": 0
+    }
+  ],
+  "state": "new",
+  "mode": "classic",
+  "round": 1
+}

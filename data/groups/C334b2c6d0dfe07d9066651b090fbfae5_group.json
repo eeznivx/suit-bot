@@ -1,0 +1,69 @@
+{
+  "groupId": "C334b2c6d0dfe07d9066651b090fbfae5",
+  "name": "",
+  "players": [
+    {
+      "id": "U83caf7c21caa4cb90f5c616e0ef85e3a",
+      "name": "Eriec Tan",
+      "killAmount": 20,
+      "batuAmount": 93,
+      "guntingAmount": 26,
+      "kertasAmount": 48,
+      "attack": "batu",
+      "attacker": [],
+      "health": 2,
+      "killStreak": 0
+    },
+    {
+      "id": "U8388d2233d45981e6423a8e7d320bcad",
+      "name": "Rizka",
+      "killAmount": 18,
+      "batuAmount": 72,
+      "guntingAmount": 46,
+      "kertasAmount": 37,
+      "attack": "gunting",
+      "attacker": [],
+      "health": 3,
+      "killStreak": 0
+    },
+    {
+      "id": "U5f97bb2b5e20279b38922e2c83bc2f77",
+      "name": "d e r",
+      "killAmount": 3,
+      "batuAmount": 20,
+      "guntingAmount": 2,
+      "kertasAmount": 18,
+      "attack": "kertas",
+      "attacker": [],
+      "health": 4,
+      "killStreak": 0
+    },
+    {
+      "id": "Ubb40d98e497e8ecb3dc9112db2ae06b6",
+      "name": "salsa",
+      "killAmount": 8,
+      "batuAmount": 26,
+      "guntingAmount": 16,
+      "kertasAmount": 14,
+      "attack": "",
+      "attacker": [],
+      "health": 2,
+      "killStreak": 0
+    },
+    {
+      "id": "U90797baf3918ffab0d1e0a70b669c3d8",
+      "name": "Azzah",
+      "killAmount": 3,
+      "batuAmount": 16,
+      "guntingAmount": 19,
+      "kertasAmount": 10,
+      "attack": "gunting",
+      "attacker": [],
+      "health": 4,
+      "killStreak": 0
+    }
+  ],
+  "state": "preBattle",
+  "mode": "classic",
+  "round": 3
+}
