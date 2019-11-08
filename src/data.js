@@ -18,10 +18,10 @@ module.exports = {
       );
     }
 
-    return this.replyText("👋 Sorry, botnya sedang maintenance");
+    //return this.replyText("👋 Sorry, botnya sedang maintenance");
 
     if (event.source.groupId !== process.env.DEV_GROUP) {
-      //return this.replyText("👋 Sorry, botnya sedang maintenance");
+      return this.replyText("👋 Sorry, botnya sedang maintenance");
     }
 
     searchUser(this.event.source.userId);
@@ -87,12 +87,8 @@ module.exports = {
           searchGroup(event.source.groupId);
         } else if (event.source.type === "room") {
           searchGroup(event.source.roomId);
-        } else if (event.source.type === "user") {
-          if (user_session.status === "active") {
-            searchGroup(user_session.groupId);
-          } else {
-            //cp
-          }
+        } else if (user_session.status === "active") {
+          searchGroup(user_session.groupId);
         }
       } catch (err) {
         console.log("error write file", err);

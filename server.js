@@ -19,11 +19,11 @@ app.post("/callback", line.middleware(config), (req, res) => {
 });
 
 function handle(event) {
-  if (event.source.type === "group") {
-    client.leaveGroup(event.source.groupId);
-  } else if (this.event.source.type === "room") {
-    client.leaveRoom(event.source.roomId);
-  }
+  // if (event.source.type === "group") {
+  //   client.leaveGroup(event.source.groupId);
+  // } else if (this.event.source.type === "room") {
+  //   client.leaveRoom(event.source.roomId);
+  // }
 
   const data = require("./src/data");
 
