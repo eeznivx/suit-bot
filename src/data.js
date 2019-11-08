@@ -37,7 +37,7 @@ module.exports = {
           id: id,
           name: "",
           status: "inactive",
-          groupId: "",
+          groupId: ""
         };
 
         var newUserData = JSON.stringify(newUser, null, 2);
@@ -87,11 +87,12 @@ module.exports = {
           searchGroup(event.source.groupId);
         } else if (event.source.type === "room") {
           searchGroup(event.source.roomId);
-        } else if (
-          event.source.type === "user" &&
-          user_session.status === "inactive"
-        ) {
-          personal(client, event, args, user_session);
+        } else if (event.source.type === "user") {
+          if (user_session.status === "active") {
+            searchGroup(user_session.groupId);
+          } else {
+            //cp
+          }
         }
       } catch (err) {
         console.log("error write file", err);
@@ -124,7 +125,11 @@ module.exports = {
     }
 
     function forwardProcess(client, event, args, user_session, group_session) {
-      return cmd(client, event, args, user_session, group_session);
+      if (event.source.type === 'user'){
+        personal(client, event, args, user_session, group_session);
+      } else {
+        cmd(client, event, args, user_session, group_session);
+      }
     }
   },
 
@@ -140,7 +145,7 @@ module.exports = {
     let path = baseUserPath + user_session.id + "_user.json";
     try {
       fs.writeFileSync(path, JSON.stringify(user_session, null, 2));
-    } catch (err){
+    } catch (err) {
       console.log("error write file", err);
     }
   },
@@ -149,7 +154,7 @@ module.exports = {
     let path = baseGroupPath + group_session.groupId + "_group.json";
     try {
       fs.writeFileSync(path, JSON.stringify(group_session, null, 2));
-    } catch(err){
+    } catch (err) {
       console.log("error write file", err);
     }
   },
@@ -160,7 +165,7 @@ module.exports = {
         id: players[i].id,
         status: "inactive",
         groupId: players[i].groupId,
-        name: players[i].name,
+        name: players[i].name
       };
 
       this.saveUserData(reset_player);
