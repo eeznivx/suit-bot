@@ -39,8 +39,12 @@ function handle (client, event, args, user_session, group_session){
     attacker: [],
     health: 0,
     killStreak: 0,
-    cards: [],
-    damage: 1
+    cards: [{
+      name: 'basic attack',
+      type: 'basicAttack'
+    }],
+    damage: 1,
+    choose: 'pending'
   }
   
   if (group_session.mode === 'team'){
