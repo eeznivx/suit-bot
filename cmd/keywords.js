@@ -55,10 +55,6 @@ const keywords = [
     text: "about",
     handle: require("./about")
   },
-  {
-    text: "choose",
-    handle: require("./choose")
-  },
 ];
 
 module.exports = keywords

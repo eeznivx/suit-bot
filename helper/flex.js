@@ -1,5 +1,3 @@
-const cards = require("./cards");
-const helper = require("./index");
 module.exports = {
   getPreBattle: function(group_session) {
     var flex_msg = {
@@ -203,86 +201,6 @@ module.exports = {
         num++;
       }
     }
-    return flex_msg;
-  },
-  getChooseCard: function(group_session) {
-    var carousel = {
-      type: "carousel",
-      contents: []
-    };
-
-    var bubble = {};
-
-    helper.shuffleArray(cards);
-    cards.length = 3;
-
-    var randomCards = cards;
-    console.log("randomCards", cards);
-
-    for (let i = 0; i < randomCards.length; i++) {
-      bubble[i] = {
-        type: "bubble",
-        header: {
-          type: "box",
-          layout: "vertical",
-          contents: [
-            {
-              type: "text",
-              text: randomCards[i].name,
-              weight: "bold",
-              size: "xl",
-              wrap: true,
-              color: "#F6F6F6"
-            }
-          ]
-        },
-        body: {
-          type: "box",
-          layout: "vertical",
-          spacing: "md",
-          contents: [
-            {
-              type: "text",
-              text: randomCards[i].description,
-              weight: "regular",
-              size: "lg",
-              wrap: true
-            }
-          ]
-        },
-        footer: {
-          type: "box",
-          layout: "vertical",
-          spacing: "md",
-          contents: [
-            {
-              type: "button",
-              style: "primary",
-              color: "#2D4059",
-              action: {
-                type: "postback",
-                label: "pilih",
-                data: "/choose " + randomCards[i].name
-              }
-            }
-          ]
-        },
-        styles: {
-          header: {
-            backgroundColor: "#2D4059"
-          }
-        }
-      };
-
-      carousel.contents.push(bubble[i]);
-    }
-
-    var flex_msg = {
-      type: "flex",
-      altText: "📣 Ada pesan untuk kamu!",
-      contents: carousel
-    };
-    console.log(JSON.stringify(flex_msg.contents));
     return flex_msg;
   },
   getPostBattle: function(group_session, detailTexts) {

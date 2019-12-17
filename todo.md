@@ -12,8 +12,6 @@
     pilih damage single/multi, heal single/multi
     card yg dipilih nambah chance setiap hero. setiap user uda adah chance
     chance nya ada, tapi masih 0%
-    
-- [referensi system chance](https://jsbin.com/gocojaraya/edit?js,console)
   
 
 ## Todo
