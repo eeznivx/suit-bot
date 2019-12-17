@@ -170,12 +170,8 @@ function handle(client, event, args, user_session, group_session) {
             helper.random(targets),
             group_session
           );
-          console.log(
-            "target yang kenak ",
-            group_session.players[targetIndex].name
-          );
-          group_session.players[targetIndex].health -=
-            group_session.players[i].damage;
+          console.log("target yang kenak ", group_session.players[targetIndex].name);
+          group_session.players[targetIndex].health--;
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name
           );
@@ -188,20 +184,13 @@ function handle(client, event, args, user_session, group_session) {
             wrap: true
           };
 
-          var attackerName =
-            group_session.players[i].name +
-            "(❤️" +
-            group_session.players[i].health +
-            ")";
-          var victimName =
-            group_session.players[targetIndex].name +
-            "(-🎯" +
-            group_session.players[i].damage +
-            ")";
+          var attackerName = group_session.players[i].name;
+          var victimName = group_session.players[targetIndex].name;
 
           //default, kedepan pake random response
-          detailText[i].text += attackerName + " menyerang " + victimName;
-
+          detailText[i].text +=
+            attackerName + " menyerang " + victimName;
+          
           //tunggu ada sistem damage
           //attackerName + " menyerang " + victimName + " (-1 damage)";
 
@@ -400,8 +389,7 @@ function handle(client, event, args, user_session, group_session) {
             "target yang kenak ",
             group_session.players[targetIndex].name
           );
-          group_session.players[targetIndex].health -=
-            group_session.players[i].damage;
+          group_session.players[targetIndex].health--;
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name
           );
@@ -415,21 +403,20 @@ function handle(client, event, args, user_session, group_session) {
           };
 
           var attackerName =
-            "(" + group_session.players[i].team + ")" + 
             group_session.players[i].name +
-            "(❤️" +
-            group_session.players[i].health +
+            " (" +
+            group_session.players[i].team +
             ")";
           var victimName =
-            "(" + group_session.players[targetIndex].team + ")" + 
             group_session.players[targetIndex].name +
-            "(-🎯" +
-            group_session.players[i].damage +
+            " (" +
+            group_session.players[targetIndex].team +
             ")";
 
           //default, kedepan pake random response
-          detailText[i].text += attackerName + " menyerang " + victimName;
-
+          detailText[i].text +=
+            attackerName + " menyerang " + victimName;
+          
           //tunggu ada sistem damage
           // attackerName + " menyerang " + victimName + " (-1 damage)";
 
@@ -568,7 +555,7 @@ function handle(client, event, args, user_session, group_session) {
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);
-
+    
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
@@ -578,7 +565,7 @@ function handle(client, event, args, user_session, group_session) {
 
   function preBattle(msg) {
     group_session.round++;
-
+    
     for (let i = 0; i < group_session.players.length; i++) {
       group_session.players[i].attack = "";
       group_session.players[i].attacker = [];

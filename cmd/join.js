@@ -38,9 +38,7 @@ function handle (client, event, args, user_session, group_session){
     attack : "",
     attacker: [],
     health: 0,
-    killStreak: 0,
-    cards: [],
-    damage: 1
+    killStreak: 0
   }
   
   if (group_session.mode === 'team'){
