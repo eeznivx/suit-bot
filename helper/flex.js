@@ -80,7 +80,7 @@ module.exports = {
                   action: {
                     type: "uri",
                     label: "Pilih Perk",
-                    data: "line://oaMessage/@793btjtn/?/perk"
+                    uri: "line://oaMessage/@793btjtn/?/perk"
                   }
                 }
               ]
@@ -834,6 +834,7 @@ module.exports = {
         footer: {
           type: "box",
           layout: "vertical",
+          spacing: "md",
           contents: [
             {
               type: "button",
