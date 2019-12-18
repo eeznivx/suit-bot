@@ -1,4 +1,3 @@
-const cards = require("./cards");
 const helper = require("./index");
 module.exports = {
   getPreBattle: function(group_session) {

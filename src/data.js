@@ -34,7 +34,7 @@ module.exports = {
           name: "",
           status: "inactive",
           groupId: "",
-          killStreak: 0
+          killAmount: 0
         };
 
         var newUserData = JSON.stringify(newUser, null, 2);
@@ -43,7 +43,7 @@ module.exports = {
     }
 
     function searchUserCallback(data) {
-      console.log("data yang mau di parse", data);
+      
       user_session = JSON.parse(data);
 
       if (user_session.name === "") {
@@ -159,7 +159,7 @@ module.exports = {
         status: "inactive",
         groupId: players[i].groupId,
         name: players[i].name,
-        killStreak: players[i].killStreak
+        killAmount: players[i].killAmount
       };
 
       this.saveUserData(reset_player);

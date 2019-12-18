@@ -1,7 +1,6 @@
 const helper = require("/app/helper");
 const flex = require("/app/helper/flex");
 const helperText = require("/app/helper/text");
-const cards = require("/app/helper/cards");
 
 function handle(client, event, args, user_session, group_session) {
   let text = "";
@@ -520,10 +519,7 @@ function handle(client, event, args, user_session, group_session) {
       console.log("draw game team");
       drawGame(msg);
     } else {
-      //ke prebattle
-      //atau ke bonus round power ups itu
-
-      return chooseCard(msg);
+      return preBattle(msg);
     }
   }
 
@@ -534,6 +530,10 @@ function handle(client, event, args, user_session, group_session) {
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);
+    
+    group_session.players.forEach(item => {
+      item.killAmount += item.killStreak;
+    });
 
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
@@ -552,6 +552,10 @@ function handle(client, event, args, user_session, group_session) {
 
     msg.push(endGameFlex);
 
+    group_session.players.forEach(item => {
+      item.killAmount += item.killStreak;
+    });
+    
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
@@ -565,6 +569,10 @@ function handle(client, event, args, user_session, group_session) {
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);
+    
+    group_session.players.forEach(item => {
+      item.killAmount += item.killStreak;
+    });
 
     group_session.state = "idle";
     resetAllPlayers(group_session.players);

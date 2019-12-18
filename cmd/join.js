@@ -40,6 +40,7 @@ function handle (client, event, args, user_session, group_session){
     health: 0,
     killStreak: 0,
     damage: 1,
+    killAmount: user_session.killAmount
   }
   
   if (group_session.mode === 'team'){
