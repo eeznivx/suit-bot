@@ -1,5 +1,4 @@
 const helper = require("./index");
-
 module.exports = {
   getPreBattle: function(group_session) {
     var flex_msg = {

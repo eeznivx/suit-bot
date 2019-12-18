@@ -25,9 +25,10 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   if (group_session.state !== "preBattle") {
-    return replyText(
-      "💡 " + user_session.name + ", masih belum saatnya attack"
-    );
+    // return replyText(
+    //   "💡 " + user_session.name + ", masih belum saatnya attack"
+    // );
+    return Promise.resolve(null);
   }
 
   if (group_session.players[index].health <= 0) {
@@ -35,7 +36,8 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   if (group_session.players[index].attack !== "") {
-    return replyText("💡 " + user_session.name + ", kamu sudah memilih attack");
+    // return replyText("💡 " + user_session.name + ", kamu sudah memilih attack");
+    return Promise.resolve(null);
   } else {
     text += "💡 " + user_session.name + " berhasil memilih attack";
   }
@@ -166,16 +168,7 @@ function handle(client, event, args, user_session, group_session) {
         console.log("ini targets", targets);
 
         if (targets.length !== 0) {
-          targetIndex = helper.getPlayerById(
-            helper.random(targets),
-            group_session
-          );
-          console.log("target yang kenak ", group_session.players[targetIndex].name);
-          group_session.players[targetIndex].health--;
-          group_session.players[targetIndex].attacker.push(
-            group_session.players[i].name
-          );
-
+          //init
           //untuk detailText
           detailText[i] = {
             type: "text",
@@ -184,46 +177,58 @@ function handle(client, event, args, user_session, group_session) {
             wrap: true
           };
 
-          var attackerName = group_session.players[i].name;
-          var victimName = group_session.players[targetIndex].name;
-          
-          //tunggu ada sistem damage
-          //attackerName + " menyerang " + victimName + " (-1 damage)";
+          let attackerName = "";
+          let victimName = "";
+          let attackerDamage = "";
+
+          targetIndex = helper.getPlayerById(
+            helper.random(targets),
+            group_session
+          );
+          console.log(
+            "target yang kenak ",
+            group_session.players[targetIndex].name
+          );
+
+          group_session.players[targetIndex].attacker.push(
+            group_session.players[i].name
+          );
+
           group_session.players[targetIndex].health -=
             group_session.players[i].damage;
-
+          
           attackerName =
             group_session.players[i].name +
-            "(❤️" +
+            " (❤️ " +
             group_session.players[i].health +
             ")";
+          
+          attackerDamage = "🎯 " + group_session.players[i].damage + " damage ";
+          
           victimName =
             group_session.players[targetIndex].name +
-            "(-🎯" +
-            group_session.players[i].damage +
+            " (❤️ " +
+            group_session.players[targetIndex].health +
             ")";
 
           //default, kedepan pake random response
-          detailText[i].text += attackerName + " menyerang " + victimName;
+          detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage;
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
+            
+            //bonus
+            group_session.players[i].damage++;
+            
             group_session.players[i].killStreak++;
 
             var attackerStreak = group_session.players[i].killStreak;
-
-            // opt_text[i] = {
-            //   type: 'text',
-            //   text: attackerName + ' mengeleminasi ' + victimName + '!'
-            // }
 
             let eliminatedText = helperText.eliminated(
               attackerName,
               args[1],
               victimName
             );
-            console.log("eliminated text", eliminatedText);
-            // body: '🎯 ' + attackerName + " mengeleminasi " + victimName + "!"
 
             flex_text[i] = {
               header: "🔥 Spotlight 🔥",
@@ -241,7 +246,6 @@ function handle(client, event, args, user_session, group_session) {
             }
 
             if (group_session.players[i].killStreak > 1) {
-              // opt_text[i].text += '\n' + attackerName + ' dapat ' + attackerStreak + ' streak!';
               flex_text[i].body +=
                 "\n" +
                 "🔥 " +
@@ -250,8 +254,6 @@ function handle(client, event, args, user_session, group_session) {
                 attackerStreak +
                 " streak!";
             }
-
-            // msg.push(opt_text[i]);
 
             let flexMsg = flex.getFlex(flex_text[i]);
             msg.push(flexMsg);
@@ -286,7 +288,7 @@ function handle(client, event, args, user_session, group_session) {
       drawGame(msg);
     } else {
       // ke preBattle
-      group_session.state = "preBattle";
+
       return preBattle(msg);
     }
   }
@@ -400,7 +402,8 @@ function handle(client, event, args, user_session, group_session) {
             "target yang kenak ",
             group_session.players[targetIndex].name
           );
-          group_session.players[targetIndex].health--;
+          group_session.players[targetIndex].health -=
+            group_session.players[i].damage;
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name
           );
@@ -414,20 +417,25 @@ function handle(client, event, args, user_session, group_session) {
           };
 
           var attackerName =
-            group_session.players[i].name +
-            " (" +
+            "(" +
             group_session.players[i].team +
+            ")" +
+            group_session.players[i].name +
+            "(❤️" +
+            group_session.players[i].health +
             ")";
           var victimName =
-            group_session.players[targetIndex].name +
-            " (" +
+            "(" +
             group_session.players[targetIndex].team +
+            ")" +
+            group_session.players[targetIndex].name +
+            "(-🎯" +
+            group_session.players[i].damage +
             ")";
 
           //default, kedepan pake random response
-          detailText[i].text +=
-            attackerName + " menyerang " + victimName;
-          
+          detailText[i].text += attackerName + " menyerang " + victimName;
+
           //tunggu ada sistem damage
           // attackerName + " menyerang " + victimName + " (-1 damage)";
 
@@ -521,7 +529,6 @@ function handle(client, event, args, user_session, group_session) {
       console.log("draw game team");
       drawGame(msg);
     } else {
-      //ke prebattle
       return preBattle(msg);
     }
   }
@@ -585,13 +592,13 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function preBattle(msg) {
-    group_session.round++;
     group_session.state = "preBattle";
     group_session.round++;
-    
+
     for (let i = 0; i < group_session.players.length; i++) {
       group_session.players[i].attack = "";
       group_session.players[i].attacker = [];
+      
     }
 
     let preBattleFlexMsg = flex.getPreBattle(group_session);
