@@ -192,53 +192,22 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[i].name
           );
 
-          //skill random jan lupa buat utk team mode
-          let playerCards = group_session.players[i].cards;
-          console.log("playerCards", playerCards);
-          let choosenCard = helper.random(playerCards);
-          console.log("chooseCard", choosenCard);
-          //buat loop cards dari helper, lalu  taruh switch utk cek
-          for (let y = 0; y < cards.length; y++) {
-            if (cards[i].name === choosenCard.name) {
-              switch (choosenCard.type) {
-                case "plusDamage":
-                  break;
+          group_session.players[targetIndex].health -=
+            group_session.players[i].damage;
 
-                case "plusHealth":
-                  //ini ga perlu loop kedalem
-                  break;
+          attackerName =
+            group_session.players[i].name +
+            "(❤️" +
+            group_session.players[i].health +
+            ")";
+          victimName =
+            group_session.players[targetIndex].name +
+            "(-🎯" +
+            group_session.players[i].damage +
+            ")";
 
-                case "spellDamage":
-                  //gimana kalo spell, TODO : pindahin ke atas nehhh
-                  break;
-
-                case "spellStun":
-                  break;
-
-                case "basicAttack":
-                  //basic attack
-                  //ini tidak semua berdamage
-                  group_session.players[targetIndex].health -=
-                    group_session.players[i].damage;
-
-                  attackerName =
-                    group_session.players[i].name +
-                    "(❤️" +
-                    group_session.players[i].health +
-                    ")";
-                  victimName =
-                    group_session.players[targetIndex].name +
-                    "(-🎯" +
-                    group_session.players[i].damage +
-                    ")";
-
-                  //default, kedepan pake random response
-                  detailText[i].text +=
-                    attackerName + " menyerang " + victimName;
-                  break;
-              }
-            }
-          }
+          //default, kedepan pake random response
+          detailText[i].text += attackerName + " menyerang " + victimName;
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
@@ -311,7 +280,7 @@ function handle(client, event, args, user_session, group_session) {
     } else {
       // ke preBattle
 
-      return chooseCard(msg);
+      return preBattle(msg);
     }
   }
 
@@ -604,22 +573,21 @@ function handle(client, event, args, user_session, group_session) {
     client.replyMessage(event.replyToken, msg);
   }
 
-  function chooseCard(msg) {
-    //cp
-    group_session.state = "chooseCard";
+  function preBattle(msg) {
+    group_session.state = "preBattle";
+    group_session.round++;
 
     for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].health > 0) {
-        group_session.players[i].choose = "pending";
-      }
+      group_session.players[i].attack = "";
+      group_session.players[i].attacker = [];
     }
 
-    let chooseCardFlexMsg = flex.getChooseCard(group_session);
-    msg.push(chooseCardFlexMsg);
+    let preBattleFlexMsg = flex.getPreBattle(group_session);
+    msg.push(preBattleFlexMsg);
 
     saveGroupData();
 
-    client.replyMessage(event.replyToken, msg);
+    client.replyMessage(event.replyToken, msg).catch(err => console.log(err));
   }
 
   function resetAllPlayers(players) {

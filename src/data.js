@@ -20,10 +20,6 @@ module.exports = {
 
     //return this.replyText("👋 Sorry, botnya sedang maintenance");
 
-    if (event.source.groupId !== process.env.DEV_GROUP) {
-      return this.replyText("👋 Sorry, botnya sedang maintenance");
-    }
-
     searchUser(this.event.source.userId);
 
     function searchUser(id) {
@@ -37,7 +33,8 @@ module.exports = {
           id: id,
           name: "",
           status: "inactive",
-          groupId: ""
+          groupId: "",
+          killStreak: 0
         };
 
         var newUserData = JSON.stringify(newUser, null, 2);
@@ -161,7 +158,8 @@ module.exports = {
         id: players[i].id,
         status: "inactive",
         groupId: players[i].groupId,
-        name: players[i].name
+        name: players[i].name,
+        killStreak: players[i].killStreak
       };
 
       this.saveUserData(reset_player);
