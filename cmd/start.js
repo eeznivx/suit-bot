@@ -58,12 +58,13 @@ function handle (client, event, args, user_session, group_session){
   
   for (let i = 0; i < group_session.players.length; i++){
     group_session.players[i].health = health;
+    group_session.players[i].maxHealth = health;
   }
   
   group_session.state = "preBattle";
   
   saveGroupData();
- 
+  
   var msg = flex.getPreBattle(group_session);
   client.replyMessage(event.replyToken, msg);
   
