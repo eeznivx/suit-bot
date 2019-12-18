@@ -3,36 +3,6 @@
   "name": "",
   "players": [
     {
-      "id": "U8b56c777b04aaaddd3811b8fa6cb82d2",
-      "name": "Fynnnnnn",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 8
-    },
-    {
-      "id": "U9fa3c9b1868cc29c6e81e39a928f4622",
-      "name": "Nurdin",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 0
-    },
-    {
-      "id": "U83caf7c21caa4cb90f5c616e0ef85e3a",
-      "name": "Eriec Tan",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 2
-    },
-    {
       "id": "Uaa0c116405d3f0032f25feee64f5fc2f",
       "name": "hann",
       "attack": "",

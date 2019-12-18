@@ -67,22 +67,24 @@ module.exports = {
                   }
                 }
               ]
+            },
+            {
+              type: "box",
+              layout: "horizontal",
+              spacing: "md",
+              contents: [
+                {
+                  type: "button",
+                  style: "primary",
+                  color: "#2D4059",
+                  action: {
+                    type: "uri",
+                    label: "Pilih Perk",
+                    data: "line://oaMessage/@793btjtn/?/perk"
+                  }
+                }
+              ]
             }
-            // {
-            //   type: "box",
-            //   layout: "horizontal",
-            //   contents: [
-            //     {
-            //       type: "button",
-            //       style: "primary",
-            //       action: {
-            //         type: "postback",
-            //         label: "kertas",
-            //         data: "/attack kertas"
-            //       }
-            //     }
-            //   ]
-            // }
           ]
         },
         styles: {
@@ -794,5 +796,74 @@ module.exports = {
     }
 
     return flex_msg;
-  }
+  },
+  getBonus: function() {
+    var flex_msg = {
+      type: "flex",
+      altText: "📣 Pilih Perk!",
+      contents: {
+        type: "bubble",
+        header: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: "❤️ Perk 🎯",
+              weight: "bold",
+              size: "xl",
+              wrap: true,
+              color: "#F6F6F6"
+            }
+          ]
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          spacing: "md",
+          contents: [
+            {
+              type: "text",
+              text: "Pilih Perk apa untuk dipilih saat berhasil kill musuh\n+1 Damage atau +1 Health",
+              weight: "bold",
+              size: "lg",
+              wrap: true
+            },
+          ]
+        },
+        footer: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "button",
+              style: "primary",
+              color: "#2D4059",
+              action: {
+                type: "postback",
+                label: "+❤️",
+                data: "/chooseHealth"
+              }
+            },
+            {
+              type: "button",
+              style: "primary",
+              color: "#2D4059",
+              action: {
+                type: "postback",
+                label: "+🎯",
+                data: "/chooseDamage"
+              }
+            }
+          ]
+        },
+        styles: {
+          header: {
+            backgroundColor: "#2D4059"
+          }
+        }
+      }
+    };
+    return flex_msg;
+  },
 };

@@ -8,27 +8,28 @@ function handle (client, event, args, user_session, group_session){
     body: ""
   }
   
-  //fill this
+  let index = helper.indexOfPlayer(user_session, group_session);
+  let players = group_session.players;
+  
+  if (group_session.state !== "preBattle"){
+    return Promise.resolve(null);
+  }
+  
+  group_session.players[index].perk = "health";
+  
+  saveGroupData();
+  
+  flex_text.header = "❤️ Health Perk";
+  
+  flex_text.body = "Kamu memilih Perk Health, setiap kamu kill pemain, health kamu bertambah 1";
+  flex_text.body += "\nKamu bisa ganti perk lagi, tetapi harus pada saat awal round";
   
   let flexMsg = flex.getFlex(flex_text);
   client.replyMessage(event.replyToken, flexMsg);
   
-  function saveUserData(){
-    const data = require("/app/src/data");
-    data.saveUserData(user_session);
-  }
-  
   function saveGroupData(){
     const data = require("/app/src/data");
     data.saveGroupData(group_session);
-  }
-  
-  function replyText(texts){
-    texts = Array.isArray(texts) ? texts : [texts];
-    return client.replyMessage(
-      event.replyToken,
-      texts.map(text => ({ type: "text", text }))
-    );
   }
   
 }

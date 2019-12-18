@@ -212,13 +212,23 @@ function handle(client, event, args, user_session, group_session) {
             ")";
 
           //default, kedepan pake random response
-          detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage;
+          detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage + "\n";
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
             
             //bonus
-            group_session.players[i].damage++;
+            if (group_session.players[i].perk === "health"){
+              if (group_session.players[i].health < group_session.players[i].maxHealth){
+                group_session.players[i].health++;
+              } else {
+                group_session.players[i].maxHealth++;
+                group_session.players[i].health++;
+              }
+            } else if (group_session.players[i].perk === "damage"){
+              group_session.players[i].damage++;
+            }
+            
             
             group_session.players[i].killStreak++;
 
@@ -421,7 +431,7 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[i].team +
             ")" +
             group_session.players[i].name +
-            "(❤️" +
+            "(❤️ " +
             group_session.players[i].health +
             ")";
           var victimName =
@@ -429,18 +439,33 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[targetIndex].team +
             ")" +
             group_session.players[targetIndex].name +
-            "(-🎯" +
-            group_session.players[i].damage +
+            "(❤️ " +
+            group_session.players[targetIndex].health +
             ")";
+          
+          var attackerDamage = "🎯 " + group_session.players[i].damage + " damage ";
 
           //default, kedepan pake random response
-          detailText[i].text += attackerName + " menyerang " + victimName;
+          detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage + "\n";
 
           //tunggu ada sistem damage
           // attackerName + " menyerang " + victimName + " (-1 damage)";
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
+            
+            //bonus
+            if (group_session.players[i].perk === "health"){
+              if (group_session.players[i].health < group_session.players[i].maxHealth){
+                group_session.players[i].health++;
+              } else {
+                group_session.players[i].maxHealth++;
+                group_session.players[i].health++;
+              }
+            } else if (group_session.players[i].perk === "damage"){
+              group_session.players[i].damage++;
+            }
+            
             group_session.players[i].killStreak++;
 
             var attackerStreak = group_session.players[i].killStreak;

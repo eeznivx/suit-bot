@@ -1,23 +1,19 @@
 const keywords = [
-  // {
-  //   text: "help",
-  //   handle: require("./help")
-  // },
-  // {
-  //   text: "test",
-  //   handle: require("./test")
-  // },
-  // {
-  //   text: "info",
-  //   handle: require("./info")
-  // },
   {
-    text: "setup",
-    handle: require("./setup")
+    text: "perk",
+    handle: require("./perk")
   },
   {
     text: "cmd",
     handle: require("./cmd")
+  },
+  {
+    text: "chooseHealth",
+    handle: require("./chooseHealth")
+  },
+  {
+    text: "chooseDamage",
+    handle: require("./chooseDamage")
   },
 ];
 

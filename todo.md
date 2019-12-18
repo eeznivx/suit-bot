@@ -10,10 +10,8 @@
 
 ## Todo
 - for loop jadiin ke forEach aja
-- kalau
-- remake system damage
-- pre making rpg system!
-- personal command, dan standby command
+- setup yang di personal folder, itu buat kasih pilih user maunya bonus pas kill seseorang +hp atau +damage
+
 
 ## Done
 - prototype done
