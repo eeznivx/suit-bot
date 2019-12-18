@@ -186,13 +186,25 @@ function handle(client, event, args, user_session, group_session) {
 
           var attackerName = group_session.players[i].name;
           var victimName = group_session.players[targetIndex].name;
-
-          //default, kedepan pake random response
-          detailText[i].text +=
-            attackerName + " menyerang " + victimName;
           
           //tunggu ada sistem damage
           //attackerName + " menyerang " + victimName + " (-1 damage)";
+          group_session.players[targetIndex].health -=
+            group_session.players[i].damage;
+
+          attackerName =
+            group_session.players[i].name +
+            "(❤️" +
+            group_session.players[i].health +
+            ")";
+          victimName =
+            group_session.players[targetIndex].name +
+            "(-🎯" +
+            group_session.players[i].damage +
+            ")";
+
+          //default, kedepan pake random response
+          detailText[i].text += attackerName + " menyerang " + victimName;
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
@@ -274,7 +286,6 @@ function handle(client, event, args, user_session, group_session) {
       drawGame(msg);
     } else {
       // ke preBattle
-      //TODO: buat ini bisa ke state pilih power ups
       group_session.state = "preBattle";
       return preBattle(msg);
     }
@@ -511,8 +522,6 @@ function handle(client, event, args, user_session, group_session) {
       drawGame(msg);
     } else {
       //ke prebattle
-      //atau ke bonus round power ups itu
-      group_session.state = "preBattle";
       return preBattle(msg);
     }
   }
@@ -524,6 +533,10 @@ function handle(client, event, args, user_session, group_session) {
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);
+    
+    group_session.players.forEach(item => {
+      item.killAmount += item.killStreak;
+    });
 
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
@@ -542,6 +555,10 @@ function handle(client, event, args, user_session, group_session) {
 
     msg.push(endGameFlex);
 
+    group_session.players.forEach(item => {
+      item.killAmount += item.killStreak;
+    });
+    
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
@@ -556,6 +573,10 @@ function handle(client, event, args, user_session, group_session) {
 
     msg.push(endGameFlex);
     
+    group_session.players.forEach(item => {
+      item.killAmount += item.killStreak;
+    });
+
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
@@ -564,6 +585,8 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function preBattle(msg) {
+    group_session.round++;
+    group_session.state = "preBattle";
     group_session.round++;
     
     for (let i = 0; i < group_session.players.length; i++) {
