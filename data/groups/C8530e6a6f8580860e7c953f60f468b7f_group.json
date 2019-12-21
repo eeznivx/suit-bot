@@ -1,45 +1,8 @@
 {
   "groupId": "C8530e6a6f8580860e7c953f60f468b7f",
   "name": "",
-  "players": [
-    {
-      "id": "Uaa0c116405d3f0032f25feee64f5fc2f",
-      "name": "hann",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "maxHealth": 0,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 7,
-      "perk": ""
-    },
-    {
-      "id": "U83caf7c21caa4cb90f5c616e0ef85e3a",
-      "name": "Eriec Tan",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "maxHealth": 0,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 3,
-      "perk": ""
-    },
-    {
-      "id": "U8b56c777b04aaaddd3811b8fa6cb82d2",
-      "name": "Fynnnnnn",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "maxHealth": 0,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 10,
-      "perk": ""
-    }
-  ],
-  "state": "new",
+  "players": [],
+  "state": "idle",
   "mode": "classic",
-  "round": 1
+  "round": 3
 }

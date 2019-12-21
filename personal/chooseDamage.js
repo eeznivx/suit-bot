@@ -19,10 +19,6 @@ function handle (client, event, args, user_session, group_session){
   
   saveGroupData();
   
-  
-  
-  //end
-  
   flex_text.header = "🎯 Damage Perk";
   
   flex_text.body = "Kamu memilih Perk Damage, setiap kamu kill pemain, damage kamu bertambah 1";

@@ -1,0 +1,45 @@
+{
+  "groupId": "C929aa3f962c70e86932bc21b5c91d1ae",
+  "name": "",
+  "players": [
+    {
+      "id": "Uf4fd928449ae4e35b5ff3155fa9d00f7",
+      "name": "G. Asara Cantika",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "perk": ""
+    },
+    {
+      "id": "U4ad1a4bb89eb499c98f4a8f13ebfe95c",
+      "name": "✨bit.ly/ℑEVANAA ◇⚯͛",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 1,
+      "perk": ""
+    },
+    {
+      "id": "U2273ded0e8bbf013a2a7bc3505523221",
+      "name": "🍓AILY-!ꕤツø",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 1,
+      "perk": ""
+    }
+  ],
+  "state": "new",
+  "mode": "classic",
+  "round": 1
+}
