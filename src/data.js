@@ -17,9 +17,11 @@ module.exports = {
         "This bot only support LINE version 7.5.0 or higher.\nTry updating, block, and re-add this bot."
       );
     }
-
-    //return this.replyText("👋 Sorry, botnya sedang maintenance");
-
+    
+    if (event.source.groupId !== process.env.DEV_GROUP){
+       return this.replyText("👋 Sorry, botnya sedang maintenance");
+    } 
+   
     searchUser(this.event.source.userId);
 
     function searchUser(id) {

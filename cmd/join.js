@@ -39,10 +39,11 @@ function handle (client, event, args, user_session, group_session){
     attacker: [],
     health: 0,
     maxHealth: 0,
+    energy: 2,
     killStreak: 0,
     damage: 1,
     killAmount: user_session.killAmount,
-    perk: ""
+    buff: ""
   }
   
   if (group_session.mode === 'team'){

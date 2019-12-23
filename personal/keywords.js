@@ -1,7 +1,7 @@
 const keywords = [
   {
-    text: "perk",
-    handle: require("./perk")
+    text: "buff",
+    handle: require("./buff")
   },
   {
     text: "cmd",

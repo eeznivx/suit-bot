@@ -14,16 +14,16 @@ function handle(client, event, args, user_session, group_session) {
   
   let index = helper.indexOfPlayer(user_session, group_session);
   
-  let flexMsg = flex.getBonus();
+  let flexMsg = flex.getBuff();
   
-  if (group_session.players[index].perk === "") {
+  if (group_session.players[index].buff=== "") {
     client.replyMessage(event.replyToken, flexMsg);
   } else {
     let text = {
       type: "text",
-      text: "Kamu menggunakan perk " + group_session.players[index].perk
+      text: "Kamu menggunakan buff " + group_session.players[index].buff
     }
-    client.replyMessage(event.replyToken, [text, flexMsg]);
+    client.replyMessage(event.replyToken, text);
   }
 
   function saveUserData() {

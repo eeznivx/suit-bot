@@ -252,12 +252,12 @@ function handle(client, event, args, user_session, group_session) {
                 args[1],
                 victimName
               );
-              flex_text[i].body += "\n" + "💀 " + shutdownText;
+              flex_text[i].body += "\n\n" + "💀 " + shutdownText;
             }
 
             if (group_session.players[i].killStreak > 1) {
               flex_text[i].body +=
-                "\n" +
+                "\n\n" +
                 "🔥 " +
                 attackerName +
                 " dapat " +

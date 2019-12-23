@@ -79,10 +79,10 @@ module.exports = {
                   color: "#2D4059",
                   action: {
                     type: "uri",
-                    label: "Pilih Perk",
-                    uri: "line://oaMessage/@793btjtn/?/perk"
+                    label: "⚡",
+                    uri: "line://oaMessage/@793btjtn/?/buff"
                   }
-                }
+                },
               ]
             }
           ]
@@ -118,11 +118,20 @@ module.exports = {
         },
         {
           type: "text",
-          text: "Health",
+          text: "❤️",
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 3,
+          flex: 1,
+          align: "center"
+        },
+        {
+          type: "text",
+          text: "⚡",
+          weight: "bold",
+          size: "md",
+          wrap: true,
+          flex: 2,
           align: "center"
         }
       ]
@@ -131,11 +140,11 @@ module.exports = {
     if (group_session.mode === "team") {
       table.contents.push({
         type: "text",
-        text: "Team",
+        text: "🛡️",
         weight: "bold",
         size: "md",
         wrap: true,
-        flex: 2,
+        flex: 1,
         align: "center"
       });
     }
@@ -180,7 +189,15 @@ module.exports = {
               text: "",
               size: "md",
               wrap: true,
-              flex: 3,
+              flex: 1,
+              align: "center"
+            },
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true,
+              flex: 2,
               align: "center"
             }
           ]
@@ -192,7 +209,7 @@ module.exports = {
             text: group_session.players[i].team,
             size: "md",
             wrap: true,
-            flex: 2,
+            flex: 1,
             align: "center"
           });
         }
@@ -200,6 +217,7 @@ module.exports = {
         playerTable[i].contents[0].text += num;
         playerTable[i].contents[1].text += group_session.players[i].name;
         playerTable[i].contents[2].text += group_session.players[i].health;
+        playerTable[i].contents[3].text += group_session.players[i].energy;
         flex_msg.contents.body.contents.push(playerTable[i]);
         num++;
       }
@@ -797,10 +815,10 @@ module.exports = {
 
     return flex_msg;
   },
-  getBonus: function() {
+  getBuff: function() {
     var flex_msg = {
       type: "flex",
-      altText: "📣 Pilih Perk!",
+      altText: "📣 Pilih Buff!",
       contents: {
         type: "bubble",
         header: {
@@ -824,7 +842,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Pilih Perk apa untuk dipilih saat berhasil kill musuh\n+1 Damage atau +1 Health",
+              text: "",
               weight: "bold",
               size: "lg",
               wrap: true

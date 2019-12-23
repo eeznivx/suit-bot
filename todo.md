@@ -5,7 +5,9 @@
   
 
 ## Todo
-- for loop jadiin ke forEach aja
+- penjelasan perk
+- ganti warna ke christmas theme
+- energy system, ada kenak di flex juga, jadinya pas preBattle, ada show energy
 
 
 ## Done
