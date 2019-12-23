@@ -125,6 +125,9 @@ function handle(client, event, args, user_session, group_session) {
     var detailTexts = [];
 
     for (let i = 0; i < group_session.players.length; i++) {
+      
+      group_session.players[i].energy++;
+      
       //targets cuma bisa direset pas ganti attacker
       var targets = [];
       var targetIndex = -1;
@@ -171,7 +174,7 @@ function handle(client, event, args, user_session, group_session) {
           //for enhance damage
           var enhanceDamage = 0;
           
-          //energy
+          //apply buff
           if (group_session.players[i].buff.name !== ""){
             
             let buffName = group_session.players[i].buff.name;
@@ -180,8 +183,6 @@ function handle(client, event, args, user_session, group_session) {
             } else if (buffName === "enhanceDamage"){
               enhanceDamage += 1;
             }
-          } else {
-            group_session.players[i].energy++;
           }
           
           //init
@@ -205,6 +206,8 @@ function handle(client, event, args, user_session, group_session) {
             "target yang kenak ",
             group_session.players[targetIndex].name
           );
+          
+          group_session.players[targetIndex].energy++;
 
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name
@@ -371,6 +374,9 @@ function handle(client, event, args, user_session, group_session) {
       var targetIndex = -1;
 
       if (group_session.players[i].attack !== "") {
+        
+        group_session.players[i].energy++;
+        
         for (let u = 0; u < group_session.players.length; u++) {
           var attackerId = group_session.players[i].id;
           console.log("attackerId", attackerId);
@@ -423,17 +429,14 @@ function handle(client, event, args, user_session, group_session) {
           //for enhance damage
           var enhanceDamage = 0;
           
-          //energy
-          if (group_session.players[i].buff.name !== ""){
-            
+          //apply buff
+          if (group_session.players[i].buff.name !== ""){         
             let buffName = group_session.players[i].buff.name;
             if (buffName === "lifesteal"){
               group_session.players[i].health++;
             } else if (buffName === "enhanceDamage"){
               enhanceDamage += 1;
             }
-          } else {
-            group_session.players[i].energy++;
           }
           
           
@@ -447,10 +450,10 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[targetIndex].name
           );
           
+          group_session.players[targetIndex].energy++;
+          
           group_session.players[targetIndex].health -=
             group_session.players[i].damage + enhanceDamage;
-          
-          
           
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name

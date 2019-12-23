@@ -16,10 +16,7 @@ function handle (client, event, args, user_session, group_session){
   }
   
   if (players[index].buff.name !== ""){
-    return client.replyMessage(event.replyToken, {
-      type: "text",
-      text: "Buff " + players[index].buff.name + " kamu masih aktif."
-    });
+    return replyText("🌀 Buff " + players[index].buff.name + " kamu masih aktif.");
   }
   
   let buff = args[1];
@@ -58,13 +55,13 @@ function handle (client, event, args, user_session, group_session){
     let playerEnergy = group_session.players[index].energy;
     
     if (playerEnergy < buffCost){
-      return replyText("Energy kamu tidak cukup.");
+      return replyText("⚡ Energy kamu tidak cukup.");
     }
     
     group_session.player[index].energy -= buffCost;
     
     saveGroupData();
-    return replyText("Kamu memilih buff " + buff);
+    return replyText("🌀 Kamu memilih buff " + buff);
   }
   
   let flexMsg = flex.getChooseBuff(flex_text, buff);
