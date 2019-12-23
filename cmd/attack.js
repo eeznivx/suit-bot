@@ -168,6 +168,22 @@ function handle(client, event, args, user_session, group_session) {
         console.log("ini targets", targets);
 
         if (targets.length !== 0) {
+          //for enhance damage
+          let enhanceDamage = 0;
+          
+          //energy
+          if (group_session.players[i].buff.name !== ""){
+            
+            let buffName = group_session.players[i].buff.name;
+            if (buffName === "lifesteal"){
+              group_session.players[i].health++;
+            } else if (buffName === "enhanceDamage"){
+              enhanceDamage += 1;
+            }
+          } else {
+            group_session.players[i].energy++;
+          }
+          
           //init
           //untuk detailText
           detailText[i] = {
@@ -195,7 +211,7 @@ function handle(client, event, args, user_session, group_session) {
           );
 
           group_session.players[targetIndex].health -=
-            group_session.players[i].damage;
+            group_session.players[i].damage + enhanceDamage;
           
           attackerName =
             group_session.players[i].name +
@@ -203,7 +219,8 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[i].health +
             ")";
           
-          attackerDamage = "🎯 " + group_session.players[i].damage + " damage ";
+          let infoDamage = group_session.players[i].damage + enhanceDamage;
+          attackerDamage = "🎯 " + infoDamage + " damage ";
           
           victimName =
             group_session.players[targetIndex].name +
@@ -215,20 +232,7 @@ function handle(client, event, args, user_session, group_session) {
           detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage + "\n";
 
           //kasih header special
-          if (group_session.players[targetIndex].health === 0) {
-            
-            //bonus
-            if (group_session.players[i].perk === "health"){
-              if (group_session.players[i].health < group_session.players[i].maxHealth){
-                group_session.players[i].health++;
-              } else {
-                group_session.players[i].maxHealth++;
-                group_session.players[i].health++;
-              }
-            } else if (group_session.players[i].perk === "damage"){
-              group_session.players[i].damage++;
-            }
-            
+          if (group_session.players[targetIndex].health === 0) {        
             
             group_session.players[i].killStreak++;
 
@@ -271,6 +275,17 @@ function handle(client, event, args, user_session, group_session) {
 
           detailTexts.push(detailText[i]);
         }
+        
+        //kurangi duration buff
+        if (group_session.players[i].buff.name !== ""){
+          group_session.players[i].buff.duration--;
+          
+          if (group_session.players[i].buff.duration < 1){
+            group_session.players[i].buff.name = "";
+          }
+          
+        }
+        
       }
     }
 
@@ -404,16 +419,39 @@ function handle(client, event, args, user_session, group_session) {
         console.log("ini targets", targets);
 
         if (targets.length !== 0) {
+          
+          //for enhance damage
+          let enhanceDamage = 0;
+          
+          //energy
+          if (group_session.players[i].buff.name !== ""){
+            
+            let buffName = group_session.players[i].buff.name;
+            if (buffName === "lifesteal"){
+              group_session.players[i].health++;
+            } else if (buffName === "enhanceDamage"){
+              enhanceDamage += 1;
+            }
+          } else {
+            group_session.players[i].energy++;
+          }
+          
+          
           targetIndex = helper.getPlayerById(
             helper.random(targets),
             group_session
           );
+          
           console.log(
             "target yang kenak ",
             group_session.players[targetIndex].name
           );
+          
           group_session.players[targetIndex].health -=
-            group_session.players[i].damage;
+            group_session.players[i].damage + enhanceDamage;
+          
+          
+          
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name
           );
@@ -443,7 +481,8 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[targetIndex].health +
             ")";
           
-          var attackerDamage = "🎯 " + group_session.players[i].damage + " damage ";
+          let infoDamage = group_session.players[i].damage + enhanceDamage;
+          var attackerDamage = "🎯 " + infoDamage + " damage ";
 
           //default, kedepan pake random response
           detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage + "\n";
@@ -453,18 +492,6 @@ function handle(client, event, args, user_session, group_session) {
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
-            
-            //bonus
-            if (group_session.players[i].perk === "health"){
-              if (group_session.players[i].health < group_session.players[i].maxHealth){
-                group_session.players[i].health++;
-              } else {
-                group_session.players[i].maxHealth++;
-                group_session.players[i].health++;
-              }
-            } else if (group_session.players[i].perk === "damage"){
-              group_session.players[i].damage++;
-            }
             
             group_session.players[i].killStreak++;
 
@@ -516,6 +543,16 @@ function handle(client, event, args, user_session, group_session) {
           }
 
           detailTexts.push(detailText[i]);
+        }
+        
+        //kurangi duration buff
+        if (group_session.players[i].buff.name !== ""){
+          group_session.players[i].buff.duration--;
+          
+          if (group_session.players[i].buff.duration < 1){
+            group_session.players[i].buff.name = "";
+          }
+          
         }
       }
     }

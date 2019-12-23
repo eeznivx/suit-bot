@@ -12,18 +12,27 @@ function handle(client, event, args, user_session, group_session) {
     return Promise.resolve(null);
   }
   
+  let players = group_session.players;
   let index = helper.indexOfPlayer(user_session, group_session);
   
   let flexMsg = flex.getBuff();
   
-  if (group_session.players[index].buff=== "") {
-    client.replyMessage(event.replyToken, flexMsg);
+  flex_text.header = "Player Info";
+  flex_text.body = "❤️ Health : " + players[index].health + "\n";
+  flex_text.body += "⚡ Energy : " + players[index].energy + "\n";
+  flex_text.body += "🎯 Damage : " + players[index].damage;
+  
+  if (players[index].buff !== ""){
+    flex_text.body += "\n" + "🌀 Buff : " + players[index].buff.name + "\n";
+    flex_text.body += "\n" + "🌀 Buff Duration : " + players[index].buff.duration + "\n";
+  }
+  
+  let playerInfo = flex.getFlex(flex_text);
+  
+  if (group_session.players[index].buff.name === "") {
+    client.replyMessage(event.replyToken, [playerInfo, flexMsg]);
   } else {
-    let text = {
-      type: "text",
-      text: "Kamu menggunakan buff " + group_session.players[index].buff
-    }
-    client.replyMessage(event.replyToken, text);
+    client.replyMessage(event.replyToken, playerInfo);
   }
 
   function saveUserData() {

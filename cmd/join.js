@@ -43,7 +43,10 @@ function handle (client, event, args, user_session, group_session){
     killStreak: 0,
     damage: 1,
     killAmount: user_session.killAmount,
-    buff: ""
+    buff: {
+      name: "",
+      duration: 0
+    }
   }
   
   if (group_session.mode === 'team'){

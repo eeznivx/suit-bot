@@ -8,12 +8,8 @@ const keywords = [
     handle: require("./cmd")
   },
   {
-    text: "choosehealth",
-    handle: require("./chooseHealth")
-  },
-  {
-    text: "choosedamage",
-    handle: require("./chooseDamage")
+    text: "choose",
+    handle: require("./choose")
   },
 ];
 

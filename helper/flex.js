@@ -827,7 +827,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "❤️ Perk 🎯",
+              text: "🌀 Buff",
               weight: "bold",
               size: "xl",
               wrap: true,
@@ -842,7 +842,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "",
+              text: "Buff dapat membantu memperkuat player, tetapi ada durasi.",
               weight: "bold",
               size: "lg",
               wrap: true
@@ -860,8 +860,8 @@ module.exports = {
               color: "#2D4059",
               action: {
                 type: "postback",
-                label: "+❤️",
-                data: "/chooseHealth"
+                label: "❤️ Lifesteal",
+                data: "/choose lifesteal"
               }
             },
             {
@@ -870,8 +870,78 @@ module.exports = {
               color: "#2D4059",
               action: {
                 type: "postback",
-                label: "+🎯",
-                data: "/chooseDamage"
+                label: "🎯 Enhance Damage",
+                data: "/choose EnchanceDamage"
+              }
+            }
+          ]
+        },
+        styles: {
+          header: {
+            backgroundColor: "#2D4059"
+          }
+        }
+      }
+    };
+    return flex_msg;
+  },
+  getChooseBuff: function(flex_text, buff) {
+    var flex_msg = {
+      type: "flex",
+      altText: "📣 Set Buff!",
+      contents: {
+        type: "bubble",
+        header: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: flex_text.header,
+              weight: "bold",
+              size: "xl",
+              wrap: true,
+              color: "#F6F6F6"
+            }
+          ]
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          spacing: "md",
+          contents: [
+            {
+              type: "text",
+              text: flex_text.body,
+              weight: "bold",
+              size: "lg",
+              wrap: true
+            },
+          ]
+        },
+        footer: {
+          type: "box",
+          layout: "vertical",
+          spacing: "md",
+          contents: [
+            {
+              type: "button",
+              style: "primary",
+              color: "#2D4059",
+              action: {
+                type: "postback",
+                label: "Pilih Buff ini",
+                data: "/choose " + buff + " set"
+              }
+            },
+            {
+              type: "button",
+              style: "primary",
+              color: "#2D4059",
+              action: {
+                type: "postback",
+                label: "Cek Buff lain",
+                data: "/choose"
               }
             }
           ]
