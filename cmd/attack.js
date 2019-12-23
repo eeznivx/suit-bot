@@ -125,14 +125,14 @@ function handle(client, event, args, user_session, group_session) {
     var detailTexts = [];
 
     for (let i = 0; i < group_session.players.length; i++) {
-      
-      group_session.players[i].energy++;
-      
       //targets cuma bisa direset pas ganti attacker
       var targets = [];
       var targetIndex = -1;
 
       if (group_session.players[i].attack !== "") {
+        
+        group_session.players[i].energy++;
+        
         for (let u = 0; u < group_session.players.length; u++) {
           var attackerId = group_session.players[i].id;
           console.log("attackerId", attackerId);
@@ -178,9 +178,12 @@ function handle(client, event, args, user_session, group_session) {
           if (group_session.players[i].buff.name !== ""){
             
             let buffName = group_session.players[i].buff.name;
+            
+            console.log(buffName);
+            
             if (buffName === "lifesteal"){
               group_session.players[i].health++;
-            } else if (buffName === "enhanceDamage"){
+            } else if (buffName === "enhance-damage"){
               enhanceDamage += 1;
             }
           }
@@ -653,7 +656,7 @@ function handle(client, event, args, user_session, group_session) {
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
     saveGroupData();
-    client.replyMessage(event.replyToken, msg);
+    client.replyMessage(event.replyToken, msg).catch(err => console.log(err));
   }
 
   function preBattle(msg) {

@@ -35,14 +35,14 @@ function handle (client, event, args, user_session, group_session){
       flex_text.body += "Durasi 3 round";
       break;
       
-    case "enhanceDamage":
+    case "enhance-damage":
       group_session.players[index].buff.duration = 3;
       buffCost = 5;
       
       flex_text.header = "🎯 Enhance Damage";
       flex_text.body = "Setiap hit akan bertambah 1 damage" + "\n";
-      flex_text.body += "Energy yang dibutuhkan " + buffCost + "\n";
-      flex_text.body += "Durasi 3 round";
+      flex_text.body += "⚡ : " + buffCost + "\n";
+      flex_text.body += "⌛ : 3 round";
       break;
       
     default:
@@ -50,7 +50,7 @@ function handle (client, event, args, user_session, group_session){
       return client.replyMessage(event.replyToken, getBuff);
   }
   
-  if (args[2] !== undefined){
+  if (args[2] === "set"){
     //berarti dia set
     let playerEnergy = group_session.players[index].energy;
     
@@ -58,15 +58,15 @@ function handle (client, event, args, user_session, group_session){
       return replyText("⚡ Energy kamu tidak cukup.");
     }
     
-    group_session.player[index].energy -= buffCost;
+    group_session.players[index].energy -= buffCost;
     
     saveGroupData();
     return replyText("🌀 Kamu memilih buff " + buff);
+  } else {
+    
+    let flexMsg = flex.getChooseBuff(flex_text, buff);
+    client.replyMessage(event.replyToken, flexMsg);
   }
-  
-  let flexMsg = flex.getChooseBuff(flex_text, buff);
-  client.replyMessage(event.replyToken, flexMsg);
-  
   
   function saveGroupData(){
     const data = require("/app/src/data");

@@ -1,25 +1,8 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [
-    {
-      "id": "U119dec0850b55ac2524f43a3644db064",
-      "name": "Khomethy",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "maxHealth": 0,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 46,
-      "buff": {
-        "name": "",
-        "duration": 0
-      }
-    }
-  ],
-  "state": "new",
+  "players": [],
+  "state": "idle",
   "mode": "classic",
-  "round": 1
+  "round": 10
 }

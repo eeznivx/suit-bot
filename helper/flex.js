@@ -871,7 +871,7 @@ module.exports = {
               action: {
                 type: "postback",
                 label: "🎯 Enhance Damage",
-                data: "/choose EnchanceDamage"
+                data: "/choose enhance-damage"
               }
             }
           ]
@@ -913,8 +913,8 @@ module.exports = {
             {
               type: "text",
               text: flex_text.body,
-              weight: "bold",
-              size: "lg",
+              weight: "regular",
+              size: "md",
               wrap: true
             },
           ]

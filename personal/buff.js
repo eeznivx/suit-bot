@@ -24,7 +24,7 @@ function handle(client, event, args, user_session, group_session) {
   
   if (players[index].buff.name !== ""){
     flex_text.body += "\n" + "🌀 Buff : " + players[index].buff.name + "\n";
-    flex_text.body += "\n" + "🌀 Buff Duration : " + players[index].buff.duration + "\n";
+    flex_text.body += "🌀 Buff Duration : " + players[index].buff.duration + " round";
   }
   
   let playerInfo = flex.getFlex(flex_text);
