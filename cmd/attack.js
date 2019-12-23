@@ -169,7 +169,7 @@ function handle(client, event, args, user_session, group_session) {
 
         if (targets.length !== 0) {
           //for enhance damage
-          let enhanceDamage = 0;
+          var enhanceDamage = 0;
           
           //energy
           if (group_session.players[i].buff.name !== ""){
@@ -421,7 +421,7 @@ function handle(client, event, args, user_session, group_session) {
         if (targets.length !== 0) {
           
           //for enhance damage
-          let enhanceDamage = 0;
+          var enhanceDamage = 0;
           
           //energy
           if (group_session.players[i].buff.name !== ""){

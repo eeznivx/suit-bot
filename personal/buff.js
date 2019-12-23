@@ -22,7 +22,7 @@ function handle(client, event, args, user_session, group_session) {
   flex_text.body += "⚡ Energy : " + players[index].energy + "\n";
   flex_text.body += "🎯 Damage : " + players[index].damage;
   
-  if (players[index].buff !== ""){
+  if (players[index].buff.name !== ""){
     flex_text.body += "\n" + "🌀 Buff : " + players[index].buff.name + "\n";
     flex_text.body += "\n" + "🌀 Buff Duration : " + players[index].buff.duration + "\n";
   }
