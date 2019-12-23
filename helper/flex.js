@@ -16,7 +16,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -39,7 +39,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: "#2D4059",
+                  color: "#fa4659",
                   action: {
                     type: "postback",
                     label: "👊",
@@ -49,7 +49,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: "#2D4059",
+                  color: "#fa4659",
                   action: {
                     type: "postback",
                     label: "✌️",
@@ -59,7 +59,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: "#2D4059",
+                  color: "#fa4659",
                   action: {
                     type: "postback",
                     label: "✋",
@@ -76,7 +76,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: "#2D4059",
+                  color: "#fa4659",
                   action: {
                     type: "uri",
                     label: "⚡ Buff 🌀",
@@ -89,7 +89,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -152,7 +152,7 @@ module.exports = {
     let separator = {
       type: "separator",
       margin: "xs",
-      color: "#2D4059"
+      color: "#fa4659"
     };
 
     flex_msg.contents.body.contents.push(table, separator);
@@ -242,7 +242,7 @@ module.exports = {
             weight: "bold",
             size: "xl",
             wrap: true,
-            color: "#F6F6F6"
+            color: "#feffe4"
           }
         ]
       },
@@ -254,7 +254,7 @@ module.exports = {
       },
       styles: {
         header: {
-          backgroundColor: "#2D4059"
+          backgroundColor: "#fa4659"
         }
       }
     };
@@ -271,7 +271,7 @@ module.exports = {
             weight: "bold",
             size: "xl",
             wrap: true,
-            color: "#F6F6F6"
+            color: "#feffe4"
           }
         ]
       },
@@ -282,7 +282,7 @@ module.exports = {
       },
       styles: {
         header: {
-          backgroundColor: "#2D4059"
+          backgroundColor: "#fa4659"
         }
       }
     };
@@ -334,7 +334,7 @@ module.exports = {
     let separator = {
       type: "separator",
       margin: "xs",
-      color: "#2D4059"
+      color: "#fa4659"
     };
 
     bubbleResult.body.contents.push(table, separator);
@@ -423,7 +423,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -455,7 +455,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
                 label: "gabung",
@@ -466,7 +466,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -489,7 +489,7 @@ module.exports = {
               weight: "bold",
               size: "lg",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -509,7 +509,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -532,7 +532,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -566,7 +566,7 @@ module.exports = {
             {
               type: "separator",
               margin: "none",
-              color: "#2D4059"
+              color: "#fa4659"
             }
           ]
         },
@@ -577,7 +577,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
                 label: "main lagi",
@@ -588,7 +588,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -672,7 +672,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -709,13 +709,13 @@ module.exports = {
             {
               type: "separator",
               margin: "none",
-              color: "#2D4059"
+              color: "#fa4659"
             }
           ]
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -802,7 +802,7 @@ module.exports = {
           {
             type: "button",
             style: "primary",
-            color: "#2D4059",
+            color: "#fa4659",
             action: {
               type: "postback",
               label: "gabung",
@@ -831,7 +831,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -857,7 +857,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
                 label: "❤️ Lifesteal",
@@ -867,7 +867,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
                 label: "🎯 Enhance Damage",
@@ -878,7 +878,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -901,7 +901,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -927,7 +927,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
                 label: "Pilih Buff ini",
@@ -937,7 +937,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
                 label: "Cek Buff lain",
@@ -948,7 +948,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
