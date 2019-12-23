@@ -31,8 +31,8 @@ function handle (client, event, args, user_session, group_session){
       
       flex_text.header = "❤️ Lifesteal";
       flex_text.body = "Setiap hit yang berhasil, maka akan menambah 1 ❤️" + "\n";
-      flex_text.body += "Energy yang dibutuhkan " + buffCost + "\n";
-      flex_text.body += "Durasi 3 round";
+      flex_text.body += "⚡ : " + buffCost + "\n";
+      flex_text.body += "⌛ : 3 round";
       break;
       
     case "enhance-damage":

@@ -5,9 +5,7 @@
   
 
 ## Todo
-- penjelasan perk
 - ganti warna ke christmas theme
-- energy system, ada kenak di flex juga, jadinya pas preBattle, ada show energy
 
 
 ## Done
@@ -20,3 +18,5 @@
 - buat detail attack (carousel) getPreBattleFlex
 - use readFileSync aja deh
 - setup yang di personal folder, itu buat kasih pilih user maunya bonus pas kill seseorang +hp atau +damage
+- energy system, ada kenak di flex juga, jadinya pas preBattle, ada show energy
+- penjelasan perk

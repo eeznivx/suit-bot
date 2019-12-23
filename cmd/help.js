@@ -11,7 +11,9 @@ function handle(client, event, args, user_session, group_session) {
     "Batu menang vs Gunting",
     "Gunting menang vs Kertas",
     "Kertas menang vs Batu",
-    "Untuk daftar perintah bisa ketik /cmd"
+    "Untuk daftar perintah bisa ketik /cmd",
+    "Energy bertambah setiap round. Jika kamu di hit pemain lain, kamu juga dapat tambahan energy",
+    "Buff dapat di peroleh menggunakan energy"
   ];
 
   let num = 1;

@@ -79,7 +79,7 @@ module.exports = {
                   color: "#2D4059",
                   action: {
                     type: "uri",
-                    label: "⚡",
+                    label: "⚡ Buff 🌀",
                     uri: "line://oaMessage/@793btjtn/?/buff"
                   }
                 },

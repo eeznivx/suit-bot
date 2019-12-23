@@ -5,8 +5,6 @@ function handle (client, event, args, user_session, group_session){
     body: "hoi"
   }
   
-  console.log(group_session);
-  console.log(user_session);
   if (group_session.state !== "idle"){
     if (group_session.state === "new"){
       return replyText("💡 " + user_session.name + ", sudah ada game yang dibuat, ketik '/join' untuk gabung");
