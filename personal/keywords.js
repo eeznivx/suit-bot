@@ -1,19 +1,15 @@
 const keywords = [
   {
-    text: "perk",
-    handle: require("./perk")
+    text: "buff",
+    handle: require("./buff")
   },
   {
     text: "cmd",
     handle: require("./cmd")
   },
   {
-    text: "choosehealth",
-    handle: require("./chooseHealth")
-  },
-  {
-    text: "choosedamage",
-    handle: require("./chooseDamage")
+    text: "choose",
+    handle: require("./choose")
   },
 ];
 

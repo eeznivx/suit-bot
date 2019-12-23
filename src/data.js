@@ -18,7 +18,9 @@ module.exports = {
       );
     }
 
-    //return this.replyText("👋 Sorry, botnya sedang maintenance");
+    if (event.source.groupId !== process.env.DEV_GROUP) {
+      return maintenanceRespond();
+    }
 
     searchUser(this.event.source.userId);
 
@@ -43,7 +45,6 @@ module.exports = {
     }
 
     function searchUserCallback(data) {
-      
       user_session = JSON.parse(data);
 
       if (user_session.name === "") {
@@ -118,11 +119,27 @@ module.exports = {
     }
 
     function forwardProcess(client, event, args, user_session, group_session) {
-      if (event.source.type === 'user'){
+      if (event.source.type === "user") {
         personal(client, event, args, user_session, group_session);
       } else {
         cmd(client, event, args, user_session, group_session);
       }
+    }
+
+    function maintenanceRespond() {
+      client
+        .getGroupMemberProfile(event.source.groupId, event.source.userId)
+        .then(profile => {
+          return client.replyMessage(event.replyToken, {
+            type: "text",
+            text: "👋 Sorry " + profile.displayName + ", botnya sedang maintenance"
+          });
+        })
+        .catch(err => {
+          // error handling
+          console.log("ada error di getGroupMemberProfile");
+          console.log(event);
+        });
     }
   },
 

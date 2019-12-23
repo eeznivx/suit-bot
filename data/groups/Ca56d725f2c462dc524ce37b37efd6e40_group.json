@@ -1,0 +1,33 @@
+{
+  "groupId": "Ca56d725f2c462dc524ce37b37efd6e40",
+  "name": "",
+  "players": [
+    {
+      "id": "U616cefa96ccfd46fd4608998ee7b6427",
+      "name": ".",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "perk": ""
+    },
+    {
+      "id": "U4cc2d383f35ac025754ffe11db0f495e",
+      "name": "𝓪",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "perk": ""
+    }
+  ],
+  "state": "new",
+  "mode": "classic",
+  "round": 1
+}

@@ -14,37 +14,42 @@ function handle(client, event, args, user_session, group_session) {
     players: [
       {
         name: "sasa",
-        attack: "gunting",
+        attack: "",
         attacker: ["soso", "sisi"],
         health: 3,
+        energy: 5,
         team: "A",
         killStreak: 2
       },
       {
         name: "soso",
-        attack: "gunting",
+        attack: "",
         attacker: [],
         health: 0,
+        energy: 5,
         team: "A",
         killStreak: 2
       },
       {
         name: "sisi",
-        attack: "gunting",
+        attack: "",
         attacker: [],
         health: 3,
+        energy: 5,
         team: "B",
         killStreak: 2
       },
       {
         name: "sese",
-        attack: "gunting",
+        attack: "",
         attacker: [],
         health: 3,
+        energy: 5,
         team: "B",
         killStreak: 2
       }
-    ]
+    ],
+    round: "77"
   };
 
   let detailDummy = [
@@ -56,7 +61,7 @@ function handle(client, event, args, user_session, group_session) {
     }
   ];
 
-  let flexMsg = flex.getPlayerList(dummy);
+  let flexMsg = flex.getPreBattle(dummy);
   console.log(JSON.stringify(flexMsg.contents));
   client.replyMessage(event.replyToken, flexMsg);
 

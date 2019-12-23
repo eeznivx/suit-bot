@@ -1,6 +1,6 @@
 {
   "name": "suit-bot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "bot suit untuk line messenger",
   "main": "server.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "@line/bot-sdk": "^6.8.3"
+    "@line/bot-sdk": "^6.8.4"
   },
   "engines": {
     "node": "8.x"

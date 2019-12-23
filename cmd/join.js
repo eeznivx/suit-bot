@@ -4,8 +4,6 @@ function handle (client, event, args, user_session, group_session){
     body: "hoi"
   }
   
-  console.log(group_session);
-  console.log(user_session);
   if (group_session.state !== "new"){
     if (group_session.state === "idle"){
       return replyText('💡 ' + user_session.name + ", belum ada game yg dibuat. ketik '/new' utk buat");
@@ -39,10 +37,14 @@ function handle (client, event, args, user_session, group_session){
     attacker: [],
     health: 0,
     maxHealth: 0,
+    energy: 2,
     killStreak: 0,
     damage: 1,
     killAmount: user_session.killAmount,
-    perk: ""
+    buff: {
+      name: "",
+      duration: 0
+    }
   }
   
   if (group_session.mode === 'team'){

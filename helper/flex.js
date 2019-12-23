@@ -16,7 +16,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -39,7 +39,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: "#2D4059",
+                  color: "#fa4659",
                   action: {
                     type: "postback",
                     label: "👊",
@@ -49,7 +49,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: "#2D4059",
+                  color: "#fa4659",
                   action: {
                     type: "postback",
                     label: "✌️",
@@ -59,7 +59,7 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: "#2D4059",
+                  color: "#fa4659",
                   action: {
                     type: "postback",
                     label: "✋",
@@ -76,20 +76,20 @@ module.exports = {
                 {
                   type: "button",
                   style: "primary",
-                  color: "#2D4059",
+                  color: "#fa4659",
                   action: {
                     type: "uri",
-                    label: "Pilih Perk",
-                    uri: "line://oaMessage/@793btjtn/?/perk"
+                    label: "⚡ Buff 🌀",
+                    uri: "line://oaMessage/@793btjtn/?/buff"
                   }
-                }
+                },
               ]
             }
           ]
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -118,11 +118,20 @@ module.exports = {
         },
         {
           type: "text",
-          text: "Health",
+          text: "❤️",
           weight: "bold",
           size: "md",
           wrap: true,
-          flex: 3,
+          flex: 1,
+          align: "center"
+        },
+        {
+          type: "text",
+          text: "⚡",
+          weight: "bold",
+          size: "md",
+          wrap: true,
+          flex: 2,
           align: "center"
         }
       ]
@@ -131,11 +140,11 @@ module.exports = {
     if (group_session.mode === "team") {
       table.contents.push({
         type: "text",
-        text: "Team",
+        text: "🛡️",
         weight: "bold",
         size: "md",
         wrap: true,
-        flex: 2,
+        flex: 1,
         align: "center"
       });
     }
@@ -143,7 +152,7 @@ module.exports = {
     let separator = {
       type: "separator",
       margin: "xs",
-      color: "#2D4059"
+      color: "#fa4659"
     };
 
     flex_msg.contents.body.contents.push(table, separator);
@@ -180,7 +189,15 @@ module.exports = {
               text: "",
               size: "md",
               wrap: true,
-              flex: 3,
+              flex: 1,
+              align: "center"
+            },
+            {
+              type: "text",
+              text: "",
+              size: "md",
+              wrap: true,
+              flex: 2,
               align: "center"
             }
           ]
@@ -192,7 +209,7 @@ module.exports = {
             text: group_session.players[i].team,
             size: "md",
             wrap: true,
-            flex: 2,
+            flex: 1,
             align: "center"
           });
         }
@@ -200,6 +217,7 @@ module.exports = {
         playerTable[i].contents[0].text += num;
         playerTable[i].contents[1].text += group_session.players[i].name;
         playerTable[i].contents[2].text += group_session.players[i].health;
+        playerTable[i].contents[3].text += group_session.players[i].energy;
         flex_msg.contents.body.contents.push(playerTable[i]);
         num++;
       }
@@ -224,7 +242,7 @@ module.exports = {
             weight: "bold",
             size: "xl",
             wrap: true,
-            color: "#F6F6F6"
+            color: "#feffe4"
           }
         ]
       },
@@ -236,7 +254,7 @@ module.exports = {
       },
       styles: {
         header: {
-          backgroundColor: "#2D4059"
+          backgroundColor: "#fa4659"
         }
       }
     };
@@ -253,7 +271,7 @@ module.exports = {
             weight: "bold",
             size: "xl",
             wrap: true,
-            color: "#F6F6F6"
+            color: "#feffe4"
           }
         ]
       },
@@ -264,7 +282,7 @@ module.exports = {
       },
       styles: {
         header: {
-          backgroundColor: "#2D4059"
+          backgroundColor: "#fa4659"
         }
       }
     };
@@ -316,7 +334,7 @@ module.exports = {
     let separator = {
       type: "separator",
       margin: "xs",
-      color: "#2D4059"
+      color: "#fa4659"
     };
 
     bubbleResult.body.contents.push(table, separator);
@@ -405,7 +423,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -437,7 +455,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
                 label: "gabung",
@@ -448,7 +466,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -471,7 +489,7 @@ module.exports = {
               weight: "bold",
               size: "lg",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -491,7 +509,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -514,7 +532,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -548,7 +566,7 @@ module.exports = {
             {
               type: "separator",
               margin: "none",
-              color: "#2D4059"
+              color: "#fa4659"
             }
           ]
         },
@@ -559,7 +577,7 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
                 label: "main lagi",
@@ -570,7 +588,7 @@ module.exports = {
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -654,7 +672,7 @@ module.exports = {
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -691,13 +709,13 @@ module.exports = {
             {
               type: "separator",
               margin: "none",
-              color: "#2D4059"
+              color: "#fa4659"
             }
           ]
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
           }
         }
       }
@@ -784,7 +802,7 @@ module.exports = {
           {
             type: "button",
             style: "primary",
-            color: "#2D4059",
+            color: "#fa4659",
             action: {
               type: "postback",
               label: "gabung",
@@ -797,10 +815,10 @@ module.exports = {
 
     return flex_msg;
   },
-  getBonus: function() {
+  getBuff: function() {
     var flex_msg = {
       type: "flex",
-      altText: "📣 Pilih Perk!",
+      altText: "📣 Pilih Buff!",
       contents: {
         type: "bubble",
         header: {
@@ -809,11 +827,11 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "❤️ Perk 🎯",
+              text: "🌀 Buff",
               weight: "bold",
               size: "xl",
               wrap: true,
-              color: "#F6F6F6"
+              color: "#feffe4"
             }
           ]
         },
@@ -824,7 +842,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: "Pilih Perk apa untuk dipilih saat berhasil kill musuh\n+1 Damage atau +1 Health",
+              text: "Buff dapat membantu memperkuat player, tetapi ada durasi.",
               weight: "bold",
               size: "lg",
               wrap: true
@@ -839,28 +857,98 @@ module.exports = {
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
-                label: "+❤️",
-                data: "/chooseHealth"
+                label: "❤️ Lifesteal",
+                data: "/choose lifesteal"
               }
             },
             {
               type: "button",
               style: "primary",
-              color: "#2D4059",
+              color: "#fa4659",
               action: {
                 type: "postback",
-                label: "+🎯",
-                data: "/chooseDamage"
+                label: "🎯 Enhance Damage",
+                data: "/choose enhance-damage"
               }
             }
           ]
         },
         styles: {
           header: {
-            backgroundColor: "#2D4059"
+            backgroundColor: "#fa4659"
+          }
+        }
+      }
+    };
+    return flex_msg;
+  },
+  getChooseBuff: function(flex_text, buff) {
+    var flex_msg = {
+      type: "flex",
+      altText: "📣 Set Buff!",
+      contents: {
+        type: "bubble",
+        header: {
+          type: "box",
+          layout: "vertical",
+          contents: [
+            {
+              type: "text",
+              text: flex_text.header,
+              weight: "bold",
+              size: "xl",
+              wrap: true,
+              color: "#feffe4"
+            }
+          ]
+        },
+        body: {
+          type: "box",
+          layout: "vertical",
+          spacing: "md",
+          contents: [
+            {
+              type: "text",
+              text: flex_text.body,
+              weight: "regular",
+              size: "md",
+              wrap: true
+            },
+          ]
+        },
+        footer: {
+          type: "box",
+          layout: "vertical",
+          spacing: "md",
+          contents: [
+            {
+              type: "button",
+              style: "primary",
+              color: "#fa4659",
+              action: {
+                type: "postback",
+                label: "Pilih Buff ini",
+                data: "/choose " + buff + " set"
+              }
+            },
+            {
+              type: "button",
+              style: "primary",
+              color: "#fa4659",
+              action: {
+                type: "postback",
+                label: "Cek Buff lain",
+                data: "/choose"
+              }
+            }
+          ]
+        },
+        styles: {
+          header: {
+            backgroundColor: "#fa4659"
           }
         }
       }
