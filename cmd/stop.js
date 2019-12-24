@@ -22,7 +22,6 @@ function handle (client, event, args, user_session, group_session){
   
   group_session.state = "idle";
   resetAllPlayers(group_session.players);
-  group_session.players.length = 0;
   saveGroupData();
   
   text += "💡 Game di stop " + user_session.name;
@@ -38,17 +37,17 @@ function handle (client, event, args, user_session, group_session){
     data.saveGroupData(group_session);
   }
   
+  function resetAllPlayers(players){
+    const data = require('/app/src/data');
+    data.resetAllPlayers(players);
+  }
+  
   function replyText(texts){
     texts = Array.isArray(texts) ? texts : [texts];
     return client.replyMessage(
       event.replyToken,
       texts.map(text => ({ type: "text", text }))
     );
-  }
-  
-  function resetAllPlayers(players){
-    const data = require('/app/src/data');
-    data.resetAllPlayers(players);
   }
   
 }

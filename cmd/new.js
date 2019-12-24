@@ -14,6 +14,7 @@ function handle (client, event, args, user_session, group_session){
   }
   
   group_session.state = "new";
+  group_session.players.length = 0;
   group_session.round = 1;
   
   saveGroupData();
