@@ -60,6 +60,7 @@ module.exports = {
   followEvent: function() {
     let text =
       "😄 Thanks udah add bot ini! Undang bot ini ke group / room chat kamu untuk mulai bermain! ";
+    text += "Untuk bantuan bisa ketik '/help'";
     this.sendResponse(text);
   },
   

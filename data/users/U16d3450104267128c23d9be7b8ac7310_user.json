@@ -1,6 +1,7 @@
 {
   "id": "U16d3450104267128c23d9be7b8ac7310",
-  "status": "inactive",
+  "status": "active",
   "name": "aiss",
-  "killAmount": 0
+  "killAmount": 0,
+  "groupId": "Ca69cbacad262cd474f94219786801d94"
 }

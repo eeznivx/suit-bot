@@ -3,59 +3,39 @@
   "name": "",
   "players": [
     {
-      "id": "Ue0ab4561262f087ef9b033a2a2c923c9",
-      "name": "dindaaaaa",
-      "attack": "kertas",
-      "attacker": [],
-      "health": 3,
-      "maxHealth": 3,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 0,
-      "perk": "",
-      "team": "A"
-    },
-    {
-      "id": "U37a0d16dc1ae07b5373f491b31dbba43",
-      "name": "Mfp",
-      "attack": "gunting",
-      "attacker": [],
-      "health": 3,
-      "maxHealth": 3,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 0,
-      "perk": "",
-      "team": "A"
-    },
-    {
       "id": "U1b97a060acf05e5ebe06d8a642dbbe75",
       "name": "nsa",
       "attack": "",
       "attacker": [],
-      "health": 3,
-      "maxHealth": 3,
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
       "killStreak": 0,
       "damage": 1,
       "killAmount": 0,
-      "perk": "",
-      "team": "B"
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
     },
     {
       "id": "U11badd86d170a593bbe7f7cd104704ce",
       "name": "Ais",
-      "attack": "gunting",
+      "attack": "",
       "attacker": [],
-      "health": 3,
-      "maxHealth": 3,
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
       "killStreak": 0,
       "damage": 1,
       "killAmount": 5,
-      "perk": "",
-      "team": "B"
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
     }
   ],
-  "state": "preBattle",
-  "mode": "team",
+  "state": "new",
+  "mode": "classic",
   "round": 1
 }
