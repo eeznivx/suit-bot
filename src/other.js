@@ -19,9 +19,6 @@ module.exports = {
 
     var data = fs.readFileSync(path);
     this.group_session = JSON.parse(data);
-    
-    console.log(this.group_session);
-    
 
     switch (event.type) {
       case "join":
