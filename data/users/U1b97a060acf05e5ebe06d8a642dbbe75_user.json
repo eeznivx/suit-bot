@@ -1,7 +1,7 @@
 {
   "id": "U1b97a060acf05e5ebe06d8a642dbbe75",
-  "name": "nsa",
   "status": "active",
-  "groupId": "C6cceaee3823c0dfa0defa2e691281732",
-  "killAmount": 0
+  "name": "nsa",
+  "killAmount": 0,
+  "groupId": "C6cceaee3823c0dfa0defa2e691281732"
 }

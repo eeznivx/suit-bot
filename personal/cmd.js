@@ -8,7 +8,8 @@ function handle (client, event, args, user_session, group_session){
   flex_text.header = "📚 Commands";
   
   let cmds = [
-    "buff = untuk memperkuat player dengan menggunakan energy"
+    "/buff untuk memperkuat player dengan menggunakan energy", "/help untuk bantuan game",
+    "/info beri info pemain", "/about info tentang game"
   ]
   
   let num = 1;

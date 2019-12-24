@@ -1,8 +1,89 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [],
-  "state": "new",
+  "players": [
+    {
+      "id": "U119dec0850b55ac2524f43a3644db064",
+      "name": "Khomethy",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 1,
+      "maxHealth": 5,
+      "energy": 7,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 52,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "U09594ebff742f342967eaa219842284b",
+      "name": "◤Andi Wahyu KM◢",
+      "attack": "kertas",
+      "attacker": [],
+      "health": 5,
+      "maxHealth": 5,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "Uf9cf9eb5949a1728eb6f2f3db9706b60",
+      "name": "MustoV",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 5,
+      "maxHealth": 5,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 1,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "U16d3450104267128c23d9be7b8ac7310",
+      "name": "aiss",
+      "attack": "batu",
+      "attacker": [],
+      "health": 5,
+      "maxHealth": 5,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "U6ce2b6a72e6b6e623a65493ba319d997",
+      "name": "vanissa",
+      "attack": "",
+      "attacker": [],
+      "health": 5,
+      "maxHealth": 5,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 5,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    }
+  ],
+  "state": "preBattle",
   "mode": "classic",
-  "round": 1
+  "round": 2
 }

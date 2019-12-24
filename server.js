@@ -37,7 +37,8 @@ function handle(event) {
     event.type === "follow" ||
     event.type === "join" ||
     event.type === "memberJoined" ||
-    event.type === "memberLeft"
+    event.type === "memberLeft" ||
+    event.type === "leave"
   ) {
     const other = require("./src/other");
     return other.receive(client, event);
