@@ -1,7 +1,7 @@
 {
   "id": "Ucf77868a761cf3301fb78d901eee9f77",
+  "status": "active",
   "name": "Cepi",
-  "status": "inactive",
-  "groupId": "C6cceaee3823c0dfa0defa2e691281732",
-  "killAmount": 0
+  "killAmount": 1,
+  "groupId": "Ca69cbacad262cd474f94219786801d94"
 }

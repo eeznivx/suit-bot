@@ -11,18 +11,6 @@ const keywords = [
     text: "help",
     handle: require("./help")
   },
-  {
-    text: "buff",
-    handle: require("./buff")
-  },
-  {
-    text: "choose",
-    handle: require("./choose")
-  },
-  {
-    text: "info",
-    handle: require("./info")
-  },
 ];
 
 module.exports = keywords
