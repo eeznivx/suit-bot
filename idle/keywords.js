@@ -13,7 +13,7 @@ const keywords = [
   },
   {
     text: "info",
-    handle: require(".info")
+    handle: require("./info")
   }
 ];
 
