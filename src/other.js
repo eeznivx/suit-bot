@@ -14,12 +14,13 @@ module.exports = {
     } else if (this.event.source.type === "room") {
       groupId = this.event.source.roomId;
     }
-
-    let path = baseGroupPath + groupId + "_group.json";
-
-    var data = fs.readFileSync(path);
-    this.group_session = JSON.parse(data);
-
+    
+    if (groupId !== ""){
+      let path = baseGroupPath + groupId + "_group.json";
+      var data = fs.readFileSync(path);
+      this.group_session = JSON.parse(data);
+    }
+    
     switch (event.type) {
       case "join":
         return this.joinEvent();
