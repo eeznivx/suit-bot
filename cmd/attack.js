@@ -90,6 +90,7 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function classicMode(msg) {
+    let spotlights = [];
     let detailText = {};
     var detailTexts = [];
 
@@ -233,9 +234,7 @@ function handle(client, event, args, user_session, group_session) {
                 attackerStreak +
                 " streak!";
             }
-
-            let flexMsg = flex.getFlex(flex_text[i]);
-            msg.push(flexMsg);
+            spotlights.push(flex_text[i]);
           }
 
           detailTexts.push(detailText[i]);
@@ -261,6 +260,10 @@ function handle(client, event, args, user_session, group_session) {
       }
     }
     console.log("yang alive", alive);
+    
+    //spotlights
+    let flexMsg = flex.getFlex(spotlights);
+    msg.push(flexMsg);
 
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);
@@ -284,6 +287,7 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function teamMode(msg) {
+    let spotlights = [];
     let detailText = {};
     var detailTexts = [];
 
@@ -448,9 +452,8 @@ function handle(client, event, args, user_session, group_session) {
                 attackerStreak +
                 " streak!";
             }
-
-            let flexMsg = flex.getFlex(flex_text[i]);
-            msg.push(flexMsg);
+            
+            spotlights.push(flex_text[i]);
           }
 
           detailTexts.push(detailText[i]);
@@ -489,6 +492,10 @@ function handle(client, event, args, user_session, group_session) {
         teamBName.push(item.name);
       }
     });
+    
+    //spotlights
+    let flexMsg = flex.getFlex(spotlights);
+    msg.push(flexMsg);
 
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);

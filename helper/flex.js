@@ -473,11 +473,21 @@ module.exports = {
     };
     return flex_msg;
   },
-  getFlex: function(flex_text) {
-    var flex_msg = {
+  getFlex: function(flex_texts) {
+    flex_texts = Array.isArray(flex_texts) ? flex_texts : [flex_texts];
+    let flex_msg = {
       type: "flex",
-      altText: "📣 Ada pesan untuk kamu!",
+      altText: "📣 ada pesan untuk kamu",
       contents: {
+        type: "carousel",
+        contents: []
+      }
+    };
+    
+    let bubble = {};
+
+    flex_texts.forEach((item, index) => {
+      bubble[index] = {
         type: "bubble",
         header: {
           type: "box",
@@ -485,7 +495,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: flex_text.header,
+              text: item.header,
               weight: "bold",
               size: "lg",
               wrap: true,
@@ -499,7 +509,7 @@ module.exports = {
           contents: [
             {
               type: "text",
-              text: flex_text.body,
+              text: item.body,
               weight: "regular",
               size: "md",
               margin: "md",
@@ -513,7 +523,10 @@ module.exports = {
           }
         }
       }
-    };
+      
+      flex_msg.contents.contents.push(bubble[index]);
+    });
+    
     return flex_msg;
   },
   getEndGame: function(group_session, header) {
