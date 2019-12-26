@@ -1,10 +1,10 @@
 {
-  "groupId": "C6cceaee3823c0dfa0defa2e691281732",
+  "groupId": "C7e1c227b0c6ecfaf79d33671b5707fe8",
   "name": "",
   "players": [
     {
-      "id": "U1b97a060acf05e5ebe06d8a642dbbe75",
-      "name": "nsa",
+      "id": "U813c560bf1fc98df212e9e3b164be4bd",
+      "name": "syadam",
       "attack": "",
       "attacker": [],
       "health": 4,
@@ -19,25 +19,9 @@
       }
     },
     {
-      "id": "U11badd86d170a593bbe7f7cd104704ce",
-      "name": "Ais",
-      "attack": "batu",
-      "attacker": [],
-      "health": 4,
-      "maxHealth": 4,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 5,
-      "buff": {
-        "name": "",
-        "duration": 0
-      }
-    },
-    {
-      "id": "U37a0d16dc1ae07b5373f491b31dbba43",
-      "name": "Mfp",
-      "attack": "batu",
+      "id": "U3d55f7c11f2d9ec2e6d8236c3118fb6e",
+      "name": "Haidar",
+      "attack": "",
       "attacker": [],
       "health": 4,
       "maxHealth": 4,
@@ -51,9 +35,9 @@
       }
     },
     {
-      "id": "Ubac74e510b7470dad82d7a75a3bbaf17",
-      "name": "Ikhwan",
-      "attack": "kertas",
+      "id": "Udbb81c904d24da2b368efacc1501f8b4",
+      "name": "Ryan Muhammad Alex",
+      "attack": "",
       "attacker": [],
       "health": 4,
       "maxHealth": 4,
@@ -61,13 +45,29 @@
       "killStreak": 0,
       "damage": 1,
       "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "Uaa0c116405d3f0032f25feee64f5fc2f",
+      "name": "hann",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 4,
+      "maxHealth": 4,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 11,
       "buff": {
         "name": "",
         "duration": 0
       }
     }
   ],
-  "state": "idle",
+  "state": "preBattle",
   "mode": "classic",
   "round": 1
 }

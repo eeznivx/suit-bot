@@ -1,6 +1,6 @@
 {
   "name": "suit-bot",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "description": "bot suit untuk line messenger",
   "main": "server.js",
   "scripts": {

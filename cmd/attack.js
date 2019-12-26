@@ -90,36 +90,7 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function classicMode(msg) {
-    ///init flex detail text
-    let bubbleDetail = {
-      type: "bubble",
-      header: {
-        type: "box",
-        layout: "vertical",
-        contents: [
-          {
-            type: "text",
-            text: "📣 Detail",
-            weight: "bold",
-            size: "xl",
-            wrap: true,
-            color: "#F6F6F6"
-          }
-        ]
-      },
-      body: {
-        type: "box",
-        layout: "vertical",
-        spacing: "md",
-        contents: []
-      },
-      styles: {
-        header: {
-          backgroundColor: "#2D4059"
-        }
-      }
-    };
-
+    let spotlights = [];
     let detailText = {};
     var detailTexts = [];
 
@@ -263,9 +234,7 @@ function handle(client, event, args, user_session, group_session) {
                 attackerStreak +
                 " streak!";
             }
-
-            let flexMsg = flex.getFlex(flex_text[i]);
-            msg.push(flexMsg);
+            spotlights.push(flex_text[i]);
           }
 
           detailTexts.push(detailText[i]);
@@ -291,6 +260,10 @@ function handle(client, event, args, user_session, group_session) {
       }
     }
     console.log("yang alive", alive);
+    
+    //spotlights
+    let flexMsg = flex.getFlex(spotlights);
+    msg.push(flexMsg);
 
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);
@@ -314,36 +287,7 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function teamMode(msg) {
-    ///init flex detail text
-    let bubbleDetail = {
-      type: "bubble",
-      header: {
-        type: "box",
-        layout: "vertical",
-        contents: [
-          {
-            type: "text",
-            text: "📣 Detail",
-            weight: "bold",
-            size: "xl",
-            wrap: true,
-            color: "#F6F6F6"
-          }
-        ]
-      },
-      body: {
-        type: "box",
-        layout: "vertical",
-        spacing: "md",
-        contents: []
-      },
-      styles: {
-        header: {
-          backgroundColor: "#2D4059"
-        }
-      }
-    };
-
+    let spotlights = [];
     let detailText = {};
     var detailTexts = [];
 
@@ -472,9 +416,6 @@ function handle(client, event, args, user_session, group_session) {
           //default, kedepan pake random response
           detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage + "\n";
 
-          //tunggu ada sistem damage
-          // attackerName + " menyerang " + victimName + " (-1 damage)";
-
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
             
@@ -482,24 +423,17 @@ function handle(client, event, args, user_session, group_session) {
 
             var attackerStreak = group_session.players[i].killStreak;
 
-            // opt_text[i] = {
-            //   type: 'text',
-            //   text: attackerName + ' mengeleminasi ' + victimName + '!'
-            // }
-
             let eliminatedText = helperText.eliminated(
               attackerName,
               args[1],
               victimName
             );
-            // body: '🎯 ' + attackerName + " mengeleminasi " + victimName + "!"
 
             flex_text[i] = {
               header: "🔥 Spotlight 🔥",
               body: "🎯 " + eliminatedText
             };
 
-            // flex_text[i].body += "\n" + '💀 ' + victimName + " get rekt by " + attackerName + "!";
             if (group_session.players[targetIndex].killStreak > 1) {
               let shutdownText = helperText.shutdown(
                 attackerName,
@@ -510,20 +444,16 @@ function handle(client, event, args, user_session, group_session) {
             }
 
             if (group_session.players[i].killStreak > 1) {
-              // opt_text[i].text += '\n' + attackerName + ' dapat ' + attackerStreak + ' streak!';
               flex_text[i].body +=
-                "\n" +
+                "\n\n" +
                 "🔥 " +
                 attackerName +
                 " dapat " +
                 attackerStreak +
                 " streak!";
             }
-
-            // msg.push(opt_text[i]);
-
-            let flexMsg = flex.getFlex(flex_text[i]);
-            msg.push(flexMsg);
+            
+            spotlights.push(flex_text[i]);
           }
 
           detailTexts.push(detailText[i]);
@@ -562,6 +492,10 @@ function handle(client, event, args, user_session, group_session) {
         teamBName.push(item.name);
       }
     });
+    
+    //spotlights
+    let flexMsg = flex.getFlex(spotlights);
+    msg.push(flexMsg);
 
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);

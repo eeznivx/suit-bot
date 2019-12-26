@@ -7,7 +7,7 @@ module.exports = {
       attackerName + ' melempar ' + attackerAttack + ' dan hedsot kan ' + victimName,
       "ya, dan " + victimName + " tereliminasi",
       "dua tiga " + attackerAttack + ", kalahkan " + victimName,
-      victimName + ": *exists*" + "\n" + attackerName + ": i'm about to destroy this man's whole career"
+      victimName + " : *exists*" + "\n" + attackerName + " : i\'m about to destroy this man\'s whole career"
     ];
     
     let text = helper.random(texts);
@@ -20,7 +20,7 @@ module.exports = {
       attackerName + ' berhasil menumbangkan ' + victimName,
       victimName + ' SHUTDOWN',
       victimName + ' telah gugur gais',
-      victimName + "didn't stand a chance against " + attackerName,
+      victimName + " didn't stand a chance against " + attackerName,
       attackerName + " has slain " + victimName
     ];
     

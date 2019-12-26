@@ -5,6 +5,7 @@ var user_session = {};
 var group_session = {};
 const cmd = require("../cmd");
 const personal = require("../personal");
+const idle = require("../idle");
 
 module.exports = {
   receive: function(client, event, args) {
@@ -87,6 +88,8 @@ module.exports = {
           searchGroup(event.source.roomId);
         } else if (user_session.status === "active") {
           searchGroup(user_session.groupId);
+        } else if (event.source.type === "user"){
+          idle(client, event, args, user_session);
         }
       } catch (err) {
         console.log("error write file", err);

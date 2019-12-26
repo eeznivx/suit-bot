@@ -1,7 +1,6 @@
 {
   "id": "U11badd86d170a593bbe7f7cd104704ce",
-  "status": "active",
+  "status": "inactive",
   "name": "Ais",
-  "killAmount": 5,
-  "groupId": "C6cceaee3823c0dfa0defa2e691281732"
+  "killAmount": 6
 }
