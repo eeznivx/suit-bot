@@ -11,6 +11,10 @@ const keywords = [
     text: "help",
     handle: require("./help")
   },
+  {
+    text: "info",
+    handle: require(".info")
+  }
 ];
 
 module.exports = keywords
