@@ -20,7 +20,7 @@ module.exports = {
     }
 
     if (event.source.groupId !== process.env.DEV_GROUP) {
-      //return maintenanceRespond();
+      return maintenanceRespond();
     }
 
     searchUser(this.event.source.userId);

@@ -90,36 +90,6 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function classicMode(msg) {
-    ///init flex detail text
-    let bubbleDetail = {
-      type: "bubble",
-      header: {
-        type: "box",
-        layout: "vertical",
-        contents: [
-          {
-            type: "text",
-            text: "📣 Detail",
-            weight: "bold",
-            size: "xl",
-            wrap: true,
-            color: "#F6F6F6"
-          }
-        ]
-      },
-      body: {
-        type: "box",
-        layout: "vertical",
-        spacing: "md",
-        contents: []
-      },
-      styles: {
-        header: {
-          backgroundColor: "#2D4059"
-        }
-      }
-    };
-
     let detailText = {};
     var detailTexts = [];
 
@@ -314,36 +284,6 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   function teamMode(msg) {
-    ///init flex detail text
-    let bubbleDetail = {
-      type: "bubble",
-      header: {
-        type: "box",
-        layout: "vertical",
-        contents: [
-          {
-            type: "text",
-            text: "📣 Detail",
-            weight: "bold",
-            size: "xl",
-            wrap: true,
-            color: "#F6F6F6"
-          }
-        ]
-      },
-      body: {
-        type: "box",
-        layout: "vertical",
-        spacing: "md",
-        contents: []
-      },
-      styles: {
-        header: {
-          backgroundColor: "#2D4059"
-        }
-      }
-    };
-
     let detailText = {};
     var detailTexts = [];
 

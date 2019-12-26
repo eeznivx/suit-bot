@@ -1,7 +1,6 @@
 {
   "id": "U953da60a10bef85ae70f0065e02c1c53",
-  "status": "active",
+  "status": "inactive",
   "name": "Dimz",
-  "killAmount": 16,
-  "groupId": "Ca69cbacad262cd474f94219786801d94"
+  "killAmount": 16
 }
