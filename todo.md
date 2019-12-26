@@ -1,10 +1,15 @@
 ## Info
 - attackResult ga pake, pakenya attack aja kosong berarti dah kalah
 - [referensi warna](https://logobly.com/blog/color-combinations/)
-- standby command = saat user ga join game (inactive)
   
 
 ## Todo
+- buff untuk team mode
+  - ada yang jadi role gitu
+  - jadi untuk round pertama, pilih role, baru pilih skillnya
+  - kalau udah pilih role, seterusnya cuma pilih role aja
+- mechanism untuk team mode
+  - kalau attack nya sama, satu team, damagenya bertambah
 
 
 ## Done
@@ -20,3 +25,4 @@
 - energy system, ada kenak di flex juga, jadinya pas preBattle, ada show energy
 - penjelasan perk
 - ganti warna ke christmas theme
+- standby command = saat user ga join game (inactive)

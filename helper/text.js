@@ -20,7 +20,7 @@ module.exports = {
       attackerName + ' berhasil menumbangkan ' + victimName,
       victimName + ' SHUTDOWN',
       victimName + ' telah gugur gais',
-      victimName + "didn't stand a chance against " + attackerName,
+      victimName + " didn't stand a chance against " + attackerName,
       attackerName + " has slain " + victimName
     ];
     
