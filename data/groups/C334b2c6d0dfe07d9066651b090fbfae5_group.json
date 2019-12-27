@@ -1,8 +1,25 @@
 {
   "groupId": "C334b2c6d0dfe07d9066651b090fbfae5",
   "name": "",
-  "players": [],
-  "state": "idle",
+  "players": [
+    {
+      "id": "Ue643d4ecfd6e5120eb6c9c65bc0e5b32",
+      "name": "Yohanes P",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 6,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    }
+  ],
+  "state": "new",
   "mode": "classic",
-  "round": 3
+  "round": 1
 }

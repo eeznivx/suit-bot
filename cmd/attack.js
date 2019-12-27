@@ -262,8 +262,10 @@ function handle(client, event, args, user_session, group_session) {
     console.log("yang alive", alive);
     
     //spotlights
-    let flexMsg = flex.getFlex(spotlights);
-    msg.push(flexMsg);
+    if (spotlights.length > 0){
+      let flexMsg = flex.getFlex(spotlights);
+      msg.push(flexMsg);
+    }
 
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);
@@ -494,8 +496,10 @@ function handle(client, event, args, user_session, group_session) {
     });
     
     //spotlights
-    let flexMsg = flex.getFlex(spotlights);
-    msg.push(flexMsg);
+    if (spotlights.length > 0){
+      let flexMsg = flex.getFlex(spotlights);
+      msg.push(flexMsg);
+    }
 
     let postBattleFlex = flex.getPostBattle(group_session, detailTexts);
     msg.push(postBattleFlex);

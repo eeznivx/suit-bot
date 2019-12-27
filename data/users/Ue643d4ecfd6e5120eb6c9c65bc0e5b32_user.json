@@ -1,6 +1,7 @@
 {
   "id": "Ue643d4ecfd6e5120eb6c9c65bc0e5b32",
-  "status": "inactive",
+  "status": "active",
   "name": "Yohanes P",
-  "killAmount": 6
+  "killAmount": 6,
+  "groupId": "C334b2c6d0dfe07d9066651b090fbfae5"
 }

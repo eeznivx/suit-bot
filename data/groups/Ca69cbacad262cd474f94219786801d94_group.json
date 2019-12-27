@@ -1,8 +1,73 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [],
+  "players": [
+    {
+      "id": "U119dec0850b55ac2524f43a3644db064",
+      "name": "Khomethy",
+      "attack": "kertas",
+      "attacker": [],
+      "health": 5,
+      "maxHealth": 4,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 71,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "Uf7d48f7fcbe40c42a0aa0ecd02dbe937",
+      "name": "falªˣ",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 4,
+      "energy": 10,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 18,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "U83caf7c21caa4cb90f5c616e0ef85e3a",
+      "name": "Eriec Tan",
+      "attack": "",
+      "attacker": [],
+      "health": 1,
+      "maxHealth": 4,
+      "energy": 5,
+      "killStreak": 1,
+      "damage": 1,
+      "killAmount": 23,
+      "buff": {
+        "name": "lifesteal",
+        "duration": 2
+      }
+    },
+    {
+      "id": "Uf9cf9eb5949a1728eb6f2f3db9706b60",
+      "name": "MustoV",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 3,
+      "maxHealth": 4,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 2,
+      "buff": {
+        "name": "lifesteal",
+        "duration": 2
+      }
+    }
+  ],
   "state": "idle",
   "mode": "classic",
-  "round": 7
+  "round": 5
 }
