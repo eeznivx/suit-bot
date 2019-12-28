@@ -811,7 +811,7 @@ module.exports = {
         
         playerTable[i].contents.push({
           type: "text",
-          text: group_session.players[i].energy,
+          text: group_session.players[i].energy.toString(),
           weight: "regular",
           size: "md",
           wrap: true,
@@ -858,7 +858,7 @@ module.exports = {
         ]
       };
     }
-
+    //console.log(JSON.stringify(flex_msg, null, 2));
     return flex_msg;
   },
   getBuff: function(player) {
