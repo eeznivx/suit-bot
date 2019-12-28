@@ -33,7 +33,7 @@ function handle (client, event, args, user_session, group_session){
       
       flex_text.header = "❤️ Lifesteal";
       flex_text.body = "Setiap hit yang berhasil, maka akan menambah 1 ❤️" + "\n";
-      flex_text.body += "⚡ : " + buffCost + "\n";
+      flex_text.body += "⚡ Cost : " + buffCost + "\n";
       flex_text.body += "⌛ : 3 round";
       break;
       
@@ -43,7 +43,7 @@ function handle (client, event, args, user_session, group_session){
       
       flex_text.header = "🎯 Enhance Damage";
       flex_text.body = "Setiap hit akan bertambah 1 damage" + "\n";
-      flex_text.body += "⚡ : " + buffCost + "\n";
+      flex_text.body += "⚡ Cost : " + buffCost + "\n";
       flex_text.body += "⌛ : 3 round";
       break;
       
@@ -61,6 +61,8 @@ function handle (client, event, args, user_session, group_session){
     }
     
     group_session.players[index].energy -= buffCost;
+    
+    group_session.players[index].buff.justUsed = true;
     
     saveGroupData();
     return replyText("🌀 Kamu memilih buff " + buff);

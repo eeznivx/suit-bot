@@ -140,6 +140,15 @@ function handle(client, event, args, user_session, group_session) {
           //for enhance damage
           var enhanceDamage = 0;
           
+          //init
+          //untuk detailTexts
+          detailText[i] = {
+            type: "text",
+            text: "",
+            size: "md",
+            wrap: true
+          };
+          
           //apply buff
           if (group_session.players[i].buff.name !== ""){
             
@@ -150,16 +159,13 @@ function handle(client, event, args, user_session, group_session) {
             } else if (buffName === "enhance-damage"){
               enhanceDamage += 1;
             }
+            
+            if (group_session.players[i].buff.justUsed === true){
+              group_session.players[i].buff.justUsed = false;
+              detailText[i].text += group_session.players[i].name + " menggunakan " + buffName + "\n\n";
+            }
+            
           }
-          
-          //init
-          //untuk detailText
-          detailText[i] = {
-            type: "text",
-            text: "",
-            size: "md",
-            wrap: true
-          };
 
           let attackerName = "";
           let victimName = "";

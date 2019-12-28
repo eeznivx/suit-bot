@@ -404,7 +404,7 @@ module.exports = {
       altText: "📣 Ada pesan untuk kamu!",
       contents: carousel
     };
-    console.log(JSON.stringify(flex_msg.contents));
+    //console.log(JSON.stringify(flex_msg.contents));
     return flex_msg;
   },
   getNewGame: function(group_session) {
