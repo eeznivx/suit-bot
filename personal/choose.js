@@ -22,7 +22,9 @@ function handle (client, event, args, user_session, group_session){
   let buff = args[1];
   let buffCost = 0;
   
-  group_session.players[index].buff.name = buff;
+  if (buff !== undefined){
+    group_session.players[index].buff.name = buff;
+  }
   
   switch(buff){
     case "lifesteal":
@@ -46,7 +48,7 @@ function handle (client, event, args, user_session, group_session){
       break;
       
     default:
-      let getBuff = flex.getBuff();
+      let getBuff = flex.getBuff(players[index]);
       return client.replyMessage(event.replyToken, getBuff);
   }
   
