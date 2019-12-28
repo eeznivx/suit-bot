@@ -3,64 +3,16 @@
   "name": "",
   "players": [
     {
-      "id": "U1b97a060acf05e5ebe06d8a642dbbe75",
-      "name": "nsa",
-      "attack": "",
-      "attacker": [],
-      "health": 4,
-      "maxHealth": 4,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 0,
-      "buff": {
-        "name": "",
-        "duration": 0
-      }
-    },
-    {
       "id": "U11badd86d170a593bbe7f7cd104704ce",
       "name": "Ais",
-      "attack": "batu",
+      "attack": "",
       "attacker": [],
-      "health": 4,
-      "maxHealth": 4,
+      "health": 0,
+      "maxHealth": 0,
       "energy": 2,
       "killStreak": 0,
       "damage": 1,
-      "killAmount": 5,
-      "buff": {
-        "name": "",
-        "duration": 0
-      }
-    },
-    {
-      "id": "U37a0d16dc1ae07b5373f491b31dbba43",
-      "name": "Mfp",
-      "attack": "batu",
-      "attacker": [],
-      "health": 4,
-      "maxHealth": 4,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 0,
-      "buff": {
-        "name": "",
-        "duration": 0
-      }
-    },
-    {
-      "id": "Ubac74e510b7470dad82d7a75a3bbaf17",
-      "name": "Ikhwan",
-      "attack": "kertas",
-      "attacker": [],
-      "health": 4,
-      "maxHealth": 4,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 0,
+      "killAmount": 6,
       "buff": {
         "name": "",
         "duration": 0

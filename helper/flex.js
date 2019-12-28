@@ -82,7 +82,7 @@ module.exports = {
                     label: "⚡ Buff 🌀",
                     uri: "line://oaMessage/@793btjtn/?/buff"
                   }
-                },
+                }
               ]
             }
           ]
@@ -404,7 +404,7 @@ module.exports = {
       altText: "📣 Ada pesan untuk kamu!",
       contents: carousel
     };
-    console.log(JSON.stringify(flex_msg.contents));
+    //console.log(JSON.stringify(flex_msg.contents));
     return flex_msg;
   },
   getNewGame: function(group_session) {
@@ -483,7 +483,7 @@ module.exports = {
         contents: []
       }
     };
-    
+
     let bubble = {};
 
     flex_texts.forEach((item, index) => {
@@ -522,11 +522,11 @@ module.exports = {
             backgroundColor: "#fa4659"
           }
         }
-      }
-      
+      };
+
       flex_msg.contents.contents.push(bubble[index]);
     });
-    
+
     return flex_msg;
   },
   getEndGame: function(group_session, header) {
@@ -696,32 +696,38 @@ module.exports = {
             {
               type: "box",
               layout: "horizontal",
+              spacing: "md",
               contents: [
                 {
                   type: "text",
                   text: "No",
+                  weight: "bold",
+                  size: "md",
+                  wrap: true,
+                  flex: 1
+                },
+                {
+                  type: "text",
+                  text: "Nama",
+                  weight: "bold",
+                  size: "md",
+                  wrap: true,
+                  flex: 3
+                },
+                {
+                  type: "text",
+                  text: "",
+                  weight: "bold",
+                  size: "md",
+                  wrap: true,
                   flex: 1,
-                  weight: "bold"
-                },
-                {
-                  type: "text",
-                  text: "Name",
-                  flex: 3,
-                  weight: "bold"
-                },
-                {
-                  type: "text",
-                  text: "Status",
-                  flex: 3,
-                  weight: "bold"
+                  align: "center"
                 }
-              ],
-              margin: "none",
-              spacing: "none"
+              ]
             },
             {
               type: "separator",
-              margin: "none",
+              margin: "xs",
               color: "#fa4659"
             }
           ]
@@ -734,17 +740,33 @@ module.exports = {
       }
     };
 
-    if (group_session.state !== "new" && group_session.mode === "team") {
-      flex_msg.contents.body.contents[0].contents.push({
-        type: "text",
-        text: "Team",
-        flex: 2,
-        weight: "bold"
-      });
-    }
-
     if (group_session.state === "new") {
       flex_msg.contents.body.contents[0].contents[2].text = "Kill";
+    } else {
+      flex_msg.contents.body.contents[0].contents[2].text = "❤️";
+      
+      flex_msg.contents.body.contents[0].contents.push({
+        type: "text",
+        text: "⚡",
+        weight: "bold",
+        size: "md",
+        wrap: true,
+        flex: 2,
+        align: "center"
+      });
+      
+      if (group_session.mode === "team") {
+        flex_msg.contents.body.contents[0].contents.push({
+          type: "text",
+          text: "🛡️",
+          weight: "bold",
+          size: "md",
+          wrap: true,
+          flex: 1,
+          align: "center"
+        });
+      }
+      
     }
 
     var playerTable = {};
@@ -775,29 +797,40 @@ module.exports = {
             text: "",
             size: "md",
             wrap: true,
-            flex: 3
+            flex: 1,
+            align: "center"
           }
         ]
       };
 
-      if (group_session.state !== "new" && group_session.mode === "team") {
-        playerTable[i].contents.push({
-          type: "text",
-          text: group_session.players[i].team,
-          size: "md",
-          flex: 2,
-          align: "center"
-        });
-      }
-
       if (group_session.state === "new") {
         playerTable[i].contents[2].text += group_session.players[i].killAmount;
       } else {
-        if (group_session.players[i].health > 0) {
-          playerTable[i].contents[2].text = "survive";
-        } else {
-          playerTable[i].contents[2].text = "eliminated";
+        
+        playerTable[i].contents[2].text += group_session.players[i].health;
+        
+        playerTable[i].contents.push({
+          type: "text",
+          text: group_session.players[i].energy.toString(),
+          weight: "regular",
+          size: "md",
+          wrap: true,
+          flex: 2,
+          align: "center"
+        })
+        
+        if (group_session.mode === "team") {
+          playerTable[i].contents.push({
+            type: "text",
+            text: group_session.players[i].team,
+            weight: "regular",
+            size: "md",
+            wrap: true,
+            flex: 1,
+            align: "center"
+          });
         }
+        
       }
 
       playerTable[i].contents[0].text += num;
@@ -825,14 +858,68 @@ module.exports = {
         ]
       };
     }
-
+    //console.log(JSON.stringify(flex_msg, null, 2));
     return flex_msg;
   },
-  getBuff: function() {
+  getBuff: function(player) {
+    let playerInfo = "";
+    playerInfo = "❤️ Health : " + player.health + "\n";
+    playerInfo += "⚡ Energy : " + player.energy + "\n";
+    playerInfo += "🎯 Damage : " + player.damage;
+
+    if (player.buff.name !== "") {
+      playerInfo += "\n" + "🌀 Buff : " + player.buff.name + "\n";
+      playerInfo += "🌀 Buff Duration : " + player.buff.duration + " round";
+    }
+
     var flex_msg = {
       type: "flex",
       altText: "📣 Pilih Buff!",
       contents: {
+        type: "carousel",
+        contents: [
+          {
+            type: "bubble",
+            header: {
+              type: "box",
+              layout: "vertical",
+              contents: [
+                {
+                  type: "text",
+                  text: "Player Info",
+                  weight: "bold",
+                  size: "xl",
+                  wrap: true,
+                  color: "#feffe4"
+                }
+              ]
+            },
+            body: {
+              type: "box",
+              layout: "vertical",
+              spacing: "md",
+              contents: [
+                {
+                  type: "text",
+                  text: playerInfo,
+                  weight: "regular",
+                  size: "md",
+                  wrap: true
+                }
+              ]
+            },
+            styles: {
+              header: {
+                backgroundColor: "#fa4659"
+              }
+            }
+          }
+        ]
+      }
+    };
+
+    if (player.buff.name === "") {
+      flex_msg.contents.contents.push({
         type: "bubble",
         header: {
           type: "box",
@@ -859,7 +946,7 @@ module.exports = {
               weight: "bold",
               size: "lg",
               wrap: true
-            },
+            }
           ]
         },
         footer: {
@@ -894,8 +981,9 @@ module.exports = {
             backgroundColor: "#fa4659"
           }
         }
-      }
-    };
+      });
+    }
+    
     return flex_msg;
   },
   getChooseBuff: function(flex_text, buff) {
@@ -929,7 +1017,7 @@ module.exports = {
               weight: "regular",
               size: "md",
               wrap: true
-            },
+            }
           ]
         },
         footer: {
@@ -967,5 +1055,5 @@ module.exports = {
       }
     };
     return flex_msg;
-  },
+  }
 };

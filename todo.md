@@ -26,3 +26,6 @@
 - penjelasan perk
 - ganti warna ke christmas theme
 - standby command = saat user ga join game (inactive)
+- di spotlight kill , if health < 0,
+- set health ke 0 di personal, pas cek buff
+- set condition di cmd attack if health > 0 && attack !== ""

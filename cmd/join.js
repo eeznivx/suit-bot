@@ -43,7 +43,8 @@ function handle (client, event, args, user_session, group_session){
     killAmount: user_session.killAmount,
     buff: {
       name: "",
-      duration: 0
+      duration: 0,
+      justUsed: false,
     }
   }
   

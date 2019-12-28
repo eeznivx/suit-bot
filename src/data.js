@@ -19,10 +19,6 @@ module.exports = {
       );
     }
 
-    if (event.source.groupId !== process.env.DEV_GROUP) {
-      //return maintenanceRespond();
-    }
-
     searchUser(this.event.source.userId);
 
     function searchUser(id) {
@@ -97,6 +93,11 @@ module.exports = {
     }
 
     function searchGroup(id) {
+      
+      if (id !== process.env.DEV_GROUP) {
+        return maintenanceRespond();
+      }
+      
       let path = baseGroupPath + id + "_group.json";
       var data;
       try {
