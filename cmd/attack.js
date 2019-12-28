@@ -13,7 +13,7 @@ function handle(client, event, args, user_session, group_session) {
     type: "text",
     text: ""
   };
-  
+
   if (group_session.state === "idle" || group_session.state === "new") {
     return Promise.resolve(null);
   }
@@ -99,20 +99,20 @@ function handle(client, event, args, user_session, group_session) {
       var targets = [];
       var targetIndex = -1;
 
-      if (group_session.players[i].attack !== "" && group_session.players[i].health > 0) {
-        
+      if (
+        group_session.players[i].attack !== "" &&
+        group_session.players[i].health > 0
+      ) {
         group_session.players[i].energy++;
-        
+
         for (let u = 0; u < group_session.players.length; u++) {
           var attackerId = group_session.players[i].id;
-          
+
           var victimId = group_session.players[u].id;
-          
 
           var attackerAttack = group_session.players[i].attack;
-          
+
           var victimAttack = group_session.players[u].attack;
-          
 
           if (attackerId === victimId) {
             continue;
@@ -136,35 +136,42 @@ function handle(client, event, args, user_session, group_session) {
           }
         }
 
+        //init
+        //untuk detailTexts
+        detailText[i] = {
+          type: "text",
+          text: "",
+          size: "md",
+          wrap: true
+        };
+
+        //apply buff
+        if (group_session.players[i].buff.name !== "") {
+          let buffName = group_session.players[i].buff.name;
+
+          if (group_session.players[i].buff.justUsed === true) {
+            group_session.players[i].buff.justUsed = false;
+            detailText[i].text +=
+              group_session.players[i].name +
+              " menggunakan " +
+              buffName +
+              "\n\n";
+          }
+        }
+
         if (targets.length !== 0) {
           //for enhance damage
           var enhanceDamage = 0;
-          
-          //init
-          //untuk detailTexts
-          detailText[i] = {
-            type: "text",
-            text: "",
-            size: "md",
-            wrap: true
-          };
-          
+
           //apply buff
-          if (group_session.players[i].buff.name !== ""){
-            
+          if (group_session.players[i].buff.name !== "") {
             let buffName = group_session.players[i].buff.name;
-            
-            if (buffName === "lifesteal"){
+
+            if (buffName === "lifesteal") {
               group_session.players[i].health++;
-            } else if (buffName === "enhance-damage"){
+            } else if (buffName === "enhance-damage") {
               enhanceDamage += 1;
             }
-            
-            if (group_session.players[i].buff.justUsed === true){
-              group_session.players[i].buff.justUsed = false;
-              detailText[i].text += group_session.players[i].name + " menggunakan " + buffName + "\n\n";
-            }
-            
           }
 
           let attackerName = "";
@@ -175,7 +182,7 @@ function handle(client, event, args, user_session, group_session) {
             helper.random(targets),
             group_session
           );
-          
+
           group_session.players[targetIndex].energy++;
 
           group_session.players[targetIndex].attacker.push(
@@ -184,16 +191,16 @@ function handle(client, event, args, user_session, group_session) {
 
           group_session.players[targetIndex].health -=
             group_session.players[i].damage + enhanceDamage;
-          
+
           attackerName =
             group_session.players[i].name +
             " (❤️ " +
             group_session.players[i].health +
             ")";
-          
+
           let infoDamage = group_session.players[i].damage + enhanceDamage;
           attackerDamage = "🎯 " + infoDamage + " damage ";
-          
+
           victimName =
             group_session.players[targetIndex].name +
             " (❤️ " +
@@ -201,18 +208,25 @@ function handle(client, event, args, user_session, group_session) {
             ")";
 
           //default, kedepan pake random response
-          detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage + "\n";
+          detailText[i].text +=
+            attackerName +
+            " menyerang " +
+            victimName +
+            " dengan " +
+            attackerDamage +
+            "\n";
 
           //kasih header special
-          if (group_session.players[targetIndex].health === 0) {        
-            
+          if (group_session.players[targetIndex].health === 0) {
             group_session.players[i].killStreak++;
 
             var attackerStreak = group_session.players[i].killStreak;
 
+            let attackerAttack = group_session.players[i].attack;
+
             let eliminatedText = helperText.eliminated(
               attackerName,
-              args[1],
+              attackerAttack,
               victimName
             );
 
@@ -245,34 +259,32 @@ function handle(client, event, args, user_session, group_session) {
 
           detailTexts.push(detailText[i]);
         }
-        
+
         //kurangi duration buff
-        if (group_session.players[i].buff.name !== ""){
+        if (group_session.players[i].buff.name !== "") {
           group_session.players[i].buff.duration--;
-          
-          if (group_session.players[i].buff.duration < 1){
+
+          if (group_session.players[i].buff.duration < 1) {
             group_session.players[i].buff.name = "";
           }
-          
         }
-        
       }
     }
 
     let alive = 0;
-    
-    group_session.players.forEach((item) => {
-      if (item.health > 0){
+
+    group_session.players.forEach(item => {
+      if (item.health > 0) {
         alive++;
-      } else if (item.health < 0){
+      } else if (item.health < 0) {
         item.health = 0;
       }
-    })
-    
+    });
+
     console.log("yang alive", alive);
-    
+
     //spotlights
-    if (spotlights.length > 0){
+    if (spotlights.length > 0) {
       let flexMsg = flex.getFlex(spotlights);
       msg.push(flexMsg);
     }
@@ -321,25 +333,24 @@ function handle(client, event, args, user_session, group_session) {
       var targets = [];
       var targetIndex = -1;
 
-      if (group_session.players[i].attack !== "" && group_session.players[i].health > 0) {
-        
+      if (
+        group_session.players[i].attack !== "" &&
+        group_session.players[i].health > 0
+      ) {
         group_session.players[i].energy++;
-        
+
         for (let u = 0; u < group_session.players.length; u++) {
           var attackerId = group_session.players[i].id;
-          
+
           var victimId = group_session.players[u].id;
-      
 
           var attackerAttack = group_session.players[i].attack;
-    
+
           var victimAttack = group_session.players[u].attack;
-       
 
           var attackerTeam = group_session.players[i].team;
-   
-          var victimTeam = group_session.players[u].team;
 
+          var victimTeam = group_session.players[u].team;
 
           if (attackerId === victimId) {
             continue;
@@ -368,31 +379,29 @@ function handle(client, event, args, user_session, group_session) {
         }
 
         if (targets.length !== 0) {
-          
           //for enhance damage
           var enhanceDamage = 0;
-          
+
           //apply buff
-          if (group_session.players[i].buff.name !== ""){         
+          if (group_session.players[i].buff.name !== "") {
             let buffName = group_session.players[i].buff.name;
-            if (buffName === "lifesteal"){
+            if (buffName === "lifesteal") {
               group_session.players[i].health++;
-            } else if (buffName === "enhance-damage"){
+            } else if (buffName === "enhance-damage") {
               enhanceDamage += 1;
             }
           }
-          
-          
+
           targetIndex = helper.getPlayerById(
             helper.random(targets),
             group_session
           );
-          
+
           group_session.players[targetIndex].energy++;
-          
+
           group_session.players[targetIndex].health -=
             group_session.players[i].damage + enhanceDamage;
-          
+
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name
           );
@@ -421,16 +430,21 @@ function handle(client, event, args, user_session, group_session) {
             "(❤️ " +
             group_session.players[targetIndex].health +
             ")";
-          
+
           let infoDamage = group_session.players[i].damage + enhanceDamage;
           var attackerDamage = "🎯 " + infoDamage + " damage ";
 
           //default, kedepan pake random response
-          detailText[i].text += attackerName + " menyerang " + victimName + " dengan " + attackerDamage + "\n";
+          detailText[i].text +=
+            attackerName +
+            " menyerang " +
+            victimName +
+            " dengan " +
+            attackerDamage +
+            "\n";
 
           //kasih header special
           if (group_session.players[targetIndex].health === 0) {
-            
             group_session.players[i].killStreak++;
 
             var attackerStreak = group_session.players[i].killStreak;
@@ -464,21 +478,20 @@ function handle(client, event, args, user_session, group_session) {
                 attackerStreak +
                 " streak!";
             }
-            
+
             spotlights.push(flex_text[i]);
           }
 
           detailTexts.push(detailText[i]);
         }
-        
+
         //kurangi duration buff
-        if (group_session.players[i].buff.name !== ""){
+        if (group_session.players[i].buff.name !== "") {
           group_session.players[i].buff.duration--;
-          
-          if (group_session.players[i].buff.duration < 1){
+
+          if (group_session.players[i].buff.duration < 1) {
             group_session.players[i].buff.name = "";
           }
-          
         }
       }
     }
@@ -493,7 +506,7 @@ function handle(client, event, args, user_session, group_session) {
       if (item.team === "A") {
         if (item.health > 0) {
           team_a_alive++;
-        } else if (item.health < 0){
+        } else if (item.health < 0) {
           item.health = 0;
         }
 
@@ -501,16 +514,16 @@ function handle(client, event, args, user_session, group_session) {
       } else {
         if (item.health > 0) {
           team_b_alive++;
-        } else if (item.health < 0){
+        } else if (item.health < 0) {
           item.health = 0;
         }
 
         teamBName.push(item.name);
       }
     });
-    
+
     //spotlights
-    if (spotlights.length > 0){
+    if (spotlights.length > 0) {
       let flexMsg = flex.getFlex(spotlights);
       msg.push(flexMsg);
     }
@@ -530,7 +543,7 @@ function handle(client, event, args, user_session, group_session) {
       return preBattle(msg);
     }
   }
-  
+
   function teamEndGame(msg, winner_team_name) {
     console.log("ini diendgame team");
     let winnerName = winner_team_name.join(", ");
@@ -538,7 +551,7 @@ function handle(client, event, args, user_session, group_session) {
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);
-    
+
     group_session.players.forEach(item => {
       item.killAmount += item.killStreak;
     });
@@ -563,7 +576,7 @@ function handle(client, event, args, user_session, group_session) {
     group_session.players.forEach(item => {
       item.killAmount += item.killStreak;
     });
-    
+
     group_session.state = "idle";
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
@@ -577,7 +590,7 @@ function handle(client, event, args, user_session, group_session) {
     let endGameFlex = flex.getEndGame(group_session, headerText);
 
     msg.push(endGameFlex);
-    
+
     group_session.players.forEach(item => {
       item.killAmount += item.killStreak;
     });
@@ -588,7 +601,7 @@ function handle(client, event, args, user_session, group_session) {
     saveGroupData();
     client.replyMessage(event.replyToken, msg).catch(err => console.log(err));
   }
-  
+
   function preBattle(msg) {
     group_session.state = "preBattle";
     group_session.round++;
@@ -596,7 +609,6 @@ function handle(client, event, args, user_session, group_session) {
     for (let i = 0; i < group_session.players.length; i++) {
       group_session.players[i].attack = "";
       group_session.players[i].attacker = [];
-      
     }
 
     let preBattleFlexMsg = flex.getPreBattle(group_session);
@@ -606,7 +618,7 @@ function handle(client, event, args, user_session, group_session) {
 
     client.replyMessage(event.replyToken, msg).catch(err => console.log(err));
   }
-  
+
   function resetAllPlayers(players) {
     const data = require("/app/src/data");
     data.resetAllPlayers(players);
