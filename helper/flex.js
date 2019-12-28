@@ -696,32 +696,38 @@ module.exports = {
             {
               type: "box",
               layout: "horizontal",
+              spacing: "md",
               contents: [
                 {
                   type: "text",
                   text: "No",
+                  weight: "bold",
+                  size: "md",
+                  wrap: true,
+                  flex: 1
+                },
+                {
+                  type: "text",
+                  text: "Nama",
+                  weight: "bold",
+                  size: "md",
+                  wrap: true,
+                  flex: 3
+                },
+                {
+                  type: "text",
+                  text: "",
+                  weight: "bold",
+                  size: "md",
+                  wrap: true,
                   flex: 1,
-                  weight: "bold"
-                },
-                {
-                  type: "text",
-                  text: "Name",
-                  flex: 3,
-                  weight: "bold"
-                },
-                {
-                  type: "text",
-                  text: "Status",
-                  flex: 3,
-                  weight: "bold"
+                  align: "center"
                 }
-              ],
-              margin: "none",
-              spacing: "none"
+              ]
             },
             {
               type: "separator",
-              margin: "none",
+              margin: "xs",
               color: "#fa4659"
             }
           ]
@@ -734,17 +740,33 @@ module.exports = {
       }
     };
 
-    if (group_session.state !== "new" && group_session.mode === "team") {
-      flex_msg.contents.body.contents[0].contents.push({
-        type: "text",
-        text: "Team",
-        flex: 2,
-        weight: "bold"
-      });
-    }
-
     if (group_session.state === "new") {
       flex_msg.contents.body.contents[0].contents[2].text = "Kill";
+    } else {
+      flex_msg.contents.body.contents[0].contents[2].text = "❤️";
+      
+      flex_msg.contents.body.contents[0].contents.push({
+        type: "text",
+        text: "⚡",
+        weight: "bold",
+        size: "md",
+        wrap: true,
+        flex: 2,
+        align: "center"
+      });
+      
+      if (group_session.mode === "team") {
+        flex_msg.contents.body.contents[0].contents.push({
+          type: "text",
+          text: "🛡️",
+          weight: "bold",
+          size: "md",
+          wrap: true,
+          flex: 1,
+          align: "center"
+        });
+      }
+      
     }
 
     var playerTable = {};
@@ -775,29 +797,40 @@ module.exports = {
             text: "",
             size: "md",
             wrap: true,
-            flex: 3
+            flex: 1,
+            align: "center"
           }
         ]
       };
 
-      if (group_session.state !== "new" && group_session.mode === "team") {
-        playerTable[i].contents.push({
-          type: "text",
-          text: group_session.players[i].team,
-          size: "md",
-          flex: 2,
-          align: "center"
-        });
-      }
-
       if (group_session.state === "new") {
         playerTable[i].contents[2].text += group_session.players[i].killAmount;
       } else {
-        if (group_session.players[i].health > 0) {
-          playerTable[i].contents[2].text = "survive";
-        } else {
-          playerTable[i].contents[2].text = "eliminated";
+        
+        playerTable[i].contents[2].text += group_session.players[i].health;
+        
+        playerTable[i].contents.push({
+          type: "text",
+          text: group_session.players[i].energy,
+          weight: "regular",
+          size: "md",
+          wrap: true,
+          flex: 2,
+          align: "center"
+        })
+        
+        if (group_session.mode === "team") {
+          playerTable[i].contents.push({
+            type: "text",
+            text: group_session.players[i].team,
+            weight: "regular",
+            size: "md",
+            wrap: true,
+            flex: 1,
+            align: "center"
+          });
         }
+        
       }
 
       playerTable[i].contents[0].text += num;
