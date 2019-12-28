@@ -1,0 +1,121 @@
+{
+  "groupId": "Cd403dcfa95ce469bc43218455a00a81a",
+  "name": "",
+  "players": [
+    {
+      "id": "U2273ded0e8bbf013a2a7bc3505523221",
+      "name": "🍓AILY-!ꕤツø",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 1,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "Ueedb22faa3ab08f7f9827f750e4f19a8",
+      "name": "ᴸᵀᴱVresha,`f̶̶s̶⅋ ˢƙ",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "Uc4b81b4d5dd293e67872b847d7c25dce",
+      "name": "`f̶̶s̶Lily",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "U463c5def46a97560ccc29462a6a345ab",
+      "name": "mas gédang`f̶̶s̶",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "U7ca27e5a7f92248d052c3ff0bd6e2a83",
+      "name": "o m a n +62",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "U0f9042dfc7c3a2a4b64ae6d40fae3377",
+      "name": ".Lia Haxleyꎇⷯ❆",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    },
+    {
+      "id": "Uce48b98fdf0210a6b27d432019126486",
+      "name": "Ajun Cahaya Devandra",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 1
+}
