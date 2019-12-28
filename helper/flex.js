@@ -82,7 +82,7 @@ module.exports = {
                     label: "⚡ Buff 🌀",
                     uri: "line://oaMessage/@793btjtn/?/buff"
                   }
-                },
+                }
               ]
             }
           ]
@@ -483,7 +483,7 @@ module.exports = {
         contents: []
       }
     };
-    
+
     let bubble = {};
 
     flex_texts.forEach((item, index) => {
@@ -522,11 +522,11 @@ module.exports = {
             backgroundColor: "#fa4659"
           }
         }
-      }
-      
+      };
+
       flex_msg.contents.contents.push(bubble[index]);
     });
-    
+
     return flex_msg;
   },
   getEndGame: function(group_session, header) {
@@ -828,11 +828,65 @@ module.exports = {
 
     return flex_msg;
   },
-  getBuff: function() {
+  getBuff: function(player) {
+    let playerInfo = "";
+    playerInfo = "❤️ Health : " + player.health + "\n";
+    playerInfo += "⚡ Energy : " + player.energy + "\n";
+    playerInfo += "🎯 Damage : " + player.damage;
+
+    if (player.buff.name !== "") {
+      playerInfo += "\n" + "🌀 Buff : " + player.buff.name + "\n";
+      playerInfo += "🌀 Buff Duration : " + player.buff.duration + " round";
+    }
+
     var flex_msg = {
       type: "flex",
       altText: "📣 Pilih Buff!",
       contents: {
+        type: "carousel",
+        contents: [
+          {
+            type: "bubble",
+            header: {
+              type: "box",
+              layout: "vertical",
+              contents: [
+                {
+                  type: "text",
+                  text: "Player Info",
+                  weight: "bold",
+                  size: "xl",
+                  wrap: true,
+                  color: "#feffe4"
+                }
+              ]
+            },
+            body: {
+              type: "box",
+              layout: "vertical",
+              spacing: "md",
+              contents: [
+                {
+                  type: "text",
+                  text: playerInfo,
+                  weight: "regular",
+                  size: "md",
+                  wrap: true
+                }
+              ]
+            },
+            styles: {
+              header: {
+                backgroundColor: "#fa4659"
+              }
+            }
+          }
+        ]
+      }
+    };
+
+    if (player.buff.name === "") {
+      flex_msg.contents.push({
         type: "bubble",
         header: {
           type: "box",
@@ -859,7 +913,7 @@ module.exports = {
               weight: "bold",
               size: "lg",
               wrap: true
-            },
+            }
           ]
         },
         footer: {
@@ -894,8 +948,9 @@ module.exports = {
             backgroundColor: "#fa4659"
           }
         }
-      }
-    };
+      });
+    }
+
     return flex_msg;
   },
   getChooseBuff: function(flex_text, buff) {
@@ -929,7 +984,7 @@ module.exports = {
               weight: "regular",
               size: "md",
               wrap: true
-            },
+            }
           ]
         },
         footer: {
@@ -967,5 +1022,5 @@ module.exports = {
       }
     };
     return flex_msg;
-  },
+  }
 };

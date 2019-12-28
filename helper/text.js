@@ -5,8 +5,6 @@ module.exports = {
       attackerName + ' berhasil mengalahkan ' + victimName + ' dengan ' + attackerAttack,
       victimName + ' terkena ' + attackerAttack + ' milik ' + attackerName,
       attackerName + ' melempar ' + attackerAttack + ' dan hedsot kan ' + victimName,
-      "ya, dan " + victimName + " tereliminasi",
-      "dua tiga " + attackerAttack + ", kalahkan " + victimName,
       victimName + " : *exists*" + "\n" + attackerName + " : i\'m about to destroy this man\'s whole career"
     ];
     
