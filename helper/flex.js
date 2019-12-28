@@ -919,7 +919,7 @@ module.exports = {
     };
 
     if (player.buff.name === "") {
-      flex_msg.contents.push({
+      flex_msg.contents.contents.push({
         type: "bubble",
         header: {
           type: "box",
@@ -983,7 +983,7 @@ module.exports = {
         }
       });
     }
-
+    
     return flex_msg;
   },
   getChooseBuff: function(flex_text, buff) {
