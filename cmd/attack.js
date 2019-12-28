@@ -254,11 +254,15 @@ function handle(client, event, args, user_session, group_session) {
     }
 
     let alive = 0;
-    for (let i = 0; i < group_session.players.length; i++) {
-      if (group_session.players[i].health > 0) {
+    
+    group_session.players.forEach((item) => {
+      if (item.health > 0){
         alive++;
+      } else if (item.health < 0){
+        item.health = 0;
       }
-    }
+    })
+    
     console.log("yang alive", alive);
     
     //spotlights
@@ -483,12 +487,16 @@ function handle(client, event, args, user_session, group_session) {
       if (item.team === "A") {
         if (item.health > 0) {
           team_a_alive++;
+        } else if (item.health < 0){
+          item.health = 0;
         }
 
         teamAName.push(item.name);
       } else {
         if (item.health > 0) {
           team_b_alive++;
+        } else if (item.health < 0){
+          item.health = 0;
         }
 
         teamBName.push(item.name);
@@ -516,7 +524,7 @@ function handle(client, event, args, user_session, group_session) {
       return preBattle(msg);
     }
   }
-
+  
   function teamEndGame(msg, winner_team_name) {
     console.log("ini diendgame team");
     let winnerName = winner_team_name.join(", ");
@@ -574,7 +582,7 @@ function handle(client, event, args, user_session, group_session) {
     saveGroupData();
     client.replyMessage(event.replyToken, msg).catch(err => console.log(err));
   }
-
+  
   function preBattle(msg) {
     group_session.state = "preBattle";
     group_session.round++;
@@ -592,7 +600,7 @@ function handle(client, event, args, user_session, group_session) {
 
     client.replyMessage(event.replyToken, msg).catch(err => console.log(err));
   }
-
+  
   function resetAllPlayers(players) {
     const data = require("/app/src/data");
     data.resetAllPlayers(players);
