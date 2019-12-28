@@ -99,7 +99,7 @@ function handle(client, event, args, user_session, group_session) {
       var targets = [];
       var targetIndex = -1;
 
-      if (group_session.players[i].attack !== "") {
+      if (group_session.players[i].attack !== "" && group_session.players[i].health > 0) {
         
         group_session.players[i].energy++;
         
@@ -311,7 +311,7 @@ function handle(client, event, args, user_session, group_session) {
       var targets = [];
       var targetIndex = -1;
 
-      if (group_session.players[i].attack !== "") {
+      if (group_session.players[i].attack !== "" && group_session.players[i].health > 0) {
         
         group_session.players[i].energy++;
         
