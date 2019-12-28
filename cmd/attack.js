@@ -145,7 +145,7 @@ function handle(client, event, args, user_session, group_session) {
           wrap: true
         };
 
-        //apply buff
+        //tell who use what buff
         if (group_session.players[i].buff.name !== "") {
           let buffName = group_session.players[i].buff.name;
 
@@ -239,7 +239,7 @@ function handle(client, event, args, user_session, group_session) {
             if (group_session.players[targetIndex].killStreak > 1) {
               let shutdownText = helperText.shutdown(
                 attackerName,
-                args[1],
+                attackerAttack,
                 victimName
               );
               flex_text[i].body += "\n\n" + "💀 " + shutdownText;
@@ -377,6 +377,29 @@ function handle(client, event, args, user_session, group_session) {
             }
           }
         }
+        
+        //init
+        //untuk detailTexts
+        detailText[i] = {
+          type: "text",
+          text: "",
+          size: "md",
+          wrap: true
+        };
+
+        //tell who use what buff
+        if (group_session.players[i].buff.name !== "") {
+          let buffName = group_session.players[i].buff.name;
+
+          if (group_session.players[i].buff.justUsed === true) {
+            group_session.players[i].buff.justUsed = false;
+            detailText[i].text +=
+              group_session.players[i].name +
+              " menggunakan " +
+              buffName +
+              "\n\n";
+          }
+        }
 
         if (targets.length !== 0) {
           //for enhance damage
@@ -405,14 +428,6 @@ function handle(client, event, args, user_session, group_session) {
           group_session.players[targetIndex].attacker.push(
             group_session.players[i].name
           );
-
-          //untuk detailText
-          detailText[i] = {
-            type: "text",
-            text: "",
-            size: "md",
-            wrap: true
-          };
 
           var attackerName =
             "(" +
@@ -448,10 +463,12 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[i].killStreak++;
 
             var attackerStreak = group_session.players[i].killStreak;
-
+            
+            let attackerAttack = group_session.players[i].attack;
+            
             let eliminatedText = helperText.eliminated(
               attackerName,
-              args[1],
+              attackerAttack,
               victimName
             );
 
@@ -463,7 +480,7 @@ function handle(client, event, args, user_session, group_session) {
             if (group_session.players[targetIndex].killStreak > 1) {
               let shutdownText = helperText.shutdown(
                 attackerName,
-                args[1],
+                attackerAttack,
                 victimName
               );
               flex_text[i].body += "\n" + "💀 " + shutdownText;
