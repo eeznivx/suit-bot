@@ -2,13 +2,7 @@ const helper = require("../helper");
 
 function handle(client, event, args, user_session, group_session) {
   let text = "";
-  let flex_text = {
-    header: "hai",
-    body: "hoi"
-  };
   
-  console.log(group_session);
-  console.log(user_session);
   if (group_session.state !== "new") {
     if (group_session.state === "idle") {
       return replyText(

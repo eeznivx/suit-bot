@@ -1,0 +1,61 @@
+{
+  "groupId": "Ceca7641f1d9bf7df88139ee7e294a0be",
+  "name": "",
+  "players": [
+    {
+      "id": "Uf1e6fc4c022df2c3b9d76da0a8b43001",
+      "name": "! ᴊᴇᴘᴀʏ noona",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U11e956131ab31533326ce64c92e0072f",
+      "name": "zefanya,sëchs.",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Ua5310c5d0e8843e92d840e4cc3247ac8",
+      "name": "`f̶̶s Jks'Clarisa'Dy",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      },
+      "team": ""
+    }
+  ],
+  "state": "idle",
+  "mode": "team",
+  "round": 1
+}

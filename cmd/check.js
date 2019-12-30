@@ -13,7 +13,6 @@ function handle(client, event, args, user_session, group_session) {
   }
 
   for (let i = 0; i < group_session.players.length; i++) {
-    //TODO: checker untuk chooseCard jga
     if (
       group_session.players[i].health > 0 &&
       group_session.players[i].attack === ""

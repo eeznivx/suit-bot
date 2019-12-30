@@ -1,0 +1,128 @@
+{
+  "groupId": "C79adf92d50827bacd32d47536e2a3c19",
+  "name": "",
+  "players": [
+    {
+      "id": "U6c5e1a398578a479f44ef2646391b8a7",
+      "name": "Raka",
+      "attack": "kertas",
+      "attacker": [],
+      "health": 6,
+      "maxHealth": 7,
+      "energy": 4,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 8,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U3b7140187facd214666c1eb8018c5713",
+      "name": "Nabiru-sama || OFF",
+      "attack": "kertas",
+      "attacker": [],
+      "health": 7,
+      "maxHealth": 7,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U7fb9ea53f3c409d96c7a650ee3158030",
+      "name": "ϐ⭐𖠀࿄Venusᴼˢᵃ⌼",
+      "attack": "",
+      "attacker": [],
+      "health": 6,
+      "maxHealth": 7,
+      "energy": 4,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Ud7bd88bc75924f1d2e098f6e8917f45b",
+      "name": "Jeje",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 7,
+      "energy": 8,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U4d1f2bf679a208abae616b848ee70d24",
+      "name": "Jilianthy",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 7,
+      "maxHealth": 7,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Ucb6eba70a9c42669be0e26be2bea48de",
+      "name": "[烏]",
+      "attack": "",
+      "attacker": [],
+      "health": 7,
+      "maxHealth": 7,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U3e59457ad7473da94ab51f8f3a87a29e",
+      "name": "SAVE",
+      "attack": "kertas",
+      "attacker": [],
+      "health": 7,
+      "maxHealth": 7,
+      "energy": 3,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 1,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 2
+}

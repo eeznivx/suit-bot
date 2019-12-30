@@ -1,8 +1,43 @@
 {
   "groupId": "Cfd16597cb4b80d87b82fbff7e98095bd",
   "name": "",
-  "players": [],
+  "players": [
+    {
+      "id": "Ue8bfbb03691eeb49c269d386c6ad111e",
+      "name": "joergen",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U0eef46c0d93092ffd24fb35d1810b883",
+      "name": "Syalala",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 2,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
   "state": "idle",
   "mode": "classic",
-  "round": 6
+  "round": 1
 }

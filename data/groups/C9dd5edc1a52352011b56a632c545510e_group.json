@@ -1,0 +1,26 @@
+{
+  "groupId": "C9dd5edc1a52352011b56a632c545510e",
+  "name": "",
+  "players": [
+    {
+      "id": "U06a59b30e93914bac7837565a0dd31c5",
+      "name": "yosepa",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "new",
+  "mode": "classic",
+  "round": 1
+}

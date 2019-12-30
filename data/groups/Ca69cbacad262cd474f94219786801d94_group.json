@@ -1,8 +1,77 @@
 {
   "groupId": "Ca69cbacad262cd474f94219786801d94",
   "name": "",
-  "players": [],
+  "players": [
+    {
+      "id": "U119dec0850b55ac2524f43a3644db064",
+      "name": "Khomethy",
+      "attack": "batu",
+      "attacker": [],
+      "health": 4,
+      "maxHealth": 4,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 88,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Uaa0c116405d3f0032f25feee64f5fc2f",
+      "name": "hann",
+      "attack": "batu",
+      "attacker": [],
+      "health": 4,
+      "maxHealth": 4,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 18,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Uf3793bdee042493988a37b3ab2ef077b",
+      "name": "blr ∞ Arifin",
+      "attack": "",
+      "attacker": [],
+      "health": 4,
+      "maxHealth": 4,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Uf9cf9eb5949a1728eb6f2f3db9706b60",
+      "name": "MustoV",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 4,
+      "maxHealth": 4,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 2,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
   "state": "idle",
   "mode": "classic",
-  "round": 6
+  "round": 1
 }
