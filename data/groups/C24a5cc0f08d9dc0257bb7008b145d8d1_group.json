@@ -1,0 +1,99 @@
+{
+  "groupId": "C24a5cc0f08d9dc0257bb7008b145d8d1",
+  "name": "",
+  "players": [
+    {
+      "id": "Ufd6dc5b3bc6665c95b83034572920c24",
+      "name": "Ruu",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 5,
+      "energy": 5,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 6,
+      "buff": {
+        "name": "lifesteal",
+        "duration": 1,
+        "justUsed": false
+      },
+      "team": ""
+    },
+    {
+      "id": "Ucceaff31b046755a2b05f7c1b5eb6e31",
+      "name": "Arian",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 5,
+      "energy": 11,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      },
+      "team": ""
+    },
+    {
+      "id": "U7d0bfa2a37521003b8388e2ebd611466",
+      "name": "azrzal",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 5,
+      "energy": 7,
+      "killStreak": 2,
+      "damage": 1,
+      "killAmount": 11,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      },
+      "team": ""
+    },
+    {
+      "id": "U5f97bb2b5e20279b38922e2c83bc2f77",
+      "name": "d e r",
+      "attack": "",
+      "attacker": [],
+      "health": 7,
+      "maxHealth": 5,
+      "energy": 0,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 13,
+      "buff": {
+        "name": "lifesteal",
+        "duration": 3,
+        "justUsed": true
+      },
+      "team": ""
+    },
+    {
+      "id": "U7f323bf19b8c3e1b1205cb25e1608842",
+      "name": "Ikhwanul Ihsan",
+      "attack": "",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 5,
+      "energy": 4,
+      "killStreak": 1,
+      "damage": 1,
+      "killAmount": 14,
+      "buff": {
+        "name": "lifesteal",
+        "duration": 1,
+        "justUsed": false
+      },
+      "team": ""
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 11
+}

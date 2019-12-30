@@ -3,10 +3,6 @@ const flex = require("/app/helper/flex");
 const helperText = require("/app/helper/text");
 
 function handle(client, event, args, user_session, group_session) {
-  let flex_text = {
-    header: "",
-    body: ""
-  };
   
   if (group_session.state !== "preBattle"){
     return Promise.resolve(null);

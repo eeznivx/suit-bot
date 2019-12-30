@@ -1,10 +1,6 @@
 const helper = require("/app/helper");
 const flex = require("/app/helper/flex");
 function handle (client, event, args, user_session, group_session){
-  let flex_text = {
-    header: "hai",
-    body: "hoi"
-  }
   
   if (group_session === undefined){
     return Promise.resolve(null);
@@ -43,9 +39,9 @@ function handle (client, event, args, user_session, group_session){
     
     group_session.players.forEach((item, index) => {
       if (index >= halfPlayersAmount){
-        item.team = 'B';
+        item.team = 'Elves'
       } else {
-        item.team = 'A';
+        item.team = 'Undead';
       }
     })
     

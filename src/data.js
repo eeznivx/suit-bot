@@ -94,8 +94,9 @@ module.exports = {
 
     function searchGroup(id) {
       
+      //for maintenance
       if (id !== process.env.DEV_GROUP) {
-        return maintenanceRespond();
+        //return maintenanceRespond();
       }
       
       let path = baseGroupPath + id + "_group.json";

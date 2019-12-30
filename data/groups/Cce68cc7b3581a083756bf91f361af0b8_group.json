@@ -1,0 +1,60 @@
+{
+  "groupId": "Cce68cc7b3581a083756bf91f361af0b8",
+  "name": "",
+  "players": [
+    {
+      "id": "Ub680d09e39aa2640b5faba56b43fdd52",
+      "name": "CØ•DIKO👾🔱❆ⁿˢ⚤🌡️zk",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Uf7c78faa0a0dcd528cc3e728fef773ce",
+      "name": "sᴇʟ",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U26db6691d1dd86212dec553e75bc2771",
+      "name": "Quillyn≭ bgck",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "team",
+  "round": 1
+}
