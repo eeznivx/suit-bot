@@ -99,12 +99,24 @@ function handle(client, event, args, user_session, group_session) {
       var targets = [];
       var targetIndex = -1;
 
+      //init
+      //untuk detailTexts
+      //bisa ter ignore (gak di push ke dalam array detailTexts)
+      detailText[i] = {
+        type: "text",
+        text: "",
+        size: "md",
+        wrap: true
+      };
+
       if (
         group_session.players[i].attack !== "" &&
         group_session.players[i].health > 0
       ) {
+        //setiap player yang masih idup setiap round tmbah energy
         group_session.players[i].energy++;
 
+        //iterate untuk cari victim
         for (let u = 0; u < group_session.players.length; u++) {
           var attackerId = group_session.players[i].id;
 
@@ -135,15 +147,6 @@ function handle(client, event, args, user_session, group_session) {
             }
           }
         }
-
-        //init
-        //untuk detailTexts
-        detailText[i] = {
-          type: "text",
-          text: "",
-          size: "md",
-          wrap: true
-        };
 
         //tell who use what buff
         if (group_session.players[i].buff.name !== "") {
@@ -216,7 +219,7 @@ function handle(client, event, args, user_session, group_session) {
             attackerDamage +
             "\n";
 
-          //kasih header special
+          //kasih header special jika dia berhasil kill seorang player
           if (group_session.players[targetIndex].health === 0) {
             group_session.players[i].killStreak++;
 
@@ -235,7 +238,6 @@ function handle(client, event, args, user_session, group_session) {
               body: "🎯 " + eliminatedText
             };
 
-            // flex_text[i].body += "\n" + '💀 ' + victimName + " get rekt by " + attackerName + "!";
             if (group_session.players[targetIndex].killStreak > 1) {
               let shutdownText = helperText.shutdown(
                 attackerName,
@@ -254,9 +256,13 @@ function handle(client, event, args, user_session, group_session) {
                 attackerStreak +
                 " streak!";
             }
+
+            //push flex_text yang hanya ada utk momen spesial
             spotlights.push(flex_text[i]);
           }
 
+          //push detailText yg berisi info seperti siapa attack siapa
+          //siapa pake buff apa, dll
           detailTexts.push(detailText[i]);
         }
 
@@ -325,6 +331,8 @@ function handle(client, event, args, user_session, group_session) {
         } else {
           team_b_battle.push(item);
         }
+      } else if (item.health < 0) {
+        item.health = 0;
       }
     });
 
@@ -377,7 +385,7 @@ function handle(client, event, args, user_session, group_session) {
             }
           }
         }
-        
+
         //init
         //untuk detailTexts
         detailText[i] = {
@@ -463,9 +471,9 @@ function handle(client, event, args, user_session, group_session) {
             group_session.players[i].killStreak++;
 
             var attackerStreak = group_session.players[i].killStreak;
-            
+
             let attackerAttack = group_session.players[i].attack;
-            
+
             let eliminatedText = helperText.eliminated(
               attackerName,
               attackerAttack,
