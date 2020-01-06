@@ -1,8 +1,26 @@
 {
   "groupId": "Cf83ea28f84d3f1b4fb45cb4a9b4301bc",
   "name": "",
-  "players": [],
+  "players": [
+    {
+      "id": "U5f97bb2b5e20279b38922e2c83bc2f77",
+      "name": "d e r",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 32,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
   "state": "idle",
   "mode": "classic",
-  "round": 4
+  "round": 1
 }

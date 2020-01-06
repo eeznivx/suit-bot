@@ -10,6 +10,7 @@
   - kalau udah pilih role, seterusnya cuma pilih role aja
 - mechanism untuk team mode
   - kalau attack nya sama, satu team, damagenya bertambah
+- system timer
 
 
 ## Done

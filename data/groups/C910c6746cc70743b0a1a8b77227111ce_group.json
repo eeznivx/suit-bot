@@ -1,0 +1,43 @@
+{
+  "groupId": "C910c6746cc70743b0a1a8b77227111ce",
+  "name": "",
+  "players": [
+    {
+      "id": "U119dec0850b55ac2524f43a3644db064",
+      "name": "Khomethy",
+      "attack": "batu",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 2,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 91,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U815a80e31049182b78e33cfa9ab79ea8",
+      "name": "Freder.",
+      "attack": "",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 2,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 1
+}

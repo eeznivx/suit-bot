@@ -1,0 +1,94 @@
+{
+  "groupId": "C9bcbec5113b322b4b793e8d7a563b62f",
+  "name": "",
+  "players": [
+    {
+      "id": "Uab5659670b34e190f781b1ec84041b35",
+      "name": "echa",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 5,
+      "maxHealth": 5,
+      "energy": 4,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U1026b3ef99c828780f6621e8f1c47131",
+      "name": "anya.",
+      "attack": "",
+      "attacker": [],
+      "health": 4,
+      "maxHealth": 5,
+      "energy": 5,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Ua7368664d4690524218181b8f397b7af",
+      "name": "indira",
+      "attack": "kertas",
+      "attacker": [],
+      "health": 4,
+      "maxHealth": 5,
+      "energy": 5,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U5f9c182ae7b2c376b8ff7d6954cb6caa",
+      "name": "R",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 3,
+      "maxHealth": 5,
+      "energy": 6,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Ud2a522cdbc3e11137401aa36327b58e3",
+      "name": "Alfin",
+      "attack": "kertas",
+      "attacker": [],
+      "health": 3,
+      "maxHealth": 5,
+      "energy": 6,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 3
+}

@@ -18,9 +18,43 @@
         "duration": 0,
         "justUsed": false
       }
+    },
+    {
+      "id": "Ue643d4ecfd6e5120eb6c9c65bc0e5b32",
+      "name": "Yohanes P",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 6,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Ubb40d98e497e8ecb3dc9112db2ae06b6",
+      "name": "salsa",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 4,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
     }
   ],
-  "state": "new",
+  "state": "idle",
   "mode": "classic",
   "round": 1
 }

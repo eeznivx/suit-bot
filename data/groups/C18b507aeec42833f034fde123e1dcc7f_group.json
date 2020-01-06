@@ -1,0 +1,43 @@
+{
+  "groupId": "C18b507aeec42833f034fde123e1dcc7f",
+  "name": "",
+  "players": [
+    {
+      "id": "U16471b68fcd5a0d0775a9cdbd0eeef35",
+      "name": "August Yudistira",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 1,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U776094a2ae318f50d95e179f2c52ec48",
+      "name": "pejoy",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 8,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 1
+}
