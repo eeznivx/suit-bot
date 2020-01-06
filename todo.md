@@ -10,8 +10,6 @@
   - kalau udah pilih role, seterusnya cuma pilih role aja
 - mechanism untuk team mode
   - kalau attack nya sama, satu team, damagenya bertambah
-- system timer
-
 
 ## Done
 - prototype done
@@ -30,3 +28,4 @@
 - di spotlight kill , if health < 0,
 - set health ke 0 di personal, pas cek buff
 - set condition di cmd attack if health > 0 && attack !== ""
+- system timer

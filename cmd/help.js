@@ -13,7 +13,9 @@ function handle(client, event, args, user_session, group_session) {
     "Kertas menang vs Batu",
     "Untuk daftar perintah bisa ketik /cmd",
     "Energy bertambah setiap round. Jika kamu di hit pemain lain, kamu juga dapat tambahan energy",
-    "Buff dapat di peroleh menggunakan energy"
+    "Buff dapat di peroleh menggunakan energy",
+    "Waktu proses game adalah 30 detik",
+    "Gunakan perintah '/check' untuk lanjutkan proses jika ada yang afk"
   ];
 
   let num = 1;

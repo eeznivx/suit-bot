@@ -1,60 +1,10 @@
 {
   "groupId": "C334b2c6d0dfe07d9066651b090fbfae5",
   "name": "",
-  "players": [
-    {
-      "id": "U322c47d7de5f721b5afd7df5d46adf9f",
-      "name": "Dap",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "maxHealth": 0,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 2,
-      "buff": {
-        "name": "",
-        "duration": 0,
-        "justUsed": false
-      }
-    },
-    {
-      "id": "Ue643d4ecfd6e5120eb6c9c65bc0e5b32",
-      "name": "Yohanes P",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "maxHealth": 0,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 6,
-      "buff": {
-        "name": "",
-        "duration": 0,
-        "justUsed": false
-      }
-    },
-    {
-      "id": "Ubb40d98e497e8ecb3dc9112db2ae06b6",
-      "name": "salsa",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "maxHealth": 0,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 4,
-      "buff": {
-        "name": "",
-        "duration": 0,
-        "justUsed": false
-      }
-    }
-  ],
+  "players": [],
   "state": "idle",
   "mode": "classic",
-  "round": 1
+  "round": 4,
+  "time_default": 30,
+  "time": 0
 }
