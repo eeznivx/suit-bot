@@ -537,6 +537,7 @@ function handle(client, event, args, user_session, group_session, msg) {
     });
 
     group_session.state = "idle";
+    group_session.time = 0;
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
     saveGroupData();
@@ -558,6 +559,7 @@ function handle(client, event, args, user_session, group_session, msg) {
     });
 
     group_session.state = "idle";
+    group_session.time = 0;
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
     saveGroupData();
@@ -576,6 +578,7 @@ function handle(client, event, args, user_session, group_session, msg) {
     });
 
     group_session.state = "idle";
+    group_session.time = 0;
     resetAllPlayers(group_session.players);
     group_session.players.length = 0;
     saveGroupData();
@@ -612,7 +615,6 @@ function handle(client, event, args, user_session, group_session, msg) {
     }
 		group_session.time = group_session.time_default;
 		var timerId = setInterval(() => {
-			console.log(group_session.time);
 			if (group_session.time === 0) {
         clearInterval(this.timerId);
 			} else {

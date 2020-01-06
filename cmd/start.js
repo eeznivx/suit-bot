@@ -87,7 +87,6 @@ function handle (client, event, args, user_session, group_session){
     }
 		group_session.time = group_session.time_default;
 		var timerId = setInterval(() => {
-			console.log(group_session.time);
 			if (group_session.time === 0) {
         clearInterval(this.timerId);
 			} else {
