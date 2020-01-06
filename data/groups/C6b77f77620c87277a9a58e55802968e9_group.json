@@ -1,0 +1,111 @@
+{
+  "groupId": "C6b77f77620c87277a9a58e55802968e9",
+  "name": "",
+  "players": [
+    {
+      "id": "U7ca27e5a7f92248d052c3ff0bd6e2a83",
+      "name": "o m a n +62",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 6,
+      "energy": 9,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U8886b06b85eae207893f89cb1659c8cf",
+      "name": "Al Gavian pā, gh",
+      "attack": "",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 6,
+      "energy": 9,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U8f6ce94cb2aefb53496880e3cf4f0148",
+      "name": "ts ela",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 4,
+      "maxHealth": 6,
+      "energy": 7,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U0deabffbbb6be701b469aa30fdc75f35",
+      "name": "A 'Cijep Raurus",
+      "attack": "batu",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 6,
+      "energy": 9,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U145356c30734e6ba8b6e2886a3fe6668",
+      "name": "Nadira.gh",
+      "attack": "kertas",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 6,
+      "energy": 9,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U38dab62d0d4d011af2da70f7551f4780",
+      "name": "sylen",
+      "attack": "batu",
+      "attacker": [],
+      "health": 6,
+      "maxHealth": 6,
+      "energy": 5,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 4
+}

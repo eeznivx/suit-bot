@@ -11,6 +11,8 @@ function handle (client, event, args, user_session, group_session){
   
   group_session.state = "new";
   group_session.players.length = 0;
+  group_session.time_default = 30;
+  group_session.time = group_session.time_default;
   group_session.round = 1;
   
   saveGroupData();
@@ -34,6 +36,23 @@ function handle (client, event, args, user_session, group_session){
       event.replyToken,
       texts.map(text => ({ type: "text", text }))
     );
+  }
+  
+  function runTimer(){
+    if (group_session.time !== 0){
+      clearInterval(this.timerId);
+    }
+		group_session.time = group_session.time_default;
+		var timerId = setInterval(() => {
+			console.log(group_session.time);
+			if (group_session.time === 0) {
+        clearInterval(this.timerId);
+			} else {
+				group_session.time--;
+        saveGroupData();
+			}
+		}, 1000);
+    this.timerId = timerId;
   }
   
 }

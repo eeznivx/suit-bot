@@ -1,0 +1,43 @@
+{
+  "groupId": "C2301003402aadd33e315dad9fcd150bb",
+  "name": "",
+  "players": [
+    {
+      "id": "Ua24c0cf551cca55effb9c001d634f285",
+      "name": "փ arby",
+      "attack": "",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 2,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U9f58272ee52daac579b11e279ba3e414",
+      "name": "(ﾒ` ﾛ ´)︻デ═一βαηg",
+      "attack": "batu",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 2,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 8,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 1
+}

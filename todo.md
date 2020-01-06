@@ -11,7 +11,6 @@
 - mechanism untuk team mode
   - kalau attack nya sama, satu team, damagenya bertambah
 
-
 ## Done
 - prototype done
 - clean basenya sampai bener bener clean, ilangin unused code
@@ -29,3 +28,4 @@
 - di spotlight kill , if health < 0,
 - set health ke 0 di personal, pas cek buff
 - set condition di cmd attack if health > 0 && attack !== ""
+- system timer

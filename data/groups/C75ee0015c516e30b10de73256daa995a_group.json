@@ -1,0 +1,77 @@
+{
+  "groupId": "C75ee0015c516e30b10de73256daa995a",
+  "name": "",
+  "players": [
+    {
+      "id": "U8b56c777b04aaaddd3811b8fa6cb82d2",
+      "name": "Fynnnnnn",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 16,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U05ed3637b0ee6a59b1b1c344a014fca5",
+      "name": "+62Cιяαᵂᶠᴺꎇⷯ𖣂Pā",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U5f383d0bc16c8caabafda8e724cdd39b",
+      "name": "August Yudistira Abi",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 3,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Ue36ff78f5c432b694613c2bb5d65dc0d",
+      "name": "paopao",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 5,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 1
+}

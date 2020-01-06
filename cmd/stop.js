@@ -16,6 +16,7 @@ function handle (client, event, args, user_session, group_session){
   }
   
   group_session.state = "idle";
+  group_session.time = 0;
   resetAllPlayers(group_session.players);
   saveGroupData();
   

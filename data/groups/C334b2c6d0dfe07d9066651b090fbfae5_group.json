@@ -4,5 +4,7 @@
   "players": [],
   "state": "idle",
   "mode": "classic",
-  "round": 4
+  "round": 4,
+  "time_default": 30,
+  "time": 0
 }

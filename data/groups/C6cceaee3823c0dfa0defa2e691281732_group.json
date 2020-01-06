@@ -1,25 +1,8 @@
 {
   "groupId": "C6cceaee3823c0dfa0defa2e691281732",
   "name": "",
-  "players": [
-    {
-      "id": "U11badd86d170a593bbe7f7cd104704ce",
-      "name": "Ais",
-      "attack": "",
-      "attacker": [],
-      "health": 0,
-      "maxHealth": 0,
-      "energy": 2,
-      "killStreak": 0,
-      "damage": 1,
-      "killAmount": 6,
-      "buff": {
-        "name": "",
-        "duration": 0
-      }
-    }
-  ],
-  "state": "idle",
+  "players": [],
+  "state": "new",
   "mode": "classic",
   "round": 1
 }

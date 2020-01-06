@@ -1,0 +1,26 @@
+{
+  "groupId": "C1d537965f011359b39e8bea0f7743611",
+  "name": "",
+  "players": [
+    {
+      "id": "Uef40b4b00992e9b4c11fab2d0c2645b4",
+      "name": "100-Frian",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "new",
+  "mode": "classic",
+  "round": 1
+}

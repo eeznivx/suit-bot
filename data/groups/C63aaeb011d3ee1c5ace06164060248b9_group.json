@@ -1,0 +1,43 @@
+{
+  "groupId": "C63aaeb011d3ee1c5ace06164060248b9",
+  "name": "",
+  "players": [
+    {
+      "id": "U07f12d7d9f94ebd652dd8b898960faf4",
+      "name": "Y Azari",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 1,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "Uea90475ba1f813b58e1d5175ceffccd1",
+      "name": "ludir",
+      "attack": "",
+      "attacker": [],
+      "health": 0,
+      "maxHealth": 0,
+      "energy": 2,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 1,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    }
+  ],
+  "state": "new",
+  "mode": "classic",
+  "round": 1
+}

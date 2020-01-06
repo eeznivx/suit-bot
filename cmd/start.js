@@ -58,6 +58,8 @@ function handle (client, event, args, user_session, group_session){
   
   saveGroupData();
   
+  runTimer();
+  
   var msg = flex.getPreBattle(group_session);
   client.replyMessage(event.replyToken, msg);
   
@@ -77,6 +79,22 @@ function handle (client, event, args, user_session, group_session){
       event.replyToken,
       texts.map(text => ({ type: "text", text }))
     );
+  }
+  
+  function runTimer(){
+    if (group_session.time !== 0){
+      clearInterval(this.timerId);
+    }
+		group_session.time = group_session.time_default;
+		var timerId = setInterval(() => {
+			if (group_session.time === 0) {
+        clearInterval(this.timerId);
+			} else {
+				group_session.time--;
+        saveGroupData();
+			}
+		}, 1000);
+    this.timerId = timerId;
   }
   
 }

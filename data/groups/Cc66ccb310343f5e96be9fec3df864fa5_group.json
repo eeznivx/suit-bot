@@ -1,0 +1,94 @@
+{
+  "groupId": "Cc66ccb310343f5e96be9fec3df864fa5",
+  "name": "",
+  "players": [
+    {
+      "id": "U34240ed60c93f73478dbb55b588c5447",
+      "name": "Fslas",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 5,
+      "maxHealth": 5,
+      "energy": 4,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 2,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U9fa3c9b1868cc29c6e81e39a928f4622",
+      "name": "Nurdin",
+      "attack": "",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 5,
+      "energy": 7,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U1bc336c1f4df7a0515da3fcb664dbbe4",
+      "name": "MuhammadRaihan",
+      "attack": "batu",
+      "attacker": [],
+      "health": 3,
+      "maxHealth": 5,
+      "energy": 6,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U86611e9311597df379fed6fcf6b6ad56",
+      "name": "Vania Ru Ka to ki ka",
+      "attack": "gunting",
+      "attacker": [],
+      "health": 2,
+      "maxHealth": 5,
+      "energy": 7,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 0,
+      "buff": {
+        "name": "",
+        "duration": 0,
+        "justUsed": false
+      }
+    },
+    {
+      "id": "U83caf7c21caa4cb90f5c616e0ef85e3a",
+      "name": "Eriec Tan",
+      "attack": "batu",
+      "attacker": [],
+      "health": 3,
+      "maxHealth": 5,
+      "energy": 1,
+      "killStreak": 0,
+      "damage": 1,
+      "killAmount": 37,
+      "buff": {
+        "name": "lifesteal",
+        "duration": 3,
+        "justUsed": true
+      }
+    }
+  ],
+  "state": "idle",
+  "mode": "classic",
+  "round": 3
+}
